@@ -27,7 +27,7 @@ export default function WelcomePanel() {
     <div className="mb-3 sm:mb-6">
       {/* Brand */}
       <div className="text-center mb-1.5 sm:mb-3">
-        <h1 className="text-lg sm:text-2xl font-semibold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
+        <h1 className="text-2xl sm:text-3xl font-semibold bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
           Nestor
         </h1>
       </div>
