@@ -69,19 +69,22 @@ export default function WelcomePanel() {
         >
           <div className="p-2 sm:p-4 pt-0 space-y-2 sm:space-y-4">
             <p className="text-sm sm:text-base text-gray-800 leading-tight sm:leading-relaxed">
-              Welcome to Nestor, your butler for exploring the latest in AI. The space is changing very quickly, there are new tools and models everyday and there are too many links to click and read. We've curated a collection of tools, resources, and insights to help you navigate the space.
+              Welcome to Nestor, your butler in the world of AI. Nestor simplifies your journey through the rapidly evolving world of AI. The AI landscape changes daily, bringing new tools and models. With so much information available, it's hard to know where to focus. We've curated a collection of essential tools, resources, and insights to help you navigate the space effectively.
             </p>
             <p className="text-sm sm:text-base text-gray-800">
-              Browse through the categories to discover:
+              Browse through our categories to discover:
             </p>
             <ul className="list-disc list-inside text-sm sm:text-base text-gray-800 space-y-1 sm:space-y-2">
-              <li>What kind of no-code tools can you use</li>
-              <li>Demos of AI agents and guides to build your own agent</li>
-              <li>What are the must-try applications that help productivity</li>
-              <li>How to approach AI if you are non-technical</li>
-              <li>Cutting-edge video and audio tools</li>
-              <li>Innovative open-source projects</li>
+              <li>Discover no-code tools to start building immediately</li>
+              <li>Explore AI agents through hands-on demos and building guides</li>
+              <li>Boost your productivity with carefully selected AI applications</li>
+              <li>Learn AI fundamentals designed for non-technical users</li>
+              <li>Transform your content with cutting-edge video and audio tools</li>
+              <li>Experiment with innovative open-source projects</li>
             </ul>
+            <p className="text-sm sm:text-base text-gray-800">
+              Start exploring our curated collections or jump straight to our most popular tools.
+            </p>
           </div>
         </div>
       </div>
