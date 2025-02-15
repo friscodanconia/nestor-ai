@@ -24,9 +24,9 @@ export default function TopTools() {
       </header>
 
       <main className="max-w-2xl mx-auto px-4 py-6">
-        <h2 className="text-2xl font-semibold mb-4 text-gray-900">Our Top Picks</h2>
+        <h2 className="text-2xl font-semibold mb-4 text-gray-900">Featured No-Code Tools</h2>
         <p className="text-gray-800 text-lg mb-8 leading-relaxed">
-          AI tools are everywhere these days - and it can get overwhelming to pick the right ones. We're focusing on tools for regular users like us, since enterprises need different things (like security certifications, user management, and API access). Whether you're looking for free tools to play around with or affordable premium options, there's something for everyone. We've spent countless hours testing these tools ourselves, and here's our honest take on the ones that actually deliver results. Since AI moves fast, we'll keep this guide fresh with new finds and updates.
+          Discover powerful no-code tools that enable you to build professional applications, automate workflows, and create stunning websites without writing code.
         </p>
         <div className="p-6 rounded-xl bg-white/10 backdrop-blur-sm">
           <ul className="space-y-6 text-gray-800">
