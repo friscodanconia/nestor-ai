@@ -1,5 +1,5 @@
 import React from 'react';
-import { Wrench, ArrowLeft, ChevronRight } from 'lucide-react';
+import { Wrench, ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 export default function QuickAnswers() {
@@ -24,19 +24,39 @@ export default function QuickAnswers() {
       </header>
 
       <main className="max-w-2xl mx-auto px-4 py-4 sm:py-6">
-        <h2 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-gray-900">Best No-Code Tools</h2>
-        <p className="text-base sm:text-lg mb-6 sm:mb-8 text-gray-800 leading-snug sm:leading-relaxed">
-          No-code tools are software solutions that allow you to create applications, websites, automate processes without writing traditional computer code. They help reach out to a broader audience including non-technical users. There is a plethora of tools and new ones get introduced every day, so this page will be regularly updated.
+        <h2 className="text-2xl font-semibold mb-4 text-gray-900">Our Top Picks</h2>
+        <p className="text-sm sm:text-base text-gray-700 mb-8">
+          AI tools are everywhere these days - and it can get overwhelming to pick the right ones. We're focusing on tools for regular users like us, since enterprises need different things (like security certifications, user management, and API access). Whether you're looking for free tools to play around with or affordable premium options, there's something for everyone. We've spent countless hours testing these tools ourselves, and here's our honest take on the ones that actually deliver results. Since AI moves fast, we'll keep this guide fresh with new finds and updates.
         </p>
         <div className="space-y-4 sm:space-y-6 text-gray-800">
           <div>
             <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">
+              General Purpose AI assistants
+            </h3>
+            <p className="text-sm sm:text-base text-gray-700 mb-2">
+              <a href="https://openai.com/chatgpt" target="_blank" rel="noopener noreferrer" className="font-bold hover:text-blue-800">ChatGPT</a> - versatile assistant, helps with writing, coding, brainstorming, problem solving. Three plans: free (basic features), Plus ($20/month), and Pro ($200/month).
+            </p>
+            <p className="text-sm sm:text-base text-gray-700 mb-4 italic">
+              <i className="not-italic font-bold">Personal experience:</i> I use the Plus plan. While I tried Pro, I didn't find enough extra value to justify the higher cost.
+            </p>
+            <p className="text-sm sm:text-base text-gray-700 mb-2">
+              <a href="https://claude.ai" target="_blank" rel="noopener noreferrer" className="font-bold hover:text-blue-800">Claude</a> excels in a lot of general purpose tools, manages long documents well and is really good at coding. It does run into token limits both for free and paid plans. Paid plan is $20/month.
+            </p>
+            <p className="text-sm sm:text-base text-gray-700 mb-4 italic">
+              <i className="not-italic font-bold">Personal experience:</i> My go-to tool, I use the Pro Plan and absolutely love it.
+            </p>
+            <p className="text-sm sm:text-base text-gray-700 mb-4">
+              <span className="font-bold">Others:</span> I have also tried other assistants and have included them here, please feel free to try them out. <a href="https://gemini.google.com" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-blue-800">Google Gemini</a>, <a href="https://deepseek.ai" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-blue-800">Deepseek</a>, <a href="https://chat.mistral.ai" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-blue-800">Mistral</a>, <a href="https://meta.ai" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-blue-800">Llama</a>, and <a href="https://x.ai" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-blue-800">Grok</a>.
+            </p>
+          </div>
+          
+          <div>
+            <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">
               <a href="/quick-answers/website-app-builders" className="group flex items-center hover:text-blue-800">
                 Website and App Builders
-                <ChevronRight className="w-4 h-4 ml-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
               </a>
             </h3>
-            <p className="text-sm sm:text-base text-gray-700">
+            <p className="text-sm sm:text-base text-gray-700 mb-2">
               <a href="https://webflow.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-800">Webflow</a>,{' '}
               <a href="https://www.adalo.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-800">Adalo</a>,{' '}
               <a href="https://thunkable.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-800">Thunkable</a>
@@ -47,10 +67,9 @@ export default function QuickAnswers() {
             <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">
               <a href="/quick-answers/ai-builders" className="group flex items-center hover:text-blue-800">
                 AI-Powered App and Website Builders
-                <ChevronRight className="w-4 h-4 ml-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
               </a>
             </h3>
-            <p className="text-sm sm:text-base text-gray-700">
+            <p className="text-sm sm:text-base text-gray-700 mb-2">
               <a href="https://bolt.new" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-800">Bolt.new</a>,{' '}
               <a href="https://lovable.dev" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-800">lovable.dev</a>,{' '}
               <a href="https://v0.dev" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-800">v0 by Vercel</a>,{' '}
@@ -62,10 +81,9 @@ export default function QuickAnswers() {
             <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">
               <a href="/quick-answers/workflow-automation" className="group flex items-center hover:text-blue-800">
                 Workflow Automation
-                <ChevronRight className="w-4 h-4 ml-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
               </a>
             </h3>
-            <p className="text-sm sm:text-base text-gray-700">
+            <p className="text-sm sm:text-base text-gray-700 mb-2">
               <a href="https://zapier.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-800">Zapier</a>,{' '}
               <a href="https://automate.io" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-800">Automate.io</a>
             </p>
@@ -75,10 +93,9 @@ export default function QuickAnswers() {
             <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">
               <a href="/quick-answers/chatbot-interfaces" className="group flex items-center hover:text-blue-800">
                 Chatbot and Conversational Interfaces
-                <ChevronRight className="w-4 h-4 ml-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
               </a>
             </h3>
-            <p className="text-sm sm:text-base text-gray-700">
+            <p className="text-sm sm:text-base text-gray-700 mb-2">
               <a href="https://landbot.io" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-800">Landbot</a>,{' '}
               <a href="https://manychat.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-800">ManyChat</a>
             </p>
@@ -88,10 +105,9 @@ export default function QuickAnswers() {
             <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">
               <a href="/quick-answers/voice-technology" className="group flex items-center hover:text-blue-800">
                 Voice Technology
-                <ChevronRight className="w-4 h-4 ml-1 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-200" />
               </a>
             </h3>
-            <p className="text-sm sm:text-base text-gray-700">
+            <p className="text-sm sm:text-base text-gray-700 mb-2">
               <a href="https://www.voiceflow.com" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-800">Voiceflow</a>,{' '}
               <a href="https://otter.ai" target="_blank" rel="noopener noreferrer" className="underline hover:text-blue-800">otter.ai</a>
             </p>
