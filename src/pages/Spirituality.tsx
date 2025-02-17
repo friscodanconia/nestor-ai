@@ -1,6 +1,5 @@
-import React from 'react';
-import { Video, ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { Video, ArrowLeft } from 'lucide-react';
 
 export default function Spirituality() {
   const navigate = useNavigate();

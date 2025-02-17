@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { Wrench, ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import CollapsibleSection from '../components/CollapsibleSection';
@@ -19,16 +19,13 @@ export default function QuickAnswers() {
           <div className="bg-white/20 backdrop-blur-sm rounded-full w-10 h-10 flex items-center justify-center">
             <Wrench className="w-5 h-5" />
           </div>
-          {/* Category 1: Main Title */}
           <h1 className="text-2xl font-bold text-gray-900">Top Tools</h1>
         </div>
         <div className="w-9" />
       </header>
 
       <main className="max-w-2xl mx-auto px-4 py-4 sm:py-6">
-        {/* Category 2: Section Title */}
         <h2 className="text-xl font-semibold mb-4 text-gray-900">Our Top Picks</h2>
-        {/* Category 3: Body Text */}
         <p className="text-base text-gray-700 mb-8">
           AI tools are everywhere these days - and it can get overwhelming to pick the right ones. We're focusing on tools for regular users like us, since enterprises need different things (like security certifications, user management, and API access). Whether you're looking for free tools to play around with or affordable premium options, there's something for everyone. We've spent countless hours testing these tools ourselves, and here's our honest take on the ones that actually deliver results. Since AI moves fast, we'll keep this guide fresh with new finds and updates.
         </p>
@@ -106,11 +103,9 @@ export default function QuickAnswers() {
         {/* Desktop View */}
         <div className="hidden md:block space-y-6">
           <div>
-            {/* Category 2: Section Title */}
             <h3 className="text-xl font-semibold mb-4">
               General Purpose AI assistants
             </h3>
-            {/* Category 3: Body Text */}
             <div className="space-y-4">
               <p className="text-base text-gray-700">
                 <a href="https://openai.com/chatgpt" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-blue-800">ChatGPT</a> - versatile assistant, helps with writing, coding, brainstorming, problem solving. Three plans: free (basic features), Plus ($20/month), and Pro ($200/month).

@@ -1,6 +1,5 @@
-import React from 'react';
-import { Users, ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { Users, ArrowLeft } from 'lucide-react';
 
 export default function LifeAdvice() {
   const navigate = useNavigate();

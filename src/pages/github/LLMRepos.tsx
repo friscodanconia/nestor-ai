@@ -1,6 +1,5 @@
-import React from 'react';
-import { Github, ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { Github, ArrowLeft } from 'lucide-react';
 
 export default function LLMRepos() {
   const navigate = useNavigate();

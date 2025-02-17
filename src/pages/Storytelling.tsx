@@ -1,6 +1,5 @@
-import React from 'react';
-import { AppWindow, ArrowLeft } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+import { AppWindow, ArrowLeft } from 'lucide-react';
 
 export default function Storytelling() {
   const navigate = useNavigate();
