@@ -29,6 +29,7 @@ const DeeperQuestions = React.lazy(() => import('./pages/DeeperQuestions'));
 const Spirituality = React.lazy(() => import('./pages/Spirituality'));
 const EmotionalReflection = React.lazy(() => import('./pages/EmotionalReflection'));
 const GithubRepos = React.lazy(() => import('./pages/GithubRepos'));
+const BoltGuide = React.lazy(() => import('./pages/BoltGuide'));
 
 // Lazy load Github subcategories
 const LLMRepos = React.lazy(() => import('./pages/github/LLMRepos'));
@@ -53,11 +54,13 @@ interface CategoryCardProps {
   icon: React.ReactNode;
   className: string;
   onClick?: () => void;
+  onMouseEnter?: () => void;
 }
 
-const CategoryCard: React.FC<CategoryCardProps> = ({ title, description, icon, className, onClick }) => (
+const CategoryCard: React.FC<CategoryCardProps> = ({ title, description, icon, className, onClick, onMouseEnter }) => (
   <div 
     onClick={onClick}
+    onMouseEnter={onMouseEnter}
     className={`rounded-2xl p-4 sm:p-6 transition-transform hover:scale-[1.02] cursor-pointer backdrop-blur-sm ${className} group`}
   >
     <div className="mb-3 sm:mb-4 text-gray-900">
@@ -189,6 +192,7 @@ function App() {
         <Route path="/spirituality" element={withLoadingFallback(Spirituality)} />
         <Route path="/emotional-reflection" element={withLoadingFallback(EmotionalReflection)} />
         <Route path="/github-repos" element={withLoadingFallback(GithubRepos)} />
+        <Route path="/bolt-guide" element={withLoadingFallback(BoltGuide)} />
         
         {/* Github Repos subcategories */}
         <Route path="/github-repos/llm" element={withLoadingFallback(LLMRepos)} />

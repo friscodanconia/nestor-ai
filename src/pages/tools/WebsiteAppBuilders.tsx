@@ -10,16 +10,6 @@ const WebsiteAppContent = memo(() => (
       <p className="text-base sm:text-lg text-gray-800 leading-snug sm:leading-relaxed">
         They have free plans which allow you certain number of actions or features post which you have to upgrade. There are some pre-defined templates, you can drag and drop images. I was able to use the Adalo free template to build a journal app and link my CSV to populate my own data. If you are just starting out, these are good starting points to experiment.
       </p>
-      
-      {/* Lazy load image */}
-      <div className="rounded-lg overflow-hidden shadow-lg my-6">
-        <img 
-          loading="lazy"
-          src="https://images.unsplash.com/photo-1559028012-481c04fa702d?auto=format&fit=crop&q=80&w=800"
-          alt="Design system and components"
-          className="w-full h-64 object-cover"
-        />
-      </div>
     </div>
 
     <div>

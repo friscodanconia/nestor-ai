@@ -1,17 +1,17 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ChevronDown, ChevronUp, MousePointer, Smartphone } from 'lucide-react';
 
 export default function WelcomePanel() {
   const [isExpanded, setIsExpanded] = useState(false);
 
   // Separate handlers for desktop and mobile
-  const handleDesktopHover = (event: React.MouseEvent) => {
+  const handleDesktopHover = () => {
     if (window.matchMedia('(min-width: 768px)').matches) {
       setIsExpanded(true);
     }
   };
 
-  const handleDesktopLeave = (event: React.MouseEvent) => {
+  const handleDesktopLeave = () => {
     if (window.matchMedia('(min-width: 768px)').matches) {
       setIsExpanded(false);
     }

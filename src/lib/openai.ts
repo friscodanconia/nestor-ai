@@ -1,6 +1,10 @@
 import OpenAI from 'openai';
 import { createClient } from '@supabase/supabase-js';
 
+interface SimilarContent {
+  content: string;
+}
+
 const openai = new OpenAI({
   apiKey: process.env.OPENAI_API_KEY,
 });
@@ -34,7 +38,7 @@ export async function getAnswer(question: string) {
       },
       {
         role: "user",
-        content: `Based on this content from our website: "${similarContent.map(c => c.content).join('\n')}"
+        content: `Based on this content from our website: "${(similarContent as SimilarContent[]).map(c => c.content).join('\n')}"
                  
                  Please answer this question: ${question}`
       }
