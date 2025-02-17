@@ -14,32 +14,32 @@ export default function WorkflowAutomation() {
       <div className="space-y-6">
         <div>
           <h3 className="text-xl font-semibold mb-3">Understanding Workflow Automation</h3>
-          <p className="text-gray-800 leading-relaxed mb-4">
+          <p className="text-base sm:text-lg text-gray-800 leading-relaxed">
             Workflow automation tools connect your favorite apps and services, allowing them to work together seamlessly. By automating repetitive tasks, these tools save time, reduce errors, and increase productivity.
           </p>
         </div>
 
         <div>
           <h3 className="text-xl font-semibold mb-3">Key Benefits</h3>
-          <ul className="list-disc list-inside space-y-2 text-gray-800">
-            <li>Time savings through task automation</li>
-            <li>Reduced manual errors</li>
-            <li>Improved team productivity</li>
-            <li>Better data consistency</li>
-            <li>Scalable processes</li>
+          <ul className="space-y-3 text-gray-800">
+            <li className="text-base sm:text-lg leading-relaxed">Time savings through task automation</li>
+            <li className="text-base sm:text-lg leading-relaxed">Reduced manual errors</li>
+            <li className="text-base sm:text-lg leading-relaxed">Improved team productivity</li>
+            <li className="text-base sm:text-lg leading-relaxed">Better data consistency</li>
+            <li className="text-base sm:text-lg leading-relaxed">Scalable processes</li>
           </ul>
         </div>
 
         <div>
           <h3 className="text-xl font-semibold mb-3">Popular Platforms</h3>
-          <div className="space-y-4">
+          <div className="space-y-3">
             <div>
               <a href="https://zapier.com" target="_blank" rel="noopener noreferrer" className="text-lg font-medium hover:text-blue-800">Zapier</a>
-              <p className="text-gray-700">Connect apps and automate workflows with easy-to-use interfaces.</p>
+              <p className="text-base sm:text-lg text-gray-800 leading-relaxed">Connect apps and automate workflows with easy-to-use interfaces.</p>
             </div>
             <div>
               <a href="https://automate.io" target="_blank" rel="noopener noreferrer" className="text-lg font-medium hover:text-blue-800">Automate.io</a>
-              <p className="text-gray-700">Create business workflows with cloud-based automation.</p>
+              <p className="text-base sm:text-lg text-gray-800 leading-relaxed">Create business workflows with cloud-based automation.</p>
             </div>
           </div>
         </div>

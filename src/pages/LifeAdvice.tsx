@@ -25,10 +25,15 @@ export default function LifeAdvice() {
 
       <main className="max-w-2xl mx-auto px-4 py-4 sm:py-6">
         <h2 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-gray-900">Understanding AI Agents</h2>
-        <p className="text-base sm:text-lg mb-6 sm:mb-8 text-gray-800 leading-snug sm:leading-relaxed">
-          Everyone is talking about agents, but what are they? Think of agent as a software program that works independently to accomplish tasks, it makes decisions and takes action on behalf of the user. It is your digital assistant that will understand the context, learn from interactions and perform actions to achieve the end goal. There are a lot of applications that use AI, but not are agents. What defines agents is autonomy where agents can work independently across multiple tools and steps to achieve the goals.
-        </p>
-        <ul className="space-y-3 text-gray-800">
+        <div className="space-y-2 mb-4">
+          <p className="text-base sm:text-lg text-gray-800">
+            Everyone is talking about agents, but what are they? Think of an agent as a software program that works independently to accomplish tasks, making decisions and taking action on behalf of the user.
+          </p>
+          <p className="text-base sm:text-lg text-gray-800">
+            It acts as your digital assistant, understanding context, learning from interactions, and performing actions to achieve a goal. While plenty of applications use AI, not all qualify as "agents." What truly sets agents apart is their autonomy—the ability to work across multiple tools and steps to meet your objectives.
+          </p>
+        </div>
+        <ul className="space-y-2 text-gray-800">
           <li>
             <a 
               href="/life-advice/business"
