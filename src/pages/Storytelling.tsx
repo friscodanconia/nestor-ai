@@ -1,5 +1,7 @@
-import { useNavigate } from 'react-router-dom';
+import { useState } from 'react';
 import { AppWindow, ArrowLeft } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import CollapsibleSection from '../components/CollapsibleSection';
 
 export default function Storytelling() {
   const navigate = useNavigate();
@@ -23,48 +25,202 @@ export default function Storytelling() {
       </header>
 
       <main className="max-w-2xl mx-auto px-4 py-4 sm:py-6">
-        <h2 className="text-xl sm:text-2xl font-semibold mb-3 sm:mb-4 text-gray-900">Must-Try Applications</h2>
-        <p className="text-base sm:text-lg mb-6 sm:mb-8 text-gray-800 leading-snug sm:leading-relaxed">
-          Explore our curated collection of must-try applications that leverage AI technology to enhance productivity and creativity.
-        </p>
-        <ul className="space-y-3 text-gray-800">
-          <li>
-            <a 
-              href="/storytelling/productivity"
-              className="flex items-center gap-2 hover:text-rose-800 transition-colors group"
-            >
-              <div className="w-2 h-2 rounded-full bg-gray-900 group-hover:bg-rose-800 transition-colors"></div>
-              Productivity apps
-            </a>
-          </li>
-          <li>
-            <a 
-              href="/storytelling/creative"
-              className="flex items-center gap-2 hover:text-rose-800 transition-colors group"
-            >
-              <div className="w-2 h-2 rounded-full bg-gray-900 group-hover:bg-rose-800 transition-colors"></div>
-              Creative tools
-            </a>
-          </li>
-          <li>
-            <a 
-              href="/storytelling/collaboration"
-              className="flex items-center gap-2 hover:text-rose-800 transition-colors group"
-            >
-              <div className="w-2 h-2 rounded-full bg-gray-900 group-hover:bg-rose-800 transition-colors"></div>
-              Collaboration platforms
-            </a>
-          </li>
-          <li>
-            <a 
-              href="/storytelling/ai-powered"
-              className="flex items-center gap-2 hover:text-rose-800 transition-colors group"
-            >
-              <div className="w-2 h-2 rounded-full bg-gray-900 group-hover:bg-rose-800 transition-colors"></div>
-              AI-powered applications
-            </a>
-          </li>
-        </ul>
+        <div className="mb-6 sm:mb-8">
+          <h2 className="text-xl sm:text-2xl font-semibold mb-4 text-gray-900">Navigating the AI Revolution: Your Curated Guide</h2>
+          <p className="text-sm text-gray-800 mb-4">
+            The AI landscape evolves at breakneck speed, with new models and applications emerging weekly. Rather than attempting the impossible task of cataloging everything, we've created this carefully curated selection of the most impactful AI tools and developments.
+          </p>
+          <div className="space-y-2">
+            <h3 className="text-lg font-semibold text-gray-900">What to expect:</h3>
+            <ul className="list-disc list-inside text-sm text-gray-800 space-y-1">
+              <li>Regular updates: This guide is refreshed bi-weekly</li>
+              <li>Focus on quality: We prioritize tools with practical applications over novelty</li>
+              <li>Historical archive: Retired entries move to our comprehensive archive section below</li>
+            </ul>
+          </div>
+          <div className="mt-4 text-sm text-gray-700">
+            <p>Last updated: February 25, 2025</p>
+            <p>Have a suggestion? nestorguide@gmail.com</p>
+          </div>
+        </div>
+
+        <div className="space-y-6">
+          <div>
+            <h3 className="text-lg font-semibold mb-3">Chatbots and Personal Assistants</h3>
+            <div className="space-y-4">
+              <p className="text-sm text-gray-800">
+                <a href="https://chat.openai.com" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-rose-800">ChatGPT</a> - The most dominant product so far with 400M users on a weekly basis. Free to use, but a lot of powerful features are gated behind subscriptions.
+              </p>
+              <p className="text-sm text-gray-800">
+                <a href="https://replika.ai" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-rose-800">Replika</a> - An AI companion app that you can chat, talk, or even have video calls with. It is an interesting experience and can see it getting more popularity (already has 200K+ reviews).
+              </p>
+              <p className="text-sm text-gray-800">
+                Honorable mentions - <a href="https://x.ai" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-rose-800">Grok</a>, <a href="https://claude.ai" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-rose-800">Claude</a>, and <a href="https://character.ai" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-rose-800">Character.ai</a> are the other notable ones in this category.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold mb-3">Writing and Productivity</h3>
+            <div className="space-y-4">
+              <p className="text-sm text-gray-800">
+                <a href="https://grammarly.com" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-rose-800">Grammarly</a> is a really great tool, which is a writing assistant that can check your grammar, style suggestions, and many other use cases.
+              </p>
+              <p className="text-sm text-gray-800">
+                <a href="https://quillbot.com" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-rose-800">QuillBot</a> is a great writing assistant that can check grammar and plagiarism, has an AI detector mode, and can summarize. It also has a helpful Chrome extension and a native Mac app. Some features are price-gated.
+              </p>
+              <p className="text-sm text-gray-800">
+                <a href="https://granola.ai" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-rose-800">Granola</a> is one of the most popular note-taking apps for meetings and can transform meeting notes into great summaries. Super popular, great U/X, needs work email to sign up and use.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold mb-3">Productivity Apps</h3>
+            <div className="space-y-4">
+              <p className="text-base text-gray-700">
+                Boost your efficiency with AI-powered productivity tools that streamline your workflow and automate repetitive tasks.
+              </p>
+              <ul className="space-y-2 text-gray-700">
+                <li className="text-base">Task management and organization</li>
+                <li className="text-base">Smart scheduling and calendar optimization</li>
+                <li className="text-base">Document processing and automation</li>
+                <li className="text-base">Email management and response automation</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold mb-3">Creative Tools</h3>
+            <div className="space-y-4">
+              <p className="text-base text-gray-700">
+                Unlock your creative potential with AI-assisted design, content creation, and artistic tools.
+              </p>
+              <ul className="space-y-2 text-gray-700">
+                <li className="text-base">AI-powered design assistance</li>
+                <li className="text-base">Content generation and enhancement</li>
+                <li className="text-base">Image and video editing</li>
+                <li className="text-base">Music and audio creation</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold mb-3">Collaboration Platforms</h3>
+            <div className="space-y-4">
+              <p className="text-base text-gray-700">
+                Transform team collaboration with intelligent platforms that enhance communication and project management.
+              </p>
+              <ul className="space-y-2 text-gray-700">
+                <li className="text-base">Smart project management tools</li>
+                <li className="text-base">AI-enhanced team communication</li>
+                <li className="text-base">Document collaboration and version control</li>
+                <li className="text-base">Virtual workspace solutions</li>
+              </ul>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold mb-3">AI-Powered Applications</h3>
+            <div className="space-y-4">
+              <p className="text-base text-gray-700">
+                Discover specialized applications that use AI to solve specific problems and enhance particular workflows.
+              </p>
+              <ul className="space-y-2 text-gray-700">
+                <li className="text-base">Industry-specific solutions</li>
+                <li className="text-base">Custom workflow automation</li>
+                <li className="text-base">Data analysis and visualization</li>
+                <li className="text-base">Decision support systems</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div className="md:hidden space-y-2 mt-6">
+          <CollapsibleSection title="Chatbots and Personal Assistants" defaultExpanded={true}>
+            <div className="space-y-4">
+              <p className="text-sm text-gray-800">
+                <a href="https://chat.openai.com" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-rose-800">ChatGPT</a> - The most dominant product so far with 400M users on a weekly basis. Free to use, but a lot of powerful features are gated behind subscriptions.
+              </p>
+              <p className="text-sm text-gray-800">
+                <a href="https://replika.ai" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-rose-800">Replika</a> - An AI companion app that you can chat, talk, or even have video calls with. It is an interesting experience and can see it getting more popularity (already has 200K+ reviews).
+              </p>
+              <p className="text-sm text-gray-800">
+                Honorable mentions - <a href="https://x.ai" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-rose-800">Grok</a>, <a href="https://claude.ai" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-rose-800">Claude</a>, and <a href="https://character.ai" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-rose-800">Character.ai</a> are the other notable ones in this category.
+              </p>
+            </div>
+          </CollapsibleSection>
+
+          <CollapsibleSection title="Writing and Productivity">
+            <div className="space-y-4">
+              <p className="text-sm text-gray-800">
+                <a href="https://grammarly.com" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-rose-800">Grammarly</a> is a really great tool, which is a writing assistant that can check your grammar, style suggestions, and many other use cases.
+              </p>
+              <p className="text-sm text-gray-800">
+                <a href="https://quillbot.com" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-rose-800">QuillBot</a> is a great writing assistant that can check grammar and plagiarism, has an AI detector mode, and can summarize. It also has a helpful Chrome extension and a native Mac app. Some features are price-gated.
+              </p>
+              <p className="text-sm text-gray-800">
+                <a href="https://granola.ai" target="_blank" rel="noopener noreferrer" className="font-bold underline hover:text-rose-800">Granola</a> is one of the most popular note-taking apps for meetings and can transform meeting notes into great summaries. Super popular, great U/X, needs work email to sign up and use.
+              </p>
+            </div>
+          </CollapsibleSection>
+
+          <CollapsibleSection title="Productivity Apps">
+            <div className="space-y-4">
+              <p className="text-base text-gray-700">
+                Boost your efficiency with AI-powered productivity tools that streamline your workflow and automate repetitive tasks.
+              </p>
+              <ul className="space-y-2 text-gray-700">
+                <li className="text-base">Task management and organization</li>
+                <li className="text-base">Smart scheduling and calendar optimization</li>
+                <li className="text-base">Document processing and automation</li>
+                <li className="text-base">Email management and response automation</li>
+              </ul>
+            </div>
+          </CollapsibleSection>
+
+          <CollapsibleSection title="Creative Tools">
+            <div className="space-y-4">
+              <p className="text-base text-gray-700">
+                Unlock your creative potential with AI-assisted design, content creation, and artistic tools.
+              </p>
+              <ul className="space-y-2 text-gray-700">
+                <li className="text-base">AI-powered design assistance</li>
+                <li className="text-base">Content generation and enhancement</li>
+                <li className="text-base">Image and video editing</li>
+                <li className="text-base">Music and audio creation</li>
+              </ul>
+            </div>
+          </CollapsibleSection>
+
+          <CollapsibleSection title="Collaboration Platforms">
+            <div className="space-y-4">
+              <p className="text-base text-gray-700">
+                Transform team collaboration with intelligent platforms that enhance communication and project management.
+              </p>
+              <ul className="space-y-2 text-gray-700">
+                <li className="text-base">Smart project management tools</li>
+                <li className="text-base">AI-enhanced team communication</li>
+                <li className="text-base">Document collaboration and version control</li>
+                <li className="text-base">Virtual workspace solutions</li>
+              </ul>
+            </div>
+          </CollapsibleSection>
+
+          <CollapsibleSection title="AI-Powered Applications">
+            <div className="space-y-4">
+              <p className="text-base text-gray-700">
+                Discover specialized applications that use AI to solve specific problems and enhance particular workflows.
+              </p>
+              <ul className="space-y-2 text-gray-700">
+                <li className="text-base">Industry-specific solutions</li>
+                <li className="text-base">Custom workflow automation</li>
+                <li className="text-base">Data analysis and visualization</li>
+                <li className="text-base">Decision support systems</li>
+              </ul>
+            </div>
+          </CollapsibleSection>
+        </div>
       </main>
     </div>
   );
