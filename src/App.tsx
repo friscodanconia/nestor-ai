@@ -137,8 +137,8 @@ function HomePage() {
 
           {/* Non Technical Perspective */}
           <CategoryCard
-            title="Non Technical Perspective"
-            description="Explore AI experiments from a non-technical user point of view"
+            title="AI in Marketing"
+            description="How can marketers use AI"
             icon={<UserRound className="w-6 h-6 sm:w-8 sm:h-8" />}
             className="bg-gradient-to-r from-pink-200 via-rose-200 to-orange-200"
             onClick={() => navigate('/deeper-questions')}
