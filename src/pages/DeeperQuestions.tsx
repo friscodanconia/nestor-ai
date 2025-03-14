@@ -27,46 +27,58 @@ export default function DeeperQuestions() {
       <main className="max-w-2xl mx-auto px-4 py-4 sm:py-6">
         <div className="mb-6 sm:mb-8">
           <h2 className="text-xl sm:text-2xl font-semibold mb-4 text-gray-900">AI in Marketing</h2>
-          <p className="text-base text-gray-800 mb-4">
+          <p className="text-base text-gray-800 mb-4 text-justify">
             AI is rapidly changing and impacting industries and functions. How can marketers use AI tools to improve productivity, idea generation, and a host of other use cases. I have been a CMO before, so I will weave in that experience and suggest ways you can start experimenting with AI tools. AIDA is not dead, but needs a fresher approach.
           </p>
         </div>
 
         {/* Mobile View - Collapsible Sections */}
         <div className="md:hidden space-y-2">
-          <CollapsibleSection title="SEO and ASO" defaultExpanded={true}>
-            <p className="text-base text-gray-800">
-              AI tools can revolutionize your SEO strategy by analyzing vast amounts of data to identify keywords, optimize content, and predict search trends with unprecedented accuracy.
+          <CollapsibleSection title="Traffic Analysis" defaultExpanded={true}>
+            <p className="text-base text-gray-800 text-justify">
+              LLM traffic is a tale of two cities. LLM traffic has jumped 800%, but LLM's encounter zero click phenomenon where many users read answers in chatbot interface. As a marketer, you have to do both. First understand, how much traffic is coming from LLMs (top three drive 80%) and second, how do you rank for your top queries? Read more indepth strategies here.
             </p>
           </CollapsibleSection>
 
-          <CollapsibleSection title="Brand">
-            <p className="text-base text-gray-800">
-              Leverage AI to maintain brand consistency across channels, generate on-brand creative assets, and analyze brand sentiment at scale to refine your positioning.
+          <CollapsibleSection title="Business Ranking">
+            <p className="text-base text-gray-800 text-justify">
+              LLMs use a combination of training data & mentions, semantic relevance, traditional SEO signals, frequency and confidence, and user intent + context as foundational mechanisms to rank brands in query results. Brands can improve their ranking by using question based formats (FAQs, detailed blogs), topic clusters, proprietary data, and schema markups to stay relevant. In cases where LLMs don't use RAG, brands should check content ranking for both cutoff dates and real-time indexes. For a detailed strategy, read more here.
             </p>
           </CollapsibleSection>
 
-          <CollapsibleSection title="Performance Marketing">
-            <p className="text-base text-gray-800">
-              AI-powered tools can optimize ad spend, automate A/B testing, and deliver personalized campaigns that dramatically improve conversion rates and ROI.
+          <CollapsibleSection title="Competitor Research">
+            <p className="text-base text-gray-800 text-justify">
+              Leverage AI tools to conduct comprehensive competitor research. Analyze market positioning, content strategies, and digital presence to gain a competitive edge.
             </p>
           </CollapsibleSection>
 
-          <CollapsibleSection title="Social Media">
-            <p className="text-base text-gray-800">
-              Transform your social media strategy with AI tools that can generate engaging content, identify trending topics, and schedule posts for maximum engagement.
+          <CollapsibleSection title="ASO Strategy">
+            <p className="text-base text-gray-800 text-justify">
+              Build better App Store Optimization plans using AI-powered tools. Learn how to improve app visibility and conversion rates through data-driven insights and automated optimization.
             </p>
           </CollapsibleSection>
 
-          <CollapsibleSection title="Creative Operations">
-            <p className="text-base text-gray-800">
-              Streamline your creative workflow with AI that can generate design variations, automate asset production, and ensure brand consistency across all deliverables.
+          <CollapsibleSection title="Agency Efficiency">
+            <p className="text-base text-gray-800 text-justify">
+              Transform agency operations with AI automation. Streamline workflows, enhance client deliverables, and improve team productivity through intelligent tools and processes.
+            </p>
+          </CollapsibleSection>
+
+          <CollapsibleSection title="Campaign Building">
+            <p className="text-base text-gray-800 text-justify">
+              Explore AI-powered campaign creation and optimization. From content generation to audience targeting, discover how AI can enhance your campaign performance.
+            </p>
+          </CollapsibleSection>
+
+          <CollapsibleSection title="Social Media Automation">
+            <p className="text-base text-gray-800 text-justify">
+              Scale your social media presence through intelligent automation. Learn about AI tools for content scheduling, engagement monitoring, and performance optimization.
             </p>
           </CollapsibleSection>
 
           <CollapsibleSection title="Marketing Analytics">
-            <p className="text-base text-gray-800">
-              Harness the power of AI to extract actionable insights from complex marketing data, predict customer behavior, and identify opportunities for growth.
+            <p className="text-base text-gray-800 text-justify">
+              The future of marketing analytics is being transformed by AI. Discover how predictive analytics, automated reporting, and intelligent insights can drive better marketing decisions.
             </p>
           </CollapsibleSection>
         </div>
@@ -74,92 +86,74 @@ export default function DeeperQuestions() {
         {/* Desktop View */}
         <div className="hidden md:block space-y-6">
           <div>
-            <h3 className="text-lg font-semibold mb-3">SEO and ASO</h3>
+            <h3 className="text-lg font-semibold mb-3">Traffic Analysis</h3>
             <div className="space-y-4">
-              <p className="text-base text-gray-800">
-                AI tools can revolutionize your SEO strategy by analyzing vast amounts of data to identify keywords, optimize content, and predict search trends with unprecedented accuracy.
+              <p className="text-base text-gray-800 text-justify">
+                LLM traffic is a tale of two cities. LLM traffic has jumped 800%, but LLM's encounter zero click phenomenon where many users read answers in chatbot interface. As a marketer, you have to do both. First understand, how much traffic is coming from LLMs (top three drive 80%) and second, how do you rank for your top queries? Read more indepth strategies here.
               </p>
-              <ul className="space-y-2 text-gray-700">
-                <li className="text-base">Generate keyword clusters and content briefs automatically</li>
-                <li className="text-base">Optimize existing content for better search performance</li>
-                <li className="text-base">Predict emerging search trends before competitors</li>
-                <li className="text-base">Analyze competitor strategies and identify gaps</li>
-              </ul>
             </div>
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-3">Brand</h3>
+            <h3 className="text-lg font-semibold mb-3">Business Ranking</h3>
             <div className="space-y-4">
-              <p className="text-base text-gray-800">
-                Leverage AI to maintain brand consistency across channels, generate on-brand creative assets, and analyze brand sentiment at scale to refine your positioning.
+              <p className="text-base text-gray-800 text-justify">
+                LLMs use a combination of training data & mentions, semantic relevance, traditional SEO signals, frequency and confidence, and user intent + context as foundational mechanisms to rank brands in query results. Brands can improve their ranking by using question based formats (FAQs, detailed blogs), topic clusters, proprietary data, and schema markups to stay relevant. In cases where LLMs don't use RAG, brands should check content ranking for both cutoff dates and real-time indexes. For a detailed strategy, read more here.
               </p>
-              <ul className="space-y-2 text-gray-700">
-                <li className="text-base">Create consistent brand messaging across all touchpoints</li>
-                <li className="text-base">Generate on-brand visual assets and copy</li>
-                <li className="text-base">Monitor and analyze brand sentiment in real-time</li>
-                <li className="text-base">Identify opportunities to strengthen brand positioning</li>
-              </ul>
             </div>
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-3">Performance Marketing</h3>
+            <h3 className="text-lg font-semibold mb-3">Competitor Research</h3>
             <div className="space-y-4">
-              <p className="text-base text-gray-800">
-                AI-powered tools can optimize ad spend, automate A/B testing, and deliver personalized campaigns that dramatically improve conversion rates and ROI.
+              <p className="text-base text-gray-800 text-justify">
+                Leverage AI tools to conduct comprehensive competitor research. Analyze market positioning, content strategies, and digital presence to gain a competitive edge.
               </p>
-              <ul className="space-y-2 text-gray-700">
-                <li className="text-base">Optimize campaign budgets across multiple channels</li>
-                <li className="text-base">Create and test ad variations at scale</li>
-                <li className="text-base">Deliver hyper-personalized messaging to target segments</li>
-                <li className="text-base">Predict campaign performance before launch</li>
-              </ul>
             </div>
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-3">Social Media</h3>
+            <h3 className="text-lg font-semibold mb-3">ASO Strategy</h3>
             <div className="space-y-4">
-              <p className="text-base text-gray-800">
-                Transform your social media strategy with AI tools that can generate engaging content, identify trending topics, and schedule posts for maximum engagement.
+              <p className="text-base text-gray-800 text-justify">
+                Build better App Store Optimization plans using AI-powered tools. Learn how to improve app visibility and conversion rates through data-driven insights and automated optimization.
               </p>
-              <ul className="space-y-2 text-gray-700">
-                <li className="text-base">Generate platform-specific content at scale</li>
-                <li className="text-base">Identify trending topics relevant to your audience</li>
-                <li className="text-base">Optimize posting schedules for maximum engagement</li>
-                <li className="text-base">Analyze performance and refine strategy in real-time</li>
-              </ul>
             </div>
           </div>
 
           <div>
-            <h3 className="text-lg font-semibold mb-3">Creative Operations</h3>
+            <h3 className="text-lg font-semibold mb-3">Agency Efficiency</h3>
             <div className="space-y-4">
-              <p className="text-base text-gray-800">
-                Streamline your creative workflow with AI that can generate design variations, automate asset production, and ensure brand consistency across all deliverables.
+              <p className="text-base text-gray-800 text-justify">
+                Transform agency operations with AI automation. Streamline workflows, enhance client deliverables, and improve team productivity through intelligent tools and processes.
               </p>
-              <ul className="space-y-2 text-gray-700">
-                <li className="text-base">Automate repetitive design tasks and asset creation</li>
-                <li className="text-base">Generate multiple creative variations for testing</li>
-                <li className="text-base">Ensure brand consistency across all assets</li>
-                <li className="text-base">Streamline approval workflows and collaboration</li>
-              </ul>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold mb-3">Campaign Building</h3>
+            <div className="space-y-4">
+              <p className="text-base text-gray-800 text-justify">
+                Explore AI-powered campaign creation and optimization. From content generation to audience targeting, discover how AI can enhance your campaign performance.
+              </p>
+            </div>
+          </div>
+
+          <div>
+            <h3 className="text-lg font-semibold mb-3">Social Media Automation</h3>
+            <div className="space-y-4">
+              <p className="text-base text-gray-800 text-justify">
+                Scale your social media presence through intelligent automation. Learn about AI tools for content scheduling, engagement monitoring, and performance optimization.
+              </p>
             </div>
           </div>
 
           <div>
             <h3 className="text-lg font-semibold mb-3">Marketing Analytics</h3>
             <div className="space-y-4">
-              <p className="text-base text-gray-800">
-                Harness the power of AI to extract actionable insights from complex marketing data, predict customer behavior, and identify opportunities for growth.
+              <p className="text-base text-gray-800 text-justify">
+                The future of marketing analytics is being transformed by AI. Discover how predictive analytics, automated reporting, and intelligent insights can drive better marketing decisions.
               </p>
-              <ul className="space-y-2 text-gray-700">
-                <li className="text-base">Uncover hidden patterns in marketing performance data</li>
-                <li className="text-base">Predict customer behavior and lifetime value</li>
-                <li className="text-base">Identify high-potential segments for targeting</li>
-                <li className="text-base">Generate automated reports with actionable insights</li>
-              </ul>
             </div>
           </div>
         </div>
