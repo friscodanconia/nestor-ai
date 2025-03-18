@@ -16,7 +16,15 @@ const pathNames: Record<string, string> = {
   'audio': 'Audio',
   'github-repos': 'GitHub Repos',
   'gaming': 'Gaming',
-  'travel-lifestyle': 'Travel & Lifestyle'
+  'travel-lifestyle': 'Travel & Lifestyle',
+  'image-design': 'Image Design',
+  'content-creation': 'Content Creation',
+  'generative-art': 'Generative Art',
+  'education': 'Education',
+  'personal-productivity': 'Personal Productivity',
+  'personal-finance': 'Personal Finance',
+  'health-wellness': 'Health & Wellness',
+  'ecommerce': 'E-commerce'
 };
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({ className = '' }) => {
