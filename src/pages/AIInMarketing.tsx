@@ -114,6 +114,7 @@ export default function AIInMarketing() {
       description={aiInMarketingData.description}
       mobileContent={mobileContent}
       desktopContent={desktopContent}
+      breadcrumbParent="/"
     />
   );
 }
