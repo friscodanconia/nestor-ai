@@ -381,8 +381,9 @@ export default function Search() {
             border border-gray-200 shadow-sm transition-all duration-300 ease-in-out
             md:w-full w-[75%] mx-auto
             ${isSearchBarFocused ? 'ring-2 ring-purple-300' : 'hover:ring-1 hover:ring-gray-300'}
-            animate-pulse-subtle
+            animate-pulse-subtle !important
           `}
+          style={{ animation: 'pulse-subtle 3s cubic-bezier(0.4, 0, 0.6, 1) infinite' }}
         >
           <SearchIcon className="w-5 h-5 md:w-6 md:h-6 text-purple-600 ml-3 flex-shrink-0" />
           <input

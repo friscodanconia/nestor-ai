@@ -65,8 +65,11 @@ export default function WelcomePanel() {
             <p className="mb-2">
               Nestor is your guide to AI tools and resources.
             </p>
+            <p className="mb-2">
+              You can browse topics below that interest you
+            </p>
             <p>
-              Use the search bar above to quickly find specific tools or topics.
+              Or use the search bar above to quickly jump into topics
             </p>
           </div>
         </div>
