@@ -88,6 +88,7 @@ const GenerativeArt = () => {
       description="Discover AI tools that can help you create stunning generative artwork."
       mobileContent={mobileContent}
       desktopContent={desktopContent}
+      breadcrumbParent="/"
     />
   );
 };

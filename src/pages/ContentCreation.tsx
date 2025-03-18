@@ -88,6 +88,7 @@ const ContentCreation = () => {
       description="Discover AI tools that can help you create engaging and high-quality content for various platforms."
       mobileContent={mobileContent}
       desktopContent={desktopContent}
+      breadcrumbParent="/"
     />
   );
 };
