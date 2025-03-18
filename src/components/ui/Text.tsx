@@ -1,6 +1,6 @@
 import React from 'react';
 
-export type TextVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'body' | 'body-sm' | 'caption';
+export type TextVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'body' | 'body-sm' | 'caption' | 'subtitle';
 export type TextWeight = 'normal' | 'medium' | 'semibold' | 'bold';
 export type TextAlign = 'left' | 'center' | 'right';
 
@@ -35,6 +35,7 @@ const Text: React.FC<TextProps> = ({
     body: { element: 'p', className: 'text-md leading-normal' },
     'body-sm': { element: 'p', className: 'text-sm leading-normal' },
     caption: { element: 'span', className: 'text-xs leading-normal' },
+    subtitle: { element: 'p', className: 'text-lg leading-normal' },
   };
   
   // Weight classes

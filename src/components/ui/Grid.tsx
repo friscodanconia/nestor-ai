@@ -12,6 +12,10 @@ export interface GridProps {
   columnsXl?: GridColumns;
   gap?: GridGap;
   className?: string;
+  container?: boolean;
+  item?: boolean;
+  spacing?: number;
+  xs?: number;
 }
 
 const Grid: React.FC<GridProps> = ({
@@ -23,37 +27,40 @@ const Grid: React.FC<GridProps> = ({
   columnsXl,
   gap = 'md',
   className = '',
-  ...props
+  container = false,
+  item = false,
+  spacing = 0,
+  xs,
+  ...rest
 }) => {
-  // Base classes
-  const baseClasses = 'grid';
-  
-  // Columns classes
-  const getColumnsClass = (cols: GridColumns) => `grid-cols-${cols}`;
-  
-  const columnsClasses = [
-    getColumnsClass(columns),
-    columnsSm ? `sm:${getColumnsClass(columnsSm)}` : '',
-    columnsMd ? `md:${getColumnsClass(columnsMd)}` : '',
-    columnsLg ? `lg:${getColumnsClass(columnsLg)}` : '',
-    columnsXl ? `xl:${getColumnsClass(columnsXl)}` : '',
-  ].filter(Boolean).join(' ');
-  
-  // Gap classes
-  const gapMap = {
-    none: 'gap-0',
+  const gapClasses = {
+    none: '',
     xs: 'gap-1',
     sm: 'gap-2',
     md: 'gap-4',
     lg: 'gap-6',
     xl: 'gap-8',
   };
-  
+
+  const columnsClasses = `grid-cols-${columns}`;
+  const columnsSmClasses = columnsSm ? `sm:grid-cols-${columnsSm}` : '';
+  const columnsMdClasses = columnsMd ? `md:grid-cols-${columnsMd}` : '';
+  const columnsLgClasses = columnsLg ? `lg:grid-cols-${columnsLg}` : '';
+  const columnsXlClasses = columnsXl ? `xl:grid-cols-${columnsXl}` : '';
+
+  // Handle container and item props
+  let additionalClasses = '';
+  if (container) {
+    additionalClasses += ` grid ${gapClasses[gap]} ${spacing ? `gap-${spacing}` : ''}`;
+  }
+  if (item) {
+    additionalClasses += ` ${xs ? `col-span-${xs}` : ''}`;
+  }
+
+  const classes = `${container ? additionalClasses : `grid ${gapClasses[gap]} ${columnsClasses} ${columnsSmClasses} ${columnsMdClasses} ${columnsLgClasses} ${columnsXlClasses}`} ${className}`;
+
   return (
-    <div
-      className={`${baseClasses} ${columnsClasses} ${gapMap[gap]} ${className}`}
-      {...props}
-    >
+    <div className={classes} {...rest}>
       {children}
     </div>
   );
