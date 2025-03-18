@@ -1,30 +1,40 @@
 import { Video as VideoIcon } from 'lucide-react';
 import CollapsibleSection from '../components/CollapsibleSection';
 import CategoryLayout from '../components/CategoryLayout';
+import SEO from '../components/SEO';
 import { videoData } from '../data/categories/video';
+import { Text, Card, Grid } from '../components/ui';
 
 export default function Video() {
   // Mobile content with collapsible sections
   const mobileContent = (
     <>
+      <SEO 
+        title="AI Video Tools"
+        description="Discover AI-powered video creation, editing, and enhancement tools that can transform your video content."
+        keywords="AI video tools, video generation, video editing, AI video enhancement, video creation"
+      />
+      
       {videoData.sections.map((section, index) => (
         <CollapsibleSection 
           key={index} 
           title={section.title} 
           defaultExpanded={index === 0}
         >
-          <div className="space-y-4">
-            <p className="text-base text-gray-700">
+          <Card variant="outlined" className="space-y-4">
+            <Text variant="body" color="secondary">
               {section.description}
-            </p>
+            </Text>
             <a 
               href={section.linkUrl}
-              className="flex items-center gap-2 hover:text-red-800 transition-colors group"
+              className="flex items-center gap-2 hover:text-primary-dark transition-colors group"
             >
-              <div className="w-2 h-2 rounded-full bg-gray-900 group-hover:bg-red-800 transition-colors"></div>
-              <span className="text-base text-gray-700 hover:text-red-800 transition-colors">{section.linkText}</span>
+              <div className="w-2 h-2 rounded-full bg-gray-900 group-hover:bg-primary-dark transition-colors"></div>
+              <Text variant="body" color="secondary" className="hover:text-primary-dark transition-colors">
+                {section.linkText}
+              </Text>
             </a>
-          </div>
+          </Card>
         </CollapsibleSection>
       ))}
     </>
@@ -32,27 +42,31 @@ export default function Video() {
 
   // Desktop content
   const desktopContent = (
-    <>
+    <Grid columns={1} gap="xl">
       {videoData.sections.map((section, index) => (
-        <div key={index}>
-          <h3 className="text-xl font-semibold mb-4">
-            {section.title}
-          </h3>
-          <div className="space-y-4">
-            <p className="text-base text-gray-700">
+        <Card key={index} variant="outlined">
+          <div className="bg-primary-light p-4">
+            <Text variant="h3" className="mb-0">
+              {section.title}
+            </Text>
+          </div>
+          <div className="p-6 space-y-4">
+            <Text variant="body" color="secondary">
               {section.description}
-            </p>
+            </Text>
             <a 
               href={section.linkUrl}
-              className="flex items-center gap-2 hover:text-red-800 transition-colors group"
+              className="flex items-center gap-2 hover:text-primary-dark transition-colors group"
             >
-              <div className="w-2 h-2 rounded-full bg-gray-900 group-hover:bg-red-800 transition-colors"></div>
-              <span className="text-base text-gray-700 hover:text-red-800 transition-colors">{section.linkText}</span>
+              <div className="w-2 h-2 rounded-full bg-gray-900 group-hover:bg-primary-dark transition-colors"></div>
+              <Text variant="body" color="secondary" className="hover:text-primary-dark transition-colors">
+                {section.linkText}
+              </Text>
             </a>
           </div>
-        </div>
+        </Card>
       ))}
-    </>
+    </Grid>
   );
 
   return (

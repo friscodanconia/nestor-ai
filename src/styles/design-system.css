@@ -1,0 +1,98 @@
+/* Design System page specific styles */
+.color-swatch {
+  height: 6rem;
+  border-radius: 0.375rem;
+  display: flex;
+  align-items: flex-end;
+  padding: 0.5rem;
+}
+
+.color-swatch-text-black {
+  color: black;
+}
+
+.color-swatch-text-white {
+  color: white;
+}
+
+.color-swatch-code {
+  font-family: monospace;
+  font-size: 0.75rem;
+}
+
+/* Primary colors */
+.color-swatch-primary {
+  background-color: var(--color-primary);
+}
+
+.color-swatch-primarylight {
+  background-color: var(--color-primary-light);
+}
+
+.color-swatch-primarydark {
+  background-color: var(--color-primary-dark);
+}
+
+/* Secondary colors */
+.color-swatch-secondary {
+  background-color: var(--color-secondary);
+}
+
+.color-swatch-secondarylight {
+  background-color: var(--color-secondary-light);
+}
+
+.color-swatch-secondarydark {
+  background-color: var(--color-secondary-dark);
+}
+
+/* Accent colors */
+.color-swatch-accent {
+  background-color: var(--color-accent);
+}
+
+.color-swatch-accentlight {
+  background-color: var(--color-accent-light);
+}
+
+.color-swatch-accentdark {
+  background-color: var(--color-accent-dark);
+}
+
+/* Neutral colors */
+.color-swatch-background {
+  background-color: var(--color-background);
+}
+
+.color-swatch-surface {
+  background-color: var(--color-surface);
+}
+
+.color-swatch-text {
+  background-color: var(--color-text);
+}
+
+.color-swatch-textlight {
+  background-color: var(--color-text-light);
+}
+
+.color-swatch-border {
+  background-color: var(--color-border);
+}
+
+/* Semantic colors */
+.color-swatch-success {
+  background-color: var(--color-success);
+}
+
+.color-swatch-warning {
+  background-color: var(--color-warning);
+}
+
+.color-swatch-error {
+  background-color: var(--color-error);
+}
+
+.color-swatch-info {
+  background-color: var(--color-info);
+}

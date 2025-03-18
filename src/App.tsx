@@ -1,9 +1,11 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect } from 'react';
 import { Wrench, Users, AppWindow, UserRound, Headphones, Github } from 'lucide-react';
-import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Search from './components/Search';
 import WelcomePanel from './components/WelcomePanel';
 import { Video as VideoIcon } from 'lucide-react';
+import SEO from './components/SEO';
+import { trackPageView } from './utils/analytics';
 
 // Lazy load all pages with loading fallback
 const withLoadingFallback = (Component: React.LazyExoticComponent<() => JSX.Element>) => (
@@ -31,6 +33,7 @@ const Video = React.lazy(() => import('./pages/Video'));
 const Audio = React.lazy(() => import('./pages/Audio'));
 const GithubRepos = React.lazy(() => import('./pages/GithubRepos'));
 const BoltGuide = React.lazy(() => import('./pages/BoltGuide'));
+const DesignSystem = React.lazy(() => import('./pages/DesignSystem'));
 
 // Lazy load Github subcategories
 const LLMRepos = React.lazy(() => import('./pages/github/LLMRepos'));
@@ -94,6 +97,12 @@ function HomePage() {
 
   return (
     <div className="min-h-screen bg-[#FDF6F0]">
+      <SEO 
+        title="Home"
+        description="Your comprehensive guide to AI tools and resources. Explore categories like AI agents, top tools, apps, marketing, video, and audio."
+        keywords="AI tools, artificial intelligence, AI guide, AI resources, AI categories"
+        schemaType="WebPage"
+      />
       {/* Header */}
       <header className="p-4 sm:p-6 flex justify-end">
         <Search />
@@ -181,9 +190,24 @@ function HomePage() {
   );
 }
 
+// Analytics tracker component
+const AnalyticsTracker = () => {
+  const location = useLocation();
+  
+  useEffect(() => {
+    // Track page view when location changes
+    trackPageView(location.pathname);
+  }, [location]);
+  
+  return null;
+};
+
 function App() {
   return (
     <BrowserRouter>
+      {/* Track analytics for all route changes */}
+      <AnalyticsTracker />
+      
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/agents" element={withLoadingFallback(Agents)} />
@@ -194,6 +218,7 @@ function App() {
         <Route path="/audio" element={withLoadingFallback(Audio)} />
         <Route path="/github-repos" element={withLoadingFallback(GithubRepos)} />
         <Route path="/bolt-guide" element={withLoadingFallback(BoltGuide)} />
+        <Route path="/design-system" element={withLoadingFallback(DesignSystem)} />
         
         {/* Github Repos subcategories */}
         <Route path="/github-repos/llm" element={withLoadingFallback(LLMRepos)} />
