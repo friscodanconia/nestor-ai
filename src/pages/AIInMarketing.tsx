@@ -6,6 +6,29 @@ import { aiInMarketingData } from '../data/categories/aiInMarketing';
 import { Text, Card, Grid } from '../components/ui';
 
 export default function AIInMarketing() {
+  // Helper function to format description with "read more here" link
+  const formatDescription = (description: string, readMoreUrl?: string) => {
+    if (!readMoreUrl) return description;
+    
+    const parts = description.split('read more here.');
+    if (parts.length !== 2) return description;
+    
+    return (
+      <>
+        {parts[0]}
+        <a 
+          href={readMoreUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="font-bold text-primary hover:text-primary-dark transition-colors"
+        >
+          read more here
+        </a>
+        {parts[1]}
+      </>
+    );
+  };
+
   // Mobile content with collapsible sections
   const mobileContent = (
     <>
@@ -23,7 +46,7 @@ export default function AIInMarketing() {
         >
           <Card variant="outlined" className="space-y-4">
             <Text variant="body" color="secondary">
-              {topic.description}
+              {formatDescription(topic.description, topic.readMoreUrl)}
               {topic.links && topic.links.map((link, linkIndex) => (
                 <span key={linkIndex}>
                   {linkIndex === 0 ? ' ' : ' '}
@@ -57,7 +80,7 @@ export default function AIInMarketing() {
           </div>
           <div className="p-6 space-y-4">
             <Text variant="body" color="secondary">
-              {topic.description}
+              {formatDescription(topic.description, topic.readMoreUrl)}
               {topic.links && topic.links.map((link, linkIndex) => (
                 <span key={linkIndex}>
                   {linkIndex === 0 ? ' ' : ' '}
