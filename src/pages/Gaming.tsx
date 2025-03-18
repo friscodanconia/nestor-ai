@@ -19,14 +19,15 @@ const Gaming = () => {
       title="Gaming"
       description="Discover AI tools that can enhance your gaming experiences."
       icon={<Gamepad2 className="w-6 h-6" />}
-      color="bg-gradient-to-br from-purple-100 to-violet-200"
+      gradient="bg-gradient-to-br from-purple-100 to-violet-200"
+      backLink="/"
     >
       <div className="space-y-8">
         {gamingData.map((topic, index) => (
           <CollapsibleSection 
             key={index}
             title={topic.title}
-            defaultOpen={index === 0}
+            defaultExpanded={index === 0}
           >
             <div className="space-y-4">
               <div className="prose prose-slate max-w-none">

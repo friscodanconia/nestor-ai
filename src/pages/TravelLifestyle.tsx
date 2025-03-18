@@ -19,14 +19,15 @@ const TravelLifestyle = () => {
       title="Travel & Lifestyle"
       description="Discover AI tools that can enhance your travel experiences and lifestyle."
       icon={<Plane className="w-6 h-6" />}
-      color="bg-gradient-to-br from-sky-100 to-blue-200"
+      gradient="bg-gradient-to-br from-sky-100 to-blue-200"
+      backLink="/"
     >
       <div className="space-y-8">
         {travelLifestyleData.map((topic, index) => (
           <CollapsibleSection 
             key={index}
             title={topic.title}
-            defaultOpen={index === 0}
+            defaultExpanded={index === 0}
           >
             <div className="space-y-4">
               <div className="prose prose-slate max-w-none">
