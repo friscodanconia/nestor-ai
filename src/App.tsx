@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect } from 'react';
-import { Wrench, Users, AppWindow, UserRound, Headphones, Github, Pencil, Image, Clock, GraduationCap, DollarSign, Heart, ShoppingCart, Plane, Gamepad2, Palette, Code } from 'lucide-react';
+import { Wrench, Users, AppWindow, UserRound, Headphones, Github, Pencil, Image, Clock, GraduationCap, DollarSign, Heart, ShoppingCart, Plane, Gamepad2, Palette, Code, HelpCircle, FileText } from 'lucide-react';
 import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Search from './components/Search';
 import WelcomePanel from './components/WelcomePanel';
@@ -45,6 +45,8 @@ const TravelLifestyle = React.lazy(() => import('./pages/TravelLifestyle'));
 const Gaming = React.lazy(() => import('./pages/Gaming'));
 const GenerativeArt = React.lazy(() => import('./pages/GenerativeArt'));
 const MCP = React.lazy(() => import('./pages/MCP'));
+const FAQ = React.lazy(() => import('./pages/FAQ'));
+const Blog = React.lazy(() => import('./pages/Blog'));
 
 // Lazy load Github subcategories
 const LLMRepos = React.lazy(() => import('./pages/github/LLMRepos'));
@@ -360,6 +362,30 @@ function HomePage() {
               />
             </div>
           </div>
+          
+          {/* NEW LAYOUT: FAQ (50%) and Blog (50%) in a single row */}
+          <div className="md:col-span-3 flex flex-row gap-3 md:gap-5">
+            <div className="w-[50%]">
+              <CategoryCard
+                title="FAQs"
+                description="Frequently asked questions about AI tools"
+                icon={<HelpCircle className="w-6 h-6 sm:w-8 sm:h-8" />}
+                className="bg-gradient-to-br from-amber-200 to-yellow-200 h-full"
+                onClick={() => navigate('/faq')}
+                onMouseEnter={() => prefetchPage('/faq')}
+              />
+            </div>
+            <div className="w-[50%]">
+              <CategoryCard
+                title="Blog"
+                description="Latest insights and tutorials on AI technology"
+                icon={<FileText className="w-6 h-6 sm:w-8 sm:h-8" />}
+                className="bg-gradient-to-br from-lime-200 to-green-200 h-full"
+                onClick={() => navigate('/blog')}
+                onMouseEnter={() => prefetchPage('/blog')}
+              />
+            </div>
+          </div>
         </div>
       </main>
     </div>
@@ -381,49 +407,49 @@ const AnalyticsTracker = () => {
 function App() {
   return (
     <BrowserRouter>
-      {/* Track analytics for all route changes */}
-      <AnalyticsTracker />
-      
-      <Routes>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/agents" element={withLoadingFallback(Agents)} />
-        <Route path="/top-tools" element={withLoadingFallback(TopToolsPage)} />
-        <Route path="/apps" element={withLoadingFallback(Apps)} />
-        <Route path="/ai-in-marketing" element={withLoadingFallback(AIInMarketing)} />
-        <Route path="/video" element={withLoadingFallback(Video)} />
-        <Route path="/audio" element={withLoadingFallback(Audio)} />
-        <Route path="/github-repos" element={withLoadingFallback(GithubRepos)} />
-        <Route path="/bolt-guide" element={withLoadingFallback(BoltGuide)} />
-        <Route path="/design-system" element={withLoadingFallback(DesignSystem)} />
-        <Route path="/content-creation" element={withLoadingFallback(ContentCreation)} />
-        <Route path="/image-design" element={withLoadingFallback(ImageDesign)} />
-        <Route path="/personal-productivity" element={withLoadingFallback(PersonalProductivity)} />
-        <Route path="/education" element={withLoadingFallback(Education)} />
-        <Route path="/personal-finance" element={withLoadingFallback(PersonalFinance)} />
-        <Route path="/health-wellness" element={withLoadingFallback(HealthWellness)} />
-        <Route path="/ecommerce" element={withLoadingFallback(Ecommerce)} />
-        <Route path="/travel-lifestyle" element={withLoadingFallback(TravelLifestyle)} />
-        <Route path="/gaming" element={withLoadingFallback(Gaming)} />
-        <Route path="/generative-art" element={withLoadingFallback(GenerativeArt)} />
-        <Route path="/mcp" element={withLoadingFallback(MCP)} />
-        
-        {/* Github Repos subcategories */}
-        <Route path="/github-repos/llm" element={withLoadingFallback(LLMRepos)} />
-        <Route path="/github-repos/agents" element={withLoadingFallback(AgentsRepos)} />
-        <Route path="/github-repos/tools" element={withLoadingFallback(ToolsRepos)} />
-        <Route path="/github-repos/applications" element={withLoadingFallback(ApplicationsRepos)} />
-        
-        {/* Tools subcategories */}
-        <Route path="/top-tools/automation" element={withLoadingFallback(TopTools)} />
-        <Route path="/top-tools/website-builders" element={withLoadingFallback(WebsiteBuilders)} />
-        <Route path="/top-tools/integrations" element={withLoadingFallback(IntegrationPlatforms)} />
-        <Route path="/top-tools/visual-development" element={withLoadingFallback(VisualDevelopment)} />
-        <Route path="/top-tools/website-app-builders" element={withLoadingFallback(WebsiteAppBuilders)} />
-        <Route path="/top-tools/ai-builders" element={withLoadingFallback(AIBuilders)} />
-        <Route path="/top-tools/workflow-automation" element={withLoadingFallback(WorkflowAutomation)} />
-        <Route path="/top-tools/chatbot-interfaces" element={withLoadingFallback(ChatbotInterfaces)} />
-        <Route path="/top-tools/voice-technology" element={withLoadingFallback(VoiceTechnology)} />
-      </Routes>
+      <Suspense fallback={<PageLoader />}>
+        <AnalyticsTracker />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/agents" element={<Agents />} />
+          <Route path="/top-tools" element={<TopToolsPage />} />
+          <Route path="/apps" element={<Apps />} />
+          <Route path="/ai-in-marketing" element={<AIInMarketing />} />
+          <Route path="/video" element={<Video />} />
+          <Route path="/audio" element={<Audio />} />
+          <Route path="/github-repos" element={<GithubRepos />} />
+          <Route path="/bolt-guide" element={<BoltGuide />} />
+          <Route path="/design-system" element={<DesignSystem />} />
+          <Route path="/content-creation" element={<ContentCreation />} />
+          <Route path="/image-design" element={<ImageDesign />} />
+          <Route path="/personal-productivity" element={<PersonalProductivity />} />
+          <Route path="/education" element={<Education />} />
+          <Route path="/personal-finance" element={<PersonalFinance />} />
+          <Route path="/health-wellness" element={<HealthWellness />} />
+          <Route path="/ecommerce" element={<Ecommerce />} />
+          <Route path="/travel-lifestyle" element={<TravelLifestyle />} />
+          <Route path="/gaming" element={<Gaming />} />
+          <Route path="/generative-art" element={<GenerativeArt />} />
+          <Route path="/mcp" element={<MCP />} />
+          <Route path="/faq" element={<FAQ />} />
+          <Route path="/blog" element={<Blog />} />
+          {/* Github Repos subcategories */}
+          <Route path="/github-repos/llm" element={<LLMRepos />} />
+          <Route path="/github-repos/agents" element={<AgentsRepos />} />
+          <Route path="/github-repos/tools" element={<ToolsRepos />} />
+          <Route path="/github-repos/applications" element={<ApplicationsRepos />} />
+          {/* Tools subcategories */}
+          <Route path="/top-tools/automation" element={<TopTools />} />
+          <Route path="/top-tools/website-builders" element={<WebsiteBuilders />} />
+          <Route path="/top-tools/integrations" element={<IntegrationPlatforms />} />
+          <Route path="/top-tools/visual-development" element={<VisualDevelopment />} />
+          <Route path="/top-tools/website-app-builders" element={<WebsiteAppBuilders />} />
+          <Route path="/top-tools/ai-builders" element={<AIBuilders />} />
+          <Route path="/top-tools/workflow-automation" element={<WorkflowAutomation />} />
+          <Route path="/top-tools/chatbot-interfaces" element={<ChatbotInterfaces />} />
+          <Route path="/top-tools/voice-technology" element={<VoiceTechnology />} />
+        </Routes>
+      </Suspense>
     </BrowserRouter>
   );
 }
