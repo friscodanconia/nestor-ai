@@ -15,6 +15,11 @@ export const aiInMarketingData = {
   
   topics: [
     {
+      title: "Traffic Analysis",
+      description: "LLM traffic is a tale of two cities. LLM traffic has jumped 800%, but LLM's encounter zero click phenomenon where many users read answers in chatbot interface. As a marketer, you have to do both. First understand, how much traffic is coming from LLMs (top three drive 80%) and second, how do you rank for your top queries? For a detailed strategy, read more here.",
+      readMoreUrl: "https://nestor.guide/blog/ai-traffic-analysis"
+    },
+    {
       title: "Business Ranking",
       description: "LLMs use a combination of training data & mentions, semantic relevance, traditional SEO signals, frequency and confidence, and user intent + context as foundational mechanisms to rank brands in query results. Brands can improve their ranking by using question based formats (FAQs, detailed blogs), topic clusters, proprietary data, and schema markups to stay relevant. In cases where LLMs don't use RAG, brands should check content ranking for both cutoff dates and real-time indexes. For a detailed strategy, read more here.",
       readMoreUrl: "https://nestor.guide/blog/ai-business-ranking"
