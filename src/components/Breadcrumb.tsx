@@ -14,7 +14,9 @@ const pathNames: Record<string, string> = {
   'ai-in-marketing': 'AI in Marketing',
   'video': 'Video',
   'audio': 'Audio',
-  'github-repos': 'GitHub Repos'
+  'github-repos': 'GitHub Repos',
+  'gaming': 'Gaming',
+  'travel-lifestyle': 'Travel & Lifestyle'
 };
 
 const Breadcrumb: React.FC<BreadcrumbProps> = ({ className = '' }) => {
