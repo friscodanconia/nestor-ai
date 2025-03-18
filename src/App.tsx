@@ -1,8 +1,9 @@
 import React, { Suspense } from 'react';
-import { Wrench, Users, AppWindow, UserRound, Video, Headphones, Github } from 'lucide-react';
+import { Wrench, Users, AppWindow, UserRound, Headphones, Github } from 'lucide-react';
 import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import Search from './components/Search';
 import WelcomePanel from './components/WelcomePanel';
+import { Video as VideoIcon } from 'lucide-react';
 
 // Lazy load all pages with loading fallback
 const withLoadingFallback = (Component: React.LazyExoticComponent<() => JSX.Element>) => (
@@ -22,12 +23,12 @@ const PageLoader = () => (
 );
 
 // Lazy load pages with prefetch
-const LifeAdvice = React.lazy(() => import('./pages/LifeAdvice'));
-const QuickAnswers = React.lazy(() => import('./pages/QuickAnswers'));
-const Storytelling = React.lazy(() => import('./pages/Storytelling'));
-const DeeperQuestions = React.lazy(() => import('./pages/DeeperQuestions'));
-const Spirituality = React.lazy(() => import('./pages/Spirituality'));
-const EmotionalReflection = React.lazy(() => import('./pages/EmotionalReflection'));
+const Agents = React.lazy(() => import('./pages/Agents'));
+const TopToolsPage = React.lazy(() => import('./pages/TopTools'));
+const Apps = React.lazy(() => import('./pages/Apps'));
+const AIInMarketing = React.lazy(() => import('./pages/AIInMarketing'));
+const Video = React.lazy(() => import('./pages/Video'));
+const Audio = React.lazy(() => import('./pages/Audio'));
 const GithubRepos = React.lazy(() => import('./pages/GithubRepos'));
 const BoltGuide = React.lazy(() => import('./pages/BoltGuide'));
 
@@ -77,12 +78,12 @@ function HomePage() {
   // Prefetch main pages on hover
   const prefetchPage = (path: string) => {
     const importMap: Record<string, () => Promise<any>> = {
-      '/life-advice': () => import('./pages/LifeAdvice'),
-      '/quick-answers': () => import('./pages/QuickAnswers'),
-      '/storytelling': () => import('./pages/Storytelling'),
-      '/deeper-questions': () => import('./pages/DeeperQuestions'),
-      '/spirituality': () => import('./pages/Spirituality'),
-      '/emotional-reflection': () => import('./pages/EmotionalReflection'),
+      '/agents': () => import('./pages/Agents'),
+      '/top-tools': () => import('./pages/TopTools'),
+      '/apps': () => import('./pages/Apps'),
+      '/ai-in-marketing': () => import('./pages/AIInMarketing'),
+      '/video': () => import('./pages/Video'),
+      '/audio': () => import('./pages/Audio'),
       '/github-repos': () => import('./pages/GithubRepos'),
     };
 
@@ -111,8 +112,8 @@ function HomePage() {
             description="Best no-code tools"
             icon={<Wrench className="w-6 h-6 sm:w-8 sm:h-8" />}
             className="bg-gradient-to-br from-blue-200 to-purple-200"
-            onClick={() => navigate('/quick-answers')}
-            onMouseEnter={() => prefetchPage('/quick-answers')}
+            onClick={() => navigate('/top-tools')}
+            onMouseEnter={() => prefetchPage('/top-tools')}
           />
 
           {/* Two Column Layout */}
@@ -122,16 +123,16 @@ function HomePage() {
               description="Agents in action"
               icon={<Users className="w-6 h-6 sm:w-8 sm:h-8" />}
               className="bg-gradient-to-br from-green-200 to-emerald-200"
-              onClick={() => navigate('/life-advice')}
-              onMouseEnter={() => prefetchPage('/life-advice')}
+              onClick={() => navigate('/agents')}
+              onMouseEnter={() => prefetchPage('/agents')}
             />
             <CategoryCard
               title="Apps"
               description="Must try apps"
               icon={<AppWindow className="w-6 h-6 sm:w-8 sm:h-8" />}
               className="bg-gradient-to-br from-pink-200 to-rose-200"
-              onClick={() => navigate('/storytelling')}
-              onMouseEnter={() => prefetchPage('/storytelling')}
+              onClick={() => navigate('/apps')}
+              onMouseEnter={() => prefetchPage('/apps')}
             />
           </div>
 
@@ -141,8 +142,8 @@ function HomePage() {
             description="How can marketers use AI"
             icon={<UserRound className="w-6 h-6 sm:w-8 sm:h-8" />}
             className="bg-gradient-to-r from-pink-200 via-rose-200 to-orange-200"
-            onClick={() => navigate('/deeper-questions')}
-            onMouseEnter={() => prefetchPage('/deeper-questions')}
+            onClick={() => navigate('/ai-in-marketing')}
+            onMouseEnter={() => prefetchPage('/ai-in-marketing')}
           />
 
           {/* Two Column Layout */}
@@ -150,18 +151,18 @@ function HomePage() {
             <CategoryCard
               title="Video"
               description="Explore video tools"
-              icon={<Video className="w-6 h-6 sm:w-8 sm:h-8" />}
+              icon={<VideoIcon className="w-6 h-6 sm:w-8 sm:h-8" />}
               className="bg-gradient-to-br from-orange-200 to-red-200"
-              onClick={() => navigate('/spirituality')}
-              onMouseEnter={() => prefetchPage('/spirituality')}
+              onClick={() => navigate('/video')}
+              onMouseEnter={() => prefetchPage('/video')}
             />
             <CategoryCard
               title="Audio"
               description="Try Audio tools"
               icon={<Headphones className="w-6 h-6 sm:w-8 sm:h-8" />}
               className="bg-gradient-to-br from-teal-200 to-cyan-200"
-              onClick={() => navigate('/emotional-reflection')}
-              onMouseEnter={() => prefetchPage('/emotional-reflection')}
+              onClick={() => navigate('/audio')}
+              onMouseEnter={() => prefetchPage('/audio')}
             />
           </div>
 
@@ -185,12 +186,12 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="/life-advice" element={withLoadingFallback(LifeAdvice)} />
-        <Route path="/quick-answers" element={withLoadingFallback(QuickAnswers)} />
-        <Route path="/storytelling" element={withLoadingFallback(Storytelling)} />
-        <Route path="/deeper-questions" element={withLoadingFallback(DeeperQuestions)} />
-        <Route path="/spirituality" element={withLoadingFallback(Spirituality)} />
-        <Route path="/emotional-reflection" element={withLoadingFallback(EmotionalReflection)} />
+        <Route path="/agents" element={withLoadingFallback(Agents)} />
+        <Route path="/top-tools" element={withLoadingFallback(TopToolsPage)} />
+        <Route path="/apps" element={withLoadingFallback(Apps)} />
+        <Route path="/ai-in-marketing" element={withLoadingFallback(AIInMarketing)} />
+        <Route path="/video" element={withLoadingFallback(Video)} />
+        <Route path="/audio" element={withLoadingFallback(Audio)} />
         <Route path="/github-repos" element={withLoadingFallback(GithubRepos)} />
         <Route path="/bolt-guide" element={withLoadingFallback(BoltGuide)} />
         
@@ -201,15 +202,15 @@ function App() {
         <Route path="/github-repos/applications" element={withLoadingFallback(ApplicationsRepos)} />
         
         {/* Tools subcategories */}
-        <Route path="/quick-answers/automation" element={withLoadingFallback(TopTools)} />
-        <Route path="/quick-answers/website-builders" element={withLoadingFallback(WebsiteBuilders)} />
-        <Route path="/quick-answers/integrations" element={withLoadingFallback(IntegrationPlatforms)} />
-        <Route path="/quick-answers/visual-development" element={withLoadingFallback(VisualDevelopment)} />
-        <Route path="/quick-answers/website-app-builders" element={withLoadingFallback(WebsiteAppBuilders)} />
-        <Route path="/quick-answers/ai-builders" element={withLoadingFallback(AIBuilders)} />
-        <Route path="/quick-answers/workflow-automation" element={withLoadingFallback(WorkflowAutomation)} />
-        <Route path="/quick-answers/chatbot-interfaces" element={withLoadingFallback(ChatbotInterfaces)} />
-        <Route path="/quick-answers/voice-technology" element={withLoadingFallback(VoiceTechnology)} />
+        <Route path="/top-tools/automation" element={withLoadingFallback(TopTools)} />
+        <Route path="/top-tools/website-builders" element={withLoadingFallback(WebsiteBuilders)} />
+        <Route path="/top-tools/integrations" element={withLoadingFallback(IntegrationPlatforms)} />
+        <Route path="/top-tools/visual-development" element={withLoadingFallback(VisualDevelopment)} />
+        <Route path="/top-tools/website-app-builders" element={withLoadingFallback(WebsiteAppBuilders)} />
+        <Route path="/top-tools/ai-builders" element={withLoadingFallback(AIBuilders)} />
+        <Route path="/top-tools/workflow-automation" element={withLoadingFallback(WorkflowAutomation)} />
+        <Route path="/top-tools/chatbot-interfaces" element={withLoadingFallback(ChatbotInterfaces)} />
+        <Route path="/top-tools/voice-technology" element={withLoadingFallback(VoiceTechnology)} />
       </Routes>
     </BrowserRouter>
   );
