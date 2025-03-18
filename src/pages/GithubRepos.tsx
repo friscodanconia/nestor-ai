@@ -1,28 +1,19 @@
-import { useNavigate } from 'react-router-dom';
-import { Github, ArrowLeft } from 'lucide-react';
+import React from 'react';
+import { Github } from 'lucide-react';
+import CategoryLayout from '../components/CategoryLayout';
+import SEO from '../components/SEO';
 
-export default function GithubRepos() {
-  const navigate = useNavigate();
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-violet-200 to-purple-200">
-      <header className="p-6 flex justify-between items-center">
-        <button 
-          onClick={() => navigate('/')}
-          className="p-2 rounded-full bg-white/20 backdrop-blur-sm text-gray-900 hover:bg-white/30 transition-colors"
-        >
-          <ArrowLeft className="w-5 h-5" />
-        </button>
-        <div className="flex items-center gap-3">
-          <div className="bg-white/20 backdrop-blur-sm rounded-full w-10 h-10 flex items-center justify-center">
-            <Github className="w-5 h-5" />
-          </div>
-          <h1 className="text-xl font-semibold text-gray-900">Github Repos</h1>
-        </div>
-        <div className="w-9" />
-      </header>
-
-      <main className="max-w-2xl mx-auto px-4 py-6">
+const GithubRepos = () => {
+  // Mobile content
+  const mobileContent = (
+    <>
+      <SEO 
+        title="GitHub Repos"
+        description="Explore our curated collection of innovative AI and machine learning repositories."
+        keywords="GitHub repositories, AI repos, machine learning code, open source AI, developer resources"
+      />
+      
+      <div className="space-y-6">
         <h2 className="text-2xl font-semibold mb-4 text-gray-900">Cool Git Repos</h2>
         <p className="text-gray-800 text-lg mb-8 leading-relaxed">
           Explore our curated collection of innovative AI and machine learning repositories that are pushing the boundaries of what's possible.
@@ -30,42 +21,74 @@ export default function GithubRepos() {
         <ul className="space-y-3 text-gray-800">
           <li>
             <a 
-              href="/github-repos/llm"
-              className="flex items-center gap-2 hover:text-purple-800 transition-colors group"
+              href="https://github.com/openai/openai-cookbook" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-start p-4 rounded-lg bg-white/50 hover:bg-white/70 transition-colors"
             >
-              <div className="w-2 h-2 rounded-full bg-gray-900 group-hover:bg-purple-800 transition-colors"></div>
-              Large Language Models
+              <div>
+                <h3 className="font-medium text-gray-900">OpenAI Cookbook</h3>
+                <p className="mt-1 text-sm">Examples and guides for using the OpenAI API</p>
+              </div>
             </a>
           </li>
           <li>
             <a 
-              href="/github-repos/agents"
-              className="flex items-center gap-2 hover:text-purple-800 transition-colors group"
+              href="https://github.com/AUTOMATIC1111/stable-diffusion-webui" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-start p-4 rounded-lg bg-white/50 hover:bg-white/70 transition-colors"
             >
-              <div className="w-2 h-2 rounded-full bg-gray-900 group-hover:bg-purple-800 transition-colors"></div>
-              AI Agents and Automation
+              <div>
+                <h3 className="font-medium text-gray-900">Stable Diffusion WebUI</h3>
+                <p className="mt-1 text-sm">Browser interface for Stable Diffusion</p>
+              </div>
             </a>
           </li>
           <li>
             <a 
-              href="/github-repos/tools"
-              className="flex items-center gap-2 hover:text-purple-800 transition-colors group"
+              href="https://github.com/huggingface/transformers" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-start p-4 rounded-lg bg-white/50 hover:bg-white/70 transition-colors"
             >
-              <div className="w-2 h-2 rounded-full bg-gray-900 group-hover:bg-purple-800 transition-colors"></div>
-              Development Tools and Utilities
+              <div>
+                <h3 className="font-medium text-gray-900">Hugging Face Transformers</h3>
+                <p className="mt-1 text-sm">State-of-the-art Natural Language Processing for PyTorch and TensorFlow</p>
+              </div>
             </a>
           </li>
           <li>
             <a 
-              href="/github-repos/applications"
-              className="flex items-center gap-2 hover:text-purple-800 transition-colors group"
+              href="https://github.com/ggerganov/llama.cpp" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-start p-4 rounded-lg bg-white/50 hover:bg-white/70 transition-colors"
             >
-              <div className="w-2 h-2 rounded-full bg-gray-900 group-hover:bg-purple-800 transition-colors"></div>
-              AI-Powered Applications
+              <div>
+                <h3 className="font-medium text-gray-900">llama.cpp</h3>
+                <p className="mt-1 text-sm">Port of Facebook's LLaMA model in C/C++</p>
+              </div>
             </a>
           </li>
         </ul>
-      </main>
-    </div>
+      </div>
+    </>
   );
-}
+
+  // Desktop content (same as mobile for now)
+  const desktopContent = mobileContent;
+
+  return (
+    <CategoryLayout
+      title="GitHub Repos"
+      icon={<Github className="w-6 h-6" />}
+      gradientClasses="bg-gradient-to-br from-violet-200 to-purple-200"
+      description="Explore our curated collection of innovative AI and machine learning repositories."
+      mobileContent={mobileContent}
+      desktopContent={desktopContent}
+    />
+  );
+};
+
+export default GithubRepos;
