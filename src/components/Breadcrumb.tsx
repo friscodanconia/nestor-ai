@@ -4,6 +4,8 @@ import { ChevronRight, Home } from 'lucide-react';
 
 interface BreadcrumbProps {
   className?: string;
+  parentPath?: string;
+  currentPage?: string;
 }
 
 // Map route paths to readable names
@@ -27,11 +29,61 @@ const pathNames: Record<string, string> = {
   'ecommerce': 'E-commerce'
 };
 
-const Breadcrumb: React.FC<BreadcrumbProps> = ({ className = '' }) => {
+const Breadcrumb: React.FC<BreadcrumbProps> = ({ 
+  className = '',
+  parentPath,
+  currentPage
+}) => {
   const location = useLocation();
-  const pathSegments = location.pathname.split('/').filter(segment => segment);
-
-  // Don't show breadcrumbs on the home page
+  
+  // If parentPath and currentPage are provided, use them directly
+  if (parentPath !== undefined && currentPage) {
+    const parentName = parentPath === '/' 
+      ? 'Home' 
+      : pathNames[parentPath.replace('/', '')] || parentPath.replace('/', '').replace(/-/g, ' ');
+    
+    return (
+      <nav aria-label="Breadcrumb" className={className}>
+        <ol className="flex items-center space-x-1 text-sm">
+          <li>
+            <Link 
+              to="/" 
+              className="text-gray-600 hover:text-gray-900 flex items-center"
+              aria-label="Home"
+            >
+              <Home size={14} />
+            </Link>
+          </li>
+          {parentPath !== '/' && (
+            <>
+              <li className="flex items-center">
+                <ChevronRight size={14} className="text-gray-400" />
+              </li>
+              <li>
+                <Link 
+                  to={parentPath} 
+                  className="text-gray-600 hover:text-gray-900"
+                >
+                  {parentName}
+                </Link>
+              </li>
+            </>
+          )}
+          <li className="flex items-center">
+            <ChevronRight size={14} className="text-gray-400" />
+          </li>
+          <li>
+            <span className="text-gray-900 font-medium">{currentPage}</span>
+          </li>
+        </ol>
+      </nav>
+    );
+  }
+  
+  // Original implementation for backward compatibility
+  const pathSegments = location.pathname.split('/').filter(segment => segment !== '');
+  
+  // If no path segments, just show Home
   if (pathSegments.length === 0) {
     return null;
   }
@@ -64,18 +116,22 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ className = '' }) => {
   };
 
   return (
-    <nav aria-label="Breadcrumb" className={`text-sm ${className}`}>
-      <ol className="flex items-center space-x-1">
+    <nav aria-label="Breadcrumb" className={className}>
+      <ol className="flex items-center space-x-1 text-sm">
         <li>
-          <Link to="/" className="text-gray-500 hover:text-gray-700 flex items-center">
-            <Home size={16} />
-            <span className="sr-only">Home</span>
+          <Link 
+            to="/" 
+            className="text-gray-600 hover:text-gray-900 flex items-center"
+            aria-label="Home"
+          >
+            <Home size={14} />
           </Link>
         </li>
         
         {pathSegments.map((segment, index) => {
           const path = `/${pathSegments.slice(0, index + 1).join('/')}`;
           const isLast = index === pathSegments.length - 1;
+          const name = pathNames[segment] || segment.replace(/-/g, ' ');
           
           return (
             <React.Fragment key={path}>
@@ -84,15 +140,13 @@ const Breadcrumb: React.FC<BreadcrumbProps> = ({ className = '' }) => {
               </li>
               <li>
                 {isLast ? (
-                  <span className="font-medium text-gray-900" aria-current="page">
-                    {pathNames[segment] || segment}
-                  </span>
+                  <span className="text-gray-900 font-medium">{name}</span>
                 ) : (
                   <Link 
                     to={path} 
-                    className="text-gray-500 hover:text-gray-700"
+                    className="text-gray-600 hover:text-gray-900"
                   >
-                    {pathNames[segment] || segment}
+                    {name}
                   </Link>
                 )}
               </li>
