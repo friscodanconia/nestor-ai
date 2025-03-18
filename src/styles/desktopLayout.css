@@ -1,0 +1,53 @@
+/* Desktop Layout Improvements */
+
+/* Only apply these styles on desktop screens */
+@media (min-width: 1024px) {
+  /* Increase the max-width for desktop to use more screen real estate */
+  .desktop-container {
+    max-width: 90% !important;
+    width: 1400px !important;
+  }
+  
+  /* Create a 3-column grid for desktop */
+  .desktop-grid {
+    display: grid !important;
+    grid-template-columns: repeat(3, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+  
+  /* Make the full-width cards span all columns */
+  .desktop-full-width {
+    grid-column: 1 / -1 !important;
+  }
+  
+  /* Make two-column cards more balanced on desktop */
+  .desktop-two-column {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 1.5rem !important;
+  }
+  
+  /* Add hover effects for desktop */
+  .desktop-card-hover {
+    transition: transform 0.2s, box-shadow 0.2s !important;
+  }
+  
+  .desktop-card-hover:hover {
+    transform: translateY(-5px) !important;
+    box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
+  }
+  
+  /* Featured card styling */
+  .desktop-featured-card {
+    padding: 2rem !important;
+    border-radius: 1rem !important;
+  }
+  
+  .desktop-featured-card h2 {
+    font-size: 1.75rem !important;
+    margin-bottom: 1rem !important;
+  }
+  
+  .desktop-featured-card p {
+    font-size: 1.125rem !important;
+  }
+}

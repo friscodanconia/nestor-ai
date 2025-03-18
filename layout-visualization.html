@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nestor AI Layout Visualization</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        .layout-container {
+            border: 1px solid #ccc;
+            margin-bottom: 2rem;
+            padding: 1rem;
+        }
+        .card {
+            padding: 1rem;
+            border-radius: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .featured {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-gray-100 p-4">
+    <div class="max-w-7xl mx-auto">
+        <h1 class="text-3xl font-bold mb-6 text-center">Nestor AI Layout Visualization</h1>
+        
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Original Layout -->
+            <div class="layout-container bg-white rounded-lg shadow">
+                <h2 class="text-xl font-semibold mb-4">Original Layout</h2>
+                <div class="card bg-blue-100 featured">Welcome Panel</div>
+                <div class="card bg-purple-100 featured">Top Tools</div>
+                <div class="card bg-green-100">Agents</div>
+                <div class="card bg-green-100">Apps</div>
+                <div class="card bg-green-100">Image & Design</div>
+                <div class="card bg-green-100">Productivity</div>
+                <div class="card bg-green-100">Education</div>
+                <div class="card bg-green-100">Personal Finance</div>
+                <div class="card bg-yellow-100 featured">Content Creation</div>
+                <div class="card bg-green-100">Health & Wellness</div>
+                <div class="card bg-green-100">E-commerce</div>
+                <div class="card bg-green-100">Video</div>
+                <div class="card bg-green-100">Audio</div>
+                <div class="card bg-green-100">Travel & Lifestyle</div>
+                <div class="card bg-green-100">Gaming</div>
+                <div class="card bg-pink-100 featured">AI in Marketing</div>
+                <div class="card bg-purple-100 featured">Generative Art</div>
+                <div class="card bg-blue-200 featured">Github Repos</div>
+            </div>
+            
+            <!-- First Implementation -->
+            <div class="layout-container bg-white rounded-lg shadow">
+                <h2 class="text-xl font-semibold mb-4">First Implementation (3-column)</h2>
+                <div class="card bg-blue-100 featured">Welcome Panel</div>
+                <div class="card bg-purple-100 featured col-span-3">Top Tools</div>
+                <div class="grid grid-cols-3 gap-2">
+                    <div class="card bg-green-100">Agents</div>
+                    <div class="card bg-green-100">Apps</div>
+                    <div class="card bg-green-100">Image & Design</div>
+                    <div class="card bg-green-100">Productivity</div>
+                    <div class="card bg-green-100">Education</div>
+                    <div class="card bg-green-100">Personal Finance</div>
+                </div>
+                <div class="card bg-yellow-100 featured col-span-3">Content Creation</div>
+                <div class="grid grid-cols-3 gap-2">
+                    <div class="card bg-green-100">Health & Wellness</div>
+                    <div class="card bg-green-100">E-commerce</div>
+                    <div class="card bg-green-100">Video</div>
+                    <div class="card bg-green-100">Audio</div>
+                    <div class="card bg-green-100">Travel & Lifestyle</div>
+                    <div class="card bg-green-100">Gaming</div>
+                </div>
+                <div class="card bg-pink-100 featured col-span-3">AI in Marketing</div>
+                <div class="card bg-purple-100 featured col-span-3">Generative Art</div>
+                <div class="card bg-blue-200 featured col-span-3">Github Repos</div>
+            </div>
+            
+            <!-- New Enhanced Layout -->
+            <div class="layout-container bg-white rounded-lg shadow">
+                <h2 class="text-xl font-semibold mb-4">New Enhanced Layout</h2>
+                <div class="card bg-blue-100 featured">Welcome Panel</div>
+                
+                <!-- Top Tools (2/3) and AI in Marketing (1/3) -->
+                <div class="grid grid-cols-3 gap-2">
+                    <div class="card bg-purple-100 featured col-span-2">Top Tools (2/3)</div>
+                    <div class="card bg-pink-100 featured">AI in Marketing (1/3)</div>
+                </div>
+                
+                <!-- Regular cards in 3-column grid -->
+                <div class="grid grid-cols-3 gap-2">
+                    <div class="card bg-green-100">Agents</div>
+                    <div class="card bg-green-100">Apps</div>
+                    <div class="card bg-green-100">Image & Design</div>
+                    <div class="card bg-green-100">Productivity</div>
+                    <div class="card bg-green-100">Education</div>
+                    <div class="card bg-green-100">Personal Finance</div>
+                </div>
+                
+                <!-- Content Creation (1/3) and Generative Art (2/3) -->
+                <div class="grid grid-cols-3 gap-2">
+                    <div class="card bg-yellow-100 featured">Content Creation (1/3)</div>
+                    <div class="card bg-purple-100 featured col-span-2">Generative Art (2/3)</div>
+                </div>
+                
+                <!-- Regular cards in 3-column grid -->
+                <div class="grid grid-cols-3 gap-2">
+                    <div class="card bg-green-100">Health & Wellness</div>
+                    <div class="card bg-green-100">E-commerce</div>
+                    <div class="card bg-green-100">Video</div>
+                    <div class="card bg-green-100">Audio</div>
+                    <div class="card bg-green-100">Travel & Lifestyle</div>
+                    <div class="card bg-green-100">Gaming</div>
+                </div>
+                
+                <!-- Github Repos (1/3) and Another Card (2/3) -->
+                <div class="grid grid-cols-3 gap-2">
+                    <div class="card bg-blue-300 featured">Github Repos (1/3)</div>
+                    <div class="card bg-green-100 col-span-2">Another Card (2/3)</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="mt-8 bg-white p-6 rounded-lg shadow">
+            <h2 class="text-2xl font-bold mb-4">Key Improvements</h2>
+            <ul class="list-disc pl-6 space-y-2">
+                <li>Increased container width from max-w-2xl to max-w-6xl</li>
+                <li>Implemented 3-column grid layout for desktop</li>
+                <li>Featured cards have varying widths (1/3 and 2/3) for better visual balance</li>
+                <li>Paired complementary cards for better visual organization</li>
+                <li>Increased padding and spacing in all cards</li>
+                <li>Changed Github Repos background to a darker blue for better visibility</li>
+                <li>Mobile layout remains unchanged</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
