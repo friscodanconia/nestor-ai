@@ -1,9 +1,10 @@
 import React from 'react';
 import { Pencil } from 'lucide-react';
-import SubPageLayout from '../components/SubPageLayout';
+import CategoryLayout from '../components/CategoryLayout';
 import Text from '../components/ui/Text';
 import { contentCreationData, ContentCreationTopic } from '../data/categories/contentCreation';
 import CollapsibleSection from '../components/CollapsibleSection';
+import SEO from '../components/SEO';
 
 const formatDescription = (description: string) => {
   return description.split('\n\n').map((paragraph, index) => (
@@ -14,19 +15,21 @@ const formatDescription = (description: string) => {
 };
 
 const ContentCreation = () => {
-  return (
-    <SubPageLayout
-      title="Content Creation"
-      description="Discover AI tools that can help you create engaging and high-quality content for various platforms."
-      icon={<Pencil className="w-6 h-6" />}
-      color="bg-gradient-to-br from-pink-100 to-rose-200"
-    >
+  // Mobile content with collapsible sections
+  const mobileContent = (
+    <>
+      <SEO 
+        title="Content Creation"
+        description="Discover AI tools that can help you create engaging and high-quality content for various platforms."
+        keywords="AI content creation, content writing, blog posts, social media content, copywriting"
+      />
+      
       <div className="space-y-8">
         {contentCreationData.map((topic, index) => (
           <CollapsibleSection 
             key={index}
             title={topic.title}
-            defaultOpen={index === 0}
+            defaultExpanded={index === 0}
           >
             <div className="space-y-4">
               <div className="prose prose-slate max-w-none">
@@ -61,12 +64,9 @@ const ContentCreation = () => {
                     href={topic.readMoreUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800"
+                    className="text-sm font-medium text-primary hover:text-primary-dark transition-colors"
                   >
-                    Read more
-                    <svg className="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                      <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd"></path>
-                    </svg>
+                    Read more →
                   </a>
                 </div>
               )}
@@ -74,7 +74,22 @@ const ContentCreation = () => {
           </CollapsibleSection>
         ))}
       </div>
-    </SubPageLayout>
+    </>
+  );
+
+  // Desktop content (same as mobile for now)
+  const desktopContent = mobileContent;
+
+  return (
+    <CategoryLayout
+      title="Content Creation"
+      icon={<Pencil className="w-6 h-6" />}
+      gradientClasses="bg-gradient-to-br from-pink-100 to-rose-200"
+      description="Discover AI tools that can help you create engaging and high-quality content for various platforms."
+      mobileContent={mobileContent}
+      desktopContent={desktopContent}
+      breadcrumbParent="/"
+    />
   );
 };
 

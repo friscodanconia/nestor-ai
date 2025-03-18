@@ -1,9 +1,10 @@
 import React from 'react';
 import { Clock } from 'lucide-react';
-import SubPageLayout from '../components/SubPageLayout';
+import CategoryLayout from '../components/CategoryLayout';
 import Text from '../components/ui/Text';
 import { personalProductivityData, PersonalProductivityTopic } from '../data/categories/personalProductivity';
 import CollapsibleSection from '../components/CollapsibleSection';
+import SEO from '../components/SEO';
 
 const formatDescription = (description: string) => {
   return description.split('\n\n').map((paragraph, index) => (
@@ -14,19 +15,21 @@ const formatDescription = (description: string) => {
 };
 
 const PersonalProductivity = () => {
-  return (
-    <SubPageLayout
-      title="Personal Productivity"
-      description="Discover AI tools that can help you boost your personal productivity and efficiency."
-      icon={<Clock className="w-6 h-6" />}
-      color="bg-gradient-to-br from-blue-100 to-cyan-200"
-    >
+  // Mobile content with collapsible sections
+  const mobileContent = (
+    <>
+      <SEO 
+        title="Personal Productivity"
+        description="Discover AI tools that can help you boost your personal productivity and efficiency."
+        keywords="AI productivity, task management, time management, efficiency tools, productivity apps"
+      />
+      
       <div className="space-y-8">
         {personalProductivityData.map((topic, index) => (
           <CollapsibleSection 
             key={index}
             title={topic.title}
-            defaultOpen={index === 0}
+            defaultExpanded={index === 0}
           >
             <div className="space-y-4">
               <div className="prose prose-slate max-w-none">
@@ -61,12 +64,9 @@ const PersonalProductivity = () => {
                     href={topic.readMoreUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800"
+                    className="text-sm font-medium text-primary hover:text-primary-dark transition-colors"
                   >
-                    Read more
-                    <svg className="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                      <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd"></path>
-                    </svg>
+                    Read more →
                   </a>
                 </div>
               )}
@@ -74,7 +74,21 @@ const PersonalProductivity = () => {
           </CollapsibleSection>
         ))}
       </div>
-    </SubPageLayout>
+    </>
+  );
+
+  // Desktop content (same as mobile for now)
+  const desktopContent = mobileContent;
+
+  return (
+    <CategoryLayout
+      title="Personal Productivity"
+      icon={<Clock className="w-6 h-6" />}
+      gradientClasses="bg-gradient-to-br from-blue-100 to-cyan-200"
+      description="Discover AI tools that can help you boost your personal productivity and efficiency."
+      mobileContent={mobileContent}
+      desktopContent={desktopContent}
+    />
   );
 };
 

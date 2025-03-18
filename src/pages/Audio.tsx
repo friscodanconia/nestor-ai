@@ -77,6 +77,7 @@ export default function Audio() {
       description={audioData.description}
       mobileContent={mobileContent}
       desktopContent={desktopContent}
+      breadcrumbParent="/"
     />
   );
 }
