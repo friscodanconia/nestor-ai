@@ -10,21 +10,25 @@ export default function AIInMarketing() {
   const formatDescription = (description: string, readMoreUrl?: string) => {
     if (!readMoreUrl) return description;
     
-    const parts = description.split('read more here.');
-    if (parts.length !== 2) return description;
+    // Check if the description contains the exact phrase
+    const readMoreText = "For a detailed strategy, read more here.";
+    if (!description.includes(readMoreText)) return description;
+    
+    // Replace the text with the link
+    const parts = description.split(readMoreText);
     
     return (
       <>
         {parts[0]}
-        <a 
+        For a detailed strategy, <a 
           href={readMoreUrl}
           target="_blank"
           rel="noopener noreferrer"
           className="font-bold text-primary hover:text-primary-dark transition-colors"
         >
           read more here
-        </a>
-        {parts[1]}
+        </a>.
+        {parts.length > 1 ? parts[1] : ''}
       </>
     );
   };
