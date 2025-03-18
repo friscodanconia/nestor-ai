@@ -1,9 +1,10 @@
 import React from 'react';
 import { Gamepad2 } from 'lucide-react';
-import SubPageLayout from '../components/SubPageLayout';
+import CategoryLayout from '../components/CategoryLayout';
 import Text from '../components/ui/Text';
 import { gamingData, GamingTopic } from '../data/categories/gaming';
 import CollapsibleSection from '../components/CollapsibleSection';
+import SEO from '../components/SEO';
 
 const formatDescription = (description: string) => {
   return description.split('\n\n').map((paragraph, index) => (
@@ -14,14 +15,15 @@ const formatDescription = (description: string) => {
 };
 
 const Gaming = () => {
-  return (
-    <SubPageLayout
-      title="Gaming"
-      description="Discover AI tools that can enhance your gaming experiences."
-      icon={<Gamepad2 className="w-6 h-6" />}
-      gradient="bg-gradient-to-br from-purple-100 to-violet-200"
-      backLink="/"
-    >
+  // Mobile content with collapsible sections
+  const mobileContent = (
+    <>
+      <SEO 
+        title="Gaming"
+        description="Discover AI tools that can enhance your gaming experiences."
+        keywords="AI gaming, game development, procedural generation, NPCs, player experience"
+      />
+      
       <div className="space-y-8">
         {gamingData.map((topic, index) => (
           <CollapsibleSection 
@@ -62,12 +64,9 @@ const Gaming = () => {
                     href={topic.readMoreUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center text-sm font-medium text-blue-600 hover:text-blue-800"
+                    className="text-sm font-medium text-primary hover:text-primary-dark transition-colors"
                   >
-                    Read more
-                    <svg className="ml-1 w-4 h-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
-                      <path fillRule="evenodd" d="M10.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L12.586 11H5a1 1 0 110-2h7.586l-2.293-2.293a1 1 0 010-1.414z" clipRule="evenodd"></path>
-                    </svg>
+                    Read more →
                   </a>
                 </div>
               )}
@@ -75,7 +74,21 @@ const Gaming = () => {
           </CollapsibleSection>
         ))}
       </div>
-    </SubPageLayout>
+    </>
+  );
+
+  // Desktop content (same as mobile for now)
+  const desktopContent = mobileContent;
+
+  return (
+    <CategoryLayout
+      title="Gaming"
+      icon={<Gamepad2 className="w-6 h-6" />}
+      gradientClasses="bg-gradient-to-br from-purple-100 to-violet-200"
+      description="Discover AI tools that can enhance your gaming experiences."
+      mobileContent={mobileContent}
+      desktopContent={desktopContent}
+    />
   );
 };
 
