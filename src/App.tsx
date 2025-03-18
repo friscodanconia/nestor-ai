@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect } from 'react';
-import { Wrench, Users, AppWindow, UserRound, Headphones, Github, Pencil, Image, Clock, GraduationCap, DollarSign, Heart, ShoppingCart, Plane, Gamepad2, Palette } from 'lucide-react';
+import { Wrench, Users, AppWindow, UserRound, Headphones, Github, Pencil, Image, Clock, GraduationCap, DollarSign, Heart, ShoppingCart, Plane, Gamepad2, Palette, Code } from 'lucide-react';
 import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Search from './components/Search';
 import WelcomePanel from './components/WelcomePanel';
@@ -44,6 +44,7 @@ const Ecommerce = React.lazy(() => import('./pages/Ecommerce'));
 const TravelLifestyle = React.lazy(() => import('./pages/TravelLifestyle'));
 const Gaming = React.lazy(() => import('./pages/Gaming'));
 const GenerativeArt = React.lazy(() => import('./pages/GenerativeArt'));
+const MCP = React.lazy(() => import('./pages/MCP'));
 
 // Lazy load Github subcategories
 const LLMRepos = React.lazy(() => import('./pages/github/LLMRepos'));
@@ -108,6 +109,7 @@ function HomePage() {
       '/travel-lifestyle': () => import('./pages/TravelLifestyle'),
       '/gaming': () => import('./pages/Gaming'),
       '/generative-art': () => import('./pages/GenerativeArt'),
+      '/mcp': () => import('./pages/MCP'),
     };
 
     if (importMap[path]) {
@@ -123,13 +125,24 @@ function HomePage() {
         keywords="AI tools, artificial intelligence, AI guide, AI resources, AI categories"
         schemaType="WebPage"
       />
-      {/* Header */}
-      <header className="p-4 sm:p-6 flex justify-end">
-        <Search />
-      </header>
+      
+      {/* Header Section with improved spacing */}
+      <div className="pt-8 pb-4 sm:pt-10 sm:pb-6 px-4 max-w-5xl mx-auto">
+        {/* Search Bar */}
+        <div className="flex justify-center mb-6 sm:mb-8">
+          <div className="w-full max-w-md">
+            <Search />
+          </div>
+        </div>
+        
+        {/* Nestor Heading */}
+        <h1 className="text-3xl sm:text-4xl font-bold text-center text-purple-600 mb-8 sm:mb-10">
+          Nestor
+        </h1>
+      </div>
 
       {/* Main Content */}
-      <main className="max-w-5xl mx-auto px-3 sm:px-4 py-4 sm:py-6">
+      <main className="max-w-5xl mx-auto px-3 sm:px-4 pb-8">
         {/* Welcome Panel */}
         <WelcomePanel />
 
@@ -145,7 +158,7 @@ function HomePage() {
             onMouseEnter={() => prefetchPage('/top-tools')}
           />
 
-          {/* Two Column Layout on mobile - Agents, Apps, Travel & Lifestyle on desktop */}
+          {/* Two Column Layout on mobile - Agents, Apps on desktop */}
           <div className="grid grid-cols-2 gap-3 sm:gap-4 md:contents">
             <CategoryCard
               title="Agents"
@@ -165,14 +178,14 @@ function HomePage() {
             />
           </div>
           
-          {/* Travel & Lifestyle on desktop (moved up) */}
+          {/* Generative Art - Full width on third column */}
           <CategoryCard
-            title="Travel & Lifestyle"
-            description="AI for travel planning and experiences"
-            icon={<Plane className="w-6 h-6 sm:w-8 sm:h-8" />}
-            className="bg-gradient-to-br from-blue-200 to-sky-200 hidden md:block"
-            onClick={() => navigate('/travel-lifestyle')}
-            onMouseEnter={() => prefetchPage('/travel-lifestyle')}
+            title="Generative Art"
+            description="AI for creative expression and art"
+            icon={<Palette className="w-6 h-6 sm:w-8 sm:h-8" />}
+            className="bg-gradient-to-br from-rose-200 to-purple-200"
+            onClick={() => navigate('/generative-art')}
+            onMouseEnter={() => prefetchPage('/generative-art')}
           />
 
           {/* AI in Marketing - Full width on mobile */}
@@ -185,7 +198,7 @@ function HomePage() {
             onMouseEnter={() => prefetchPage('/ai-in-marketing')}
           />
 
-          {/* Two Column Layout on mobile - Video, Audio, Gaming on desktop */}
+          {/* Two Column Layout on mobile - Video, Audio on desktop */}
           <div className="grid grid-cols-2 gap-3 sm:gap-4 md:contents">
             <CategoryCard
               title="Video"
@@ -205,37 +218,53 @@ function HomePage() {
             />
           </div>
           
-          {/* Gaming on desktop (moved up) */}
+          {/* Productivity on desktop */}
           <CategoryCard
-            title="Gaming"
-            description="AI in games and entertainment"
-            icon={<Gamepad2 className="w-6 h-6 sm:w-8 sm:h-8" />}
-            className="bg-gradient-to-br from-violet-200 to-indigo-200 hidden md:block"
-            onClick={() => navigate('/gaming')}
-            onMouseEnter={() => prefetchPage('/gaming')}
+            title="Productivity"
+            description="Personal organization and efficiency"
+            icon={<Clock className="w-6 h-6 sm:w-8 sm:h-8" />}
+            className="bg-gradient-to-br from-lime-200 to-green-200"
+            onClick={() => navigate('/personal-productivity')}
+            onMouseEnter={() => prefetchPage('/personal-productivity')}
           />
 
-          {/* Github Repos - Full width on mobile */}
-          <CategoryCard
-            title="Github Repos"
-            description="Curated list of github repos"
-            icon={<Github className="w-6 h-6 sm:w-8 sm:h-8" />}
-            className="bg-gradient-to-br from-gray-200 to-gray-400 md:col-span-3"
-            onClick={() => navigate('/github-repos')}
-            onMouseEnter={() => prefetchPage('/github-repos')}
-          />
+          {/* NEW LAYOUT: Content Creation (65%) and Github Repos (35%) in a single row - Desktop only */}
+          <div className="hidden md:flex md:col-span-3 md:flex-row md:gap-5">
+            <div className="md:w-[65%]">
+              <CategoryCard
+                title="Content Creation"
+                description="AI tools for writing and copywriting"
+                icon={<Pencil className="w-6 h-6 sm:w-8 sm:h-8" />}
+                className="bg-gradient-to-br from-yellow-200 to-amber-200 h-full"
+                onClick={() => navigate('/content-creation')}
+                onMouseEnter={() => prefetchPage('/content-creation')}
+              />
+            </div>
+            <div className="md:w-[35%]">
+              <CategoryCard
+                title="Github Repos"
+                description="Curated list of github repos"
+                icon={<Github className="w-6 h-6 sm:w-8 sm:h-8" />}
+                className="bg-gradient-to-br from-gray-200 to-gray-400 h-full"
+                onClick={() => navigate('/github-repos')}
+                onMouseEnter={() => prefetchPage('/github-repos')}
+              />
+            </div>
+          </div>
 
-          {/* Content Creation - Full width on mobile */}
-          <CategoryCard
-            title="Content Creation"
-            description="AI tools for writing and copywriting"
-            icon={<Pencil className="w-6 h-6 sm:w-8 sm:h-8" />}
-            className="bg-gradient-to-br from-yellow-200 to-amber-200 md:col-span-3"
-            onClick={() => navigate('/content-creation')}
-            onMouseEnter={() => prefetchPage('/content-creation')}
-          />
+          {/* Mobile only: Content Creation */}
+          <div className="block md:hidden">
+            <CategoryCard
+              title="Content Creation"
+              description="AI tools for writing and copywriting"
+              icon={<Pencil className="w-6 h-6 sm:w-8 sm:h-8" />}
+              className="bg-gradient-to-br from-yellow-200 to-amber-200"
+              onClick={() => navigate('/content-creation')}
+              onMouseEnter={() => prefetchPage('/content-creation')}
+            />
+          </div>
 
-          {/* Two Column Layout on mobile */}
+          {/* Two Column Layout on mobile - Image & Design, Education */}
           <div className="grid grid-cols-2 gap-3 sm:gap-4 md:contents">
             <CategoryCard
               title="Image & Design"
@@ -246,18 +275,6 @@ function HomePage() {
               onMouseEnter={() => prefetchPage('/image-design')}
             />
             <CategoryCard
-              title="Productivity"
-              description="Personal organization and efficiency"
-              icon={<Clock className="w-6 h-6 sm:w-8 sm:h-8" />}
-              className="bg-gradient-to-br from-lime-200 to-green-200"
-              onClick={() => navigate('/personal-productivity')}
-              onMouseEnter={() => prefetchPage('/personal-productivity')}
-            />
-          </div>
-
-          {/* Two Column Layout on mobile */}
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:contents">
-            <CategoryCard
               title="Education"
               description="AI tools for learning and teaching"
               icon={<GraduationCap className="w-6 h-6 sm:w-8 sm:h-8" />}
@@ -265,6 +282,23 @@ function HomePage() {
               onClick={() => navigate('/education')}
               onMouseEnter={() => prefetchPage('/education')}
             />
+          </div>
+
+          {/* Mobile only: Github Repos */}
+          <div className="block md:hidden">
+            <CategoryCard
+              title="Github Repos"
+              description="Curated list of github repos"
+              icon={<Github className="w-6 h-6 sm:w-8 sm:h-8" />}
+              className="bg-gradient-to-br from-gray-200 to-gray-400"
+              onClick={() => navigate('/github-repos')}
+              onMouseEnter={() => prefetchPage('/github-repos')}
+            />
+          </div>
+
+          {/* Personal Finance and MCP - Desktop: Personal Finance full column, MCP in empty space 
+              Mobile: Personal Finance and MCP side by side */}
+          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:contents">
             <CategoryCard
               title="Personal Finance"
               description="AI for budgeting and financial planning"
@@ -273,9 +307,17 @@ function HomePage() {
               onClick={() => navigate('/personal-finance')}
               onMouseEnter={() => prefetchPage('/personal-finance')}
             />
+            <CategoryCard
+              title="MCP"
+              description="What is Model Context Protocol"
+              icon={<Code className="w-6 h-6 sm:w-8 sm:h-8" />}
+              className="bg-gradient-to-br from-purple-200 to-indigo-200"
+              onClick={() => navigate('/mcp')}
+              onMouseEnter={() => prefetchPage('/mcp')}
+            />
           </div>
 
-          {/* Two Column Layout on mobile */}
+          {/* Two Column Layout on mobile - Health & Wellness, E-commerce on desktop */}
           <div className="grid grid-cols-2 gap-3 sm:gap-4 md:contents">
             <CategoryCard
               title="Health & Wellness"
@@ -295,39 +337,29 @@ function HomePage() {
             />
           </div>
 
-          {/* Travel & Lifestyle - Only visible on mobile (duplicated for desktop layout) */}
-          <div className="md:hidden">
-            <CategoryCard
-              title="Travel & Lifestyle"
-              description="AI for travel planning and experiences"
-              icon={<Plane className="w-6 h-6 sm:w-8 sm:h-8" />}
-              className="bg-gradient-to-br from-blue-200 to-sky-200"
-              onClick={() => navigate('/travel-lifestyle')}
-              onMouseEnter={() => prefetchPage('/travel-lifestyle')}
-            />
+          {/* NEW LAYOUT: Gaming (65%) and Travel & Lifestyle (35%) in a single row */}
+          <div className="md:col-span-3 flex flex-col md:flex-row md:gap-5 space-y-3 md:space-y-0">
+            <div className="md:w-[35%]">
+              <CategoryCard
+                title="Travel & Lifestyle"
+                description="AI for travel planning"
+                icon={<Plane className="w-6 h-6 sm:w-8 sm:h-8" />}
+                className="bg-gradient-to-br from-blue-200 to-sky-200 h-full"
+                onClick={() => navigate('/travel-lifestyle')}
+                onMouseEnter={() => prefetchPage('/travel-lifestyle')}
+              />
+            </div>
+            <div className="md:w-[65%]">
+              <CategoryCard
+                title="Gaming"
+                description="AI in games and entertainment"
+                icon={<Gamepad2 className="w-6 h-6 sm:w-8 sm:h-8" />}
+                className="bg-gradient-to-br from-violet-200 to-indigo-200 h-full"
+                onClick={() => navigate('/gaming')}
+                onMouseEnter={() => prefetchPage('/gaming')}
+              />
+            </div>
           </div>
-
-          {/* Gaming - Only visible on mobile (duplicated for desktop layout) */}
-          <div className="md:hidden">
-            <CategoryCard
-              title="Gaming"
-              description="AI in games and entertainment"
-              icon={<Gamepad2 className="w-6 h-6 sm:w-8 sm:h-8" />}
-              className="bg-gradient-to-br from-violet-200 to-indigo-200"
-              onClick={() => navigate('/gaming')}
-              onMouseEnter={() => prefetchPage('/gaming')}
-            />
-          </div>
-
-          {/* Generative Art - Full width on mobile */}
-          <CategoryCard
-            title="Generative Art"
-            description="AI for creative expression and art"
-            icon={<Palette className="w-6 h-6 sm:w-8 sm:h-8" />}
-            className="bg-gradient-to-br from-rose-200 to-purple-200 md:col-span-3"
-            onClick={() => navigate('/generative-art')}
-            onMouseEnter={() => prefetchPage('/generative-art')}
-          />
         </div>
       </main>
     </div>
@@ -373,6 +405,7 @@ function App() {
         <Route path="/travel-lifestyle" element={withLoadingFallback(TravelLifestyle)} />
         <Route path="/gaming" element={withLoadingFallback(Gaming)} />
         <Route path="/generative-art" element={withLoadingFallback(GenerativeArt)} />
+        <Route path="/mcp" element={withLoadingFallback(MCP)} />
         
         {/* Github Repos subcategories */}
         <Route path="/github-repos/llm" element={withLoadingFallback(LLMRepos)} />
