@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image } from 'lucide-react';
 import SubPageLayout from '../components/SubPageLayout';
-import { Text } from '../components/ui/Text';
+import Text from '../components/ui/Text';
 import { imageDesignData, ImageDesignTopic } from '../data/categories/imageDesign';
 import CollapsibleSection from '../components/CollapsibleSection';
 

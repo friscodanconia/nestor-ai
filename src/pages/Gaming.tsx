@@ -1,7 +1,7 @@
 import React from 'react';
 import { Gamepad2 } from 'lucide-react';
 import SubPageLayout from '../components/SubPageLayout';
-import { Text } from '../components/ui/Text';
+import Text from '../components/ui/Text';
 import { gamingData, GamingTopic } from '../data/categories/gaming';
 import CollapsibleSection from '../components/CollapsibleSection';
 

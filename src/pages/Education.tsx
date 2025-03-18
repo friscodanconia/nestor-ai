@@ -1,7 +1,7 @@
 import React from 'react';
 import { GraduationCap } from 'lucide-react';
 import SubPageLayout from '../components/SubPageLayout';
-import { Text } from '../components/ui/Text';
+import Text from '../components/ui/Text';
 import { educationData, EducationTopic } from '../data/categories/education';
 import CollapsibleSection from '../components/CollapsibleSection';
 

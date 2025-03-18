@@ -1,7 +1,7 @@
 import React from 'react';
 import { Palette } from 'lucide-react';
 import SubPageLayout from '../components/SubPageLayout';
-import { Text } from '../components/ui/Text';
+import Text from '../components/ui/Text';
 import { generativeArtData, GenerativeArtTopic } from '../data/categories/generativeArt';
 import CollapsibleSection from '../components/CollapsibleSection';
 

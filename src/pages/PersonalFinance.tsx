@@ -1,7 +1,7 @@
 import React from 'react';
 import { DollarSign } from 'lucide-react';
 import SubPageLayout from '../components/SubPageLayout';
-import { Text } from '../components/ui/Text';
+import Text from '../components/ui/Text';
 import { personalFinanceData, PersonalFinanceTopic } from '../data/categories/personalFinance';
 import CollapsibleSection from '../components/CollapsibleSection';
 

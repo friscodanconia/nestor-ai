@@ -1,7 +1,7 @@
 import React from 'react';
 import { Heart } from 'lucide-react';
 import SubPageLayout from '../components/SubPageLayout';
-import { Text } from '../components/ui/Text';
+import Text from '../components/ui/Text';
 import { healthWellnessData, HealthWellnessTopic } from '../data/categories/healthWellness';
 import CollapsibleSection from '../components/CollapsibleSection';
 

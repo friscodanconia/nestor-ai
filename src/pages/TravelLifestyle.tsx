@@ -1,7 +1,7 @@
 import React from 'react';
 import { Plane } from 'lucide-react';
 import SubPageLayout from '../components/SubPageLayout';
-import { Text } from '../components/ui/Text';
+import Text from '../components/ui/Text';
 import { travelLifestyleData, TravelLifestyleTopic } from '../data/categories/travelLifestyle';
 import CollapsibleSection from '../components/CollapsibleSection';
 

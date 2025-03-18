@@ -1,7 +1,7 @@
 import React from 'react';
 import { Pencil } from 'lucide-react';
 import SubPageLayout from '../components/SubPageLayout';
-import { Text } from '../components/ui/Text';
+import Text from '../components/ui/Text';
 import { contentCreationData, ContentCreationTopic } from '../data/categories/contentCreation';
 import CollapsibleSection from '../components/CollapsibleSection';
 

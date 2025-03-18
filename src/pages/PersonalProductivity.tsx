@@ -1,7 +1,7 @@
 import React from 'react';
 import { Clock } from 'lucide-react';
 import SubPageLayout from '../components/SubPageLayout';
-import { Text } from '../components/ui/Text';
+import Text from '../components/ui/Text';
 import { personalProductivityData, PersonalProductivityTopic } from '../data/categories/personalProductivity';
 import CollapsibleSection from '../components/CollapsibleSection';
 

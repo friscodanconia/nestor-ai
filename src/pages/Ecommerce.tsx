@@ -1,7 +1,7 @@
 import React from 'react';
 import { ShoppingCart } from 'lucide-react';
 import SubPageLayout from '../components/SubPageLayout';
-import { Text } from '../components/ui/Text';
+import Text from '../components/ui/Text';
 import { ecommerceData, EcommerceTopic } from '../data/categories/ecommerce';
 import CollapsibleSection from '../components/CollapsibleSection';
 
