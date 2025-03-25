@@ -1,12 +1,35 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef, KeyboardEventHandler } from 'react';
 import { Search as SearchIcon, X } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
+
+// Import all category data
+import { agentsData } from '../data/categories/agents';
+import { aiInMarketingData } from '../data/categories/aiInMarketing';
+import { appsData } from '../data/categories/apps';
+import { audioData } from '../data/categories/audio';
+import { contentCreationData } from '../data/categories/contentCreation';
+import { ecommerceData } from '../data/categories/ecommerce';
+import { educationData } from '../data/categories/education';
+import { gamingData } from '../data/categories/gaming';
+import { generativeArtData } from '../data/categories/generativeArt';
+import { githubReposData } from '../data/categories/githubRepos';
+import { healthWellnessData } from '../data/categories/healthWellness';
+import { imageDesignData } from '../data/categories/imageDesign';
+import { personalFinanceData } from '../data/categories/personalFinance';
+import { personalProductivityData } from '../data/categories/personalProductivity';
+import { topToolsData } from '../data/categories/topTools';
+import { travelLifestyleData } from '../data/categories/travelLifestyle';
+import { videoData } from '../data/categories/video';
+import { faqData } from '../data/faqData';
+import { blogPosts } from '../data/blogData';
 
 // Define the search result type
 interface SearchResult {
   title: string;
   path: string;
   excerpt: string;
+  relevanceScore: number;
+  category: string;
 }
 
 // Define the content data structure
@@ -15,6 +38,7 @@ interface ContentItem {
   path: string;
   content: string;
   excerpt: string;
+  category: string;
 }
 
 export default function Search() {
@@ -22,82 +46,157 @@ export default function Search() {
   const [query, setQuery] = useState('');
   const [results, setResults] = useState<SearchResult[]>([]);
   const [contentData, setContentData] = useState<ContentItem[]>([]);
+  const [isSearchBarFocused, setIsSearchBarFocused] = useState(false);
+  const [selectedResultIndex, setSelectedResultIndex] = useState(-1);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+  const resultsContainerRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
 
-  // Initialize content data
+  // Initialize content data from all category files
   useEffect(() => {
-    // This would ideally come from a database or API
-    // For now, we'll hardcode some content from our pages
-    const data: ContentItem[] = [
-      {
-        title: "AI in Marketing",
-        path: "/deeper-questions",
-        content: "AI is rapidly changing and impacting industries and functions. How can marketers use AI tools to improve productivity, idea generation, and a host of other use cases. SEO and ASO, Brand, Performance Marketing, Social Media, Creative Operations, Marketing Analytics.",
-        excerpt: "How marketers can use AI tools to improve productivity and idea generation."
-      },
-      {
-        title: "SEO and ASO",
-        path: "/deeper-questions",
-        content: "AI tools can revolutionize your SEO strategy by analyzing vast amounts of data to identify keywords, optimize content, and predict search trends with unprecedented accuracy.",
-        excerpt: "AI tools for SEO strategy and keyword optimization."
-      },
-      {
-        title: "Agents",
-        path: "/life-advice",
-        content: "Understanding AI Agents. Everyone's talking about AI agents - but what exactly are they? Simply put, they're smart software programs that can work on their own to get things done.",
-        excerpt: "Get balanced advice about AI agents and how they work."
-      },
-      {
-        title: "Top Tools",
-        path: "/quick-answers",
-        content: "AI tools are everywhere these days - and it can get overwhelming to pick the right ones. We're focusing on tools for regular users like us.",
-        excerpt: "Navigate the AI tools landscape with our curated recommendations."
-      },
-      {
-        title: "Apps",
-        path: "/storytelling",
-        content: "The AI landscape evolves at breakneck speed, with new models and applications emerging weekly. ChatGPT, Claude, Bolt.new, Replit, Replika.",
-        excerpt: "Discover must-try AI applications and tools."
-      },
-      {
-        title: "Video Tools",
-        path: "/spirituality",
-        content: "Discover powerful video tools and technologies that help you create, edit, and enhance your video content.",
-        excerpt: "Explore video creation and editing tools powered by AI."
-      },
-      {
-        title: "Audio Tools",
-        path: "/emotional-reflection",
-        content: "Experience the power of audio tools and technologies that transform the way you create, edit, and interact with sound.",
-        excerpt: "Transform your audio content with AI-powered tools."
-      },
-      {
-        title: "Github Repos",
-        path: "/github-repos",
-        content: "Explore our curated collection of innovative AI and machine learning repositories that are pushing the boundaries of what's possible.",
-        excerpt: "Cool git repos for AI and machine learning enthusiasts."
-      },
-      {
-        title: "Bolt Guide",
-        path: "/bolt-guide",
-        content: "Bolt is an AI-powered development environment that helps you build web applications quickly.",
-        excerpt: "Learn how to use Bolt for rapid web application development."
-      },
-      {
-        title: "AI Builders",
-        path: "/quick-answers/ai-builders",
-        content: "AI-powered builders let you build a website or an app without any coding skills. You simply describe what you want using everyday language.",
-        excerpt: "Build websites and apps with AI, no coding required."
-      },
-      {
-        title: "Website Builders",
-        path: "/quick-answers/website-builders",
-        content: "Discover powerful no-code website builders that enable you to create professional websites without writing code.",
-        excerpt: "Create professional websites without coding."
+    // Function to extract searchable content from category data
+    const extractContentFromCategory = (data: any, path: string): ContentItem[] => {
+      const items: ContentItem[] = [];
+      const categoryName = data.title || path.replace('/', '');
+      
+      // Add main category
+      if (data.title && data.description) {
+        items.push({
+          title: data.title,
+          path,
+          content: data.description || '',
+          excerpt: data.description ? data.description.substring(0, 120) + '...' : '',
+          category: categoryName
+        });
       }
-    ];
+      
+      // Add special features if available
+      if (data.specialFeatures?.examples) {
+        data.specialFeatures.examples.forEach((example: any) => {
+          if (example.title && example.description) {
+            items.push({
+              title: example.title,
+              path,
+              content: example.description || '',
+              excerpt: example.description ? example.description.substring(0, 120) + '...' : '',
+              category: categoryName
+            });
+          }
+        });
+      }
+      
+      // Add agent types if available
+      if (data.agentTypes) {
+        data.agentTypes.forEach((type: any) => {
+          if (type.title && type.description) {
+            items.push({
+              title: type.title,
+              path,
+              content: type.description || '',
+              excerpt: type.description ? type.description.substring(0, 120) + '...' : '',
+              category: categoryName
+            });
+          }
+        });
+      }
+      
+      // Add tools if available
+      if (data.toolCategories) {
+        data.toolCategories.forEach((category: any) => {
+          if (category.tools) {
+            category.tools.forEach((tool: any) => {
+              if (tool.name && tool.description) {
+                items.push({
+                  title: tool.name,
+                  path,
+                  content: tool.description || '',
+                  excerpt: tool.description ? tool.description.substring(0, 120) + '...' : '',
+                  category: categoryName
+                });
+              }
+            });
+          }
+        });
+      }
+      
+      // Add topics if available (for aiInMarketing)
+      if (data.topics) {
+        data.topics.forEach((topic: any) => {
+          if (topic.title && topic.description) {
+            items.push({
+              title: topic.title,
+              path,
+              content: topic.description || '',
+              excerpt: topic.description ? topic.description.substring(0, 120) + '...' : '',
+              category: categoryName
+            });
+          }
+        });
+      }
+      
+      // Add examples if available
+      if (data.examples) {
+        data.examples.forEach((example: any) => {
+          if (example.name && example.description) {
+            items.push({
+              title: example.name,
+              path,
+              content: example.description || '',
+              excerpt: example.description ? example.description.substring(0, 120) + '...' : '',
+              category: categoryName
+            });
+          }
+        });
+      }
+      
+      return items;
+    };
     
-    setContentData(data);
+    try {
+      // Combine all category data
+      const allContentData: ContentItem[] = [
+        ...extractContentFromCategory(agentsData, '/agents'),
+        ...extractContentFromCategory(aiInMarketingData, '/ai-in-marketing'),
+        ...extractContentFromCategory(appsData, '/apps'),
+        ...extractContentFromCategory(audioData, '/audio'),
+        ...extractContentFromCategory(contentCreationData, '/content-creation'),
+        ...extractContentFromCategory(ecommerceData, '/ecommerce'),
+        ...extractContentFromCategory(educationData, '/education'),
+        ...extractContentFromCategory(gamingData, '/gaming'),
+        ...extractContentFromCategory(generativeArtData, '/generative-art'),
+        ...extractContentFromCategory(githubReposData, '/github-repos'),
+        ...extractContentFromCategory(healthWellnessData, '/health-wellness'),
+        ...extractContentFromCategory(imageDesignData, '/image-design'),
+        ...extractContentFromCategory(personalFinanceData, '/personal-finance'),
+        ...extractContentFromCategory(personalProductivityData, '/personal-productivity'),
+        ...extractContentFromCategory(topToolsData, '/top-tools'),
+        ...extractContentFromCategory(travelLifestyleData, '/travel-lifestyle'),
+        ...extractContentFromCategory(videoData, '/video'),
+        
+        // Add FAQ data
+        ...faqData.map(faq => ({
+          title: faq.question,
+          path: '/faq',
+          content: faq.answer,
+          excerpt: faq.answer.substring(0, 120) + '...',
+          category: 'FAQ'
+        })),
+        
+        // Add Blog data
+        ...blogPosts.map(post => ({
+          title: post.title,
+          path: '/blog',
+          content: post.content,
+          excerpt: post.excerpt,
+          category: 'Blog'
+        }))
+      ];
+      
+      console.log(`Loaded ${allContentData.length} searchable items from categories`);
+      setContentData(allContentData);
+    } catch (error) {
+      console.error("Error loading content data:", error);
+    }
   }, []);
 
   const handleSearch = (searchQuery: string) => {
@@ -108,19 +207,132 @@ export default function Search() {
       return;
     }
     
-    // Search through the content data
-    const searchResults = contentData.filter(item => 
-      item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      item.content.toLowerCase().includes(searchQuery.toLowerCase())
-    );
+    // Improved search algorithm with relevance scoring
+    const searchTerms = searchQuery.toLowerCase().split(' ').filter(term => term.length > 0);
     
-    setResults(searchResults);
+    const searchResults = contentData.map(item => {
+      const titleLower = item.title.toLowerCase();
+      const contentLower = item.content.toLowerCase();
+      
+      // Calculate relevance score
+      let relevanceScore = 0;
+      let matchedExcerpt = item.excerpt;
+      
+      // Check for exact title match (highest relevance)
+      if (titleLower === searchQuery.toLowerCase()) {
+        relevanceScore += 100;
+      }
+      
+      // Check for title containing the full search query
+      else if (titleLower.includes(searchQuery.toLowerCase())) {
+        relevanceScore += 80;
+      }
+      
+      // Check for individual terms in title (high relevance)
+      const titleMatches = searchTerms.filter(term => titleLower.includes(term));
+      relevanceScore += titleMatches.length * 15;
+      
+      // Check for individual terms in content (medium relevance)
+      const contentMatches = searchTerms.filter(term => contentLower.includes(term));
+      relevanceScore += contentMatches.length * 5;
+      
+      // Generate dynamic excerpt if we have content matches
+      if (contentMatches.length > 0 && searchTerms.length > 0) {
+        // Find the position of the first search term in the content
+        const firstTermIndex = Math.min(
+          ...searchTerms.map(term => {
+            const index = contentLower.indexOf(term);
+            return index >= 0 ? index : Infinity;
+          })
+        );
+        
+        if (firstTermIndex !== Infinity) {
+          // Create a contextual excerpt around the first match
+          const startPos = Math.max(0, firstTermIndex - 40);
+          const endPos = Math.min(item.content.length, firstTermIndex + 80);
+          
+          // Add ellipsis if we're not starting from the beginning
+          const prefix = startPos > 0 ? '...' : '';
+          const suffix = endPos < item.content.length ? '...' : '';
+          
+          matchedExcerpt = prefix + item.content.substring(startPos, endPos) + suffix;
+        }
+      }
+      
+      return {
+        title: item.title,
+        path: item.path,
+        excerpt: matchedExcerpt,
+        relevanceScore,
+        category: item.category
+      };
+    })
+    .filter(result => result.relevanceScore > 0) // Only include results with matches
+    .sort((a, b) => b.relevanceScore - a.relevanceScore); // Sort by relevance score (highest first)
+    
+    setResults(searchResults.slice(0, 10)); // Limit to top 10 results for performance
   };
 
   const handleResultClick = (path: string) => {
     setIsOpen(false);
+    setQuery('');
     navigate(path);
   };
+
+  // Handle keyboard navigation
+  const handleKeyDown: KeyboardEventHandler<HTMLInputElement> = (e) => {
+    if (results.length === 0) return;
+
+    // Arrow down
+    if (e.key === 'ArrowDown') {
+      e.preventDefault();
+      setSelectedResultIndex(prev => 
+        prev < results.length - 1 ? prev + 1 : prev
+      );
+      
+      // Scroll into view if needed
+      if (resultsContainerRef.current && selectedResultIndex >= 0) {
+        const resultElements = resultsContainerRef.current.querySelectorAll('button');
+        if (resultElements[selectedResultIndex + 1]) {
+          resultElements[selectedResultIndex + 1].scrollIntoView({ block: 'nearest' });
+        }
+      }
+    }
+    
+    // Arrow up
+    else if (e.key === 'ArrowUp') {
+      e.preventDefault();
+      setSelectedResultIndex(prev => 
+        prev > 0 ? prev - 1 : prev
+      );
+      
+      // Scroll into view if needed
+      if (resultsContainerRef.current && selectedResultIndex > 0) {
+        const resultElements = resultsContainerRef.current.querySelectorAll('button');
+        if (resultElements[selectedResultIndex - 1]) {
+          resultElements[selectedResultIndex - 1].scrollIntoView({ block: 'nearest' });
+        }
+      }
+    }
+    
+    // Enter key
+    else if (e.key === 'Enter' && selectedResultIndex >= 0) {
+      e.preventDefault();
+      handleResultClick(results[selectedResultIndex].path);
+    }
+  };
+
+  // Reset selected index when results change
+  useEffect(() => {
+    setSelectedResultIndex(-1);
+  }, [results]);
+
+  // Focus search input when modal opens
+  useEffect(() => {
+    if (isOpen && searchInputRef.current) {
+      searchInputRef.current.focus();
+    }
+  }, [isOpen]);
 
   // Close search on escape key
   useEffect(() => {
@@ -146,16 +358,42 @@ export default function Search() {
     };
   }, [isOpen]);
 
+  // Handle click outside to close dropdown
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as HTMLElement;
+      if (isSearchBarFocused && !target.closest('.search-container')) {
+        setIsSearchBarFocused(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isSearchBarFocused]);
+
   return (
-    <>
-      {/* Search Trigger */}
-      <button
-        onClick={() => setIsOpen(true)}
-        className="p-2 rounded-full hover:bg-gray-100 transition-colors"
-        aria-label="Search"
-      >
-        <SearchIcon className="w-5 h-5" />
-      </button>
+    <div className="search-container relative w-full">
+      {/* Enhanced Search Bar - Always visible */}
+      <div className={`flex items-center justify-center ${isOpen ? 'hidden' : 'block'}`}>
+        <div 
+          className={`
+            relative flex items-center bg-white/80 backdrop-blur-sm rounded-full 
+            border-2 border-purple-200 shadow-sm transition-all duration-300 ease-in-out
+            md:w-full w-[75%] mx-auto
+            ${isSearchBarFocused ? 'ring-2 ring-purple-300' : 'hover:ring-1 hover:ring-purple-200'}
+          `}
+        >
+          <SearchIcon className="w-5 h-5 md:w-6 md:h-6 text-purple-600 ml-3 flex-shrink-0" />
+          <input
+            type="text"
+            placeholder="Search Nestor..."
+            className="w-full py-2.5 px-2 bg-transparent border-none focus:ring-0 text-sm md:text-base"
+            onClick={() => setIsOpen(true)}
+            onFocus={() => setIsSearchBarFocused(true)}
+            readOnly
+          />
+        </div>
+      </div>
 
       {/* Search Modal */}
       {isOpen && (
@@ -164,19 +402,21 @@ export default function Search() {
             <div className="bg-white rounded-2xl shadow-xl overflow-hidden">
               {/* Search Header */}
               <div className="p-4 border-b">
-                <div className="relative">
-                  <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
+                <div className="relative flex items-center bg-gray-50 rounded-lg">
+                  <SearchIcon className="absolute left-3 top-1/2 -translate-y-1/2 w-5 h-5 text-purple-600" />
                   <input
+                    ref={searchInputRef}
                     type="text"
-                    placeholder="Search..."
+                    placeholder="Search for tools, guides, concepts..."
                     value={query}
                     onChange={(e) => handleSearch(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2 border-none focus:ring-0 text-lg"
+                    onKeyDown={handleKeyDown}
+                    className="w-full pl-10 pr-10 py-2 border-none focus:ring-0 text-lg bg-gray-50 rounded-lg"
                     autoFocus
                   />
                   <button
                     onClick={() => setIsOpen(false)}
-                    className="absolute right-0 top-1/2 -translate-y-1/2 p-2 hover:bg-gray-100 rounded-full transition-colors"
+                    className="absolute right-2 top-1/2 -translate-y-1/2 p-2 hover:bg-gray-200 rounded-full transition-colors"
                   >
                     <X className="w-5 h-5" />
                   </button>
@@ -184,19 +424,28 @@ export default function Search() {
               </div>
 
               {/* Search Results */}
-              <div className="max-h-[60vh] overflow-y-auto">
+              <div ref={resultsContainerRef} className="max-h-[60vh] overflow-y-auto">
                 {results.length > 0 ? (
                   <div className="divide-y">
                     {results.map((result, index) => (
                       <button
                         key={index}
                         onClick={() => handleResultClick(result.path)}
-                        className="block w-full text-left p-4 hover:bg-gray-50 transition-colors"
+                        className={`block w-full text-left p-4 transition-colors ${
+                          index === selectedResultIndex 
+                            ? 'bg-purple-50 border-l-4 border-purple-500' 
+                            : 'hover:bg-gray-50 border-l-4 border-transparent'
+                        }`}
                       >
-                        <h3 className="text-lg font-medium text-gray-900 mb-1">
-                          {result.title}
-                        </h3>
-                        <p className="text-gray-600">{result.excerpt}</p>
+                        <div className="flex justify-between items-start mb-1">
+                          <h3 className="text-lg font-medium text-gray-900">
+                            {result.title}
+                          </h3>
+                          <span className="text-xs bg-purple-100 text-purple-800 px-2 py-1 rounded-full">
+                            {result.category}
+                          </span>
+                        </div>
+                        <p className="text-gray-600 text-sm">{result.excerpt}</p>
                       </button>
                     ))}
                   </div>
@@ -214,6 +463,6 @@ export default function Search() {
           </div>
         </div>
       )}
-    </>
+    </div>
   );
 }
