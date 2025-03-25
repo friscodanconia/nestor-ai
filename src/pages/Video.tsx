@@ -125,7 +125,6 @@ export default function Video() {
       description={videoData.description}
       mobileContent={mobileContent}
       desktopContent={desktopContent}
-      breadcrumbParent={undefined}
     />
   );
 }
