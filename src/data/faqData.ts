@@ -891,6 +891,58 @@ export const faqData: FAQItem[] = [
     category: "AI Ethics & Compliance"
   },
   
+  // AI for B2B Marketing FAQs
+  {
+    question: "How can AI improve account-based marketing (ABM) strategies?",
+    answer: "AI enhances ABM at every stage: (1) Account selection—AI can analyze firmographic data, technographic signals, intent data, and engagement patterns to identify high-potential accounts beyond traditional ICP definitions; (2) Personalization—AI can generate customized content and messaging for specific accounts or buying committees; (3) Engagement orchestration—AI can determine optimal outreach timing, channels, and content for each stakeholder; and (4) Performance analysis—AI can identify which tactics are working for different account types. Platforms like 6sense, Demandbase, and Terminus incorporate AI to make ABM more precise and scalable. For best results, feed these systems with high-quality first-party data about your successful accounts.",
+    category: "B2B Marketing"
+  },
+  {
+    question: "What AI tools can help with B2B lead scoring and qualification?",
+    answer: "Advanced AI lead scoring platforms like MadKudu, Leadspace, and features in tools like HubSpot and Marketo go beyond basic demographic and behavioral scoring. These systems analyze hundreds of signals—including company growth indicators, technology usage, content engagement patterns, and buying intent signals—to predict which leads are most likely to convert. Unlike traditional rule-based scoring, these AI models continuously learn from your sales outcomes to improve accuracy over time. The most sophisticated platforms can even predict deal size, sales cycle length, and specific product fit. For optimal results, ensure your CRM data is clean and your sales outcome tracking is consistent.",
+    category: "B2B Marketing"
+  },
+  {
+    question: "How can AI help identify buying intent signals from B2B prospects?",
+    answer: "AI-powered intent platforms like Bombora, G2, and ZoomInfo TalentOS aggregate and analyze signals from across the web that indicate buying interest. These systems track content consumption, research activities, technology evaluations, and other digital footprints that suggest active buying processes. The most advanced platforms can distinguish between general research and serious buying intent, identify which stage of the buying process a company is in, and even predict which competitors they're evaluating. For maximum effectiveness, combine third-party intent data with your first-party engagement data and use AI to correlate these signals with actual buying outcomes.",
+    category: "B2B Marketing"
+  },
+  {
+    question: "What's the best way to use AI for B2B content personalization?",
+    answer: "The most effective B2B content personalization uses AI to tailor content at multiple levels: (1) Industry-specific customization—AI can adapt case studies, statistics, and terminology to the prospect's vertical; (2) Role-based personalization—AI can emphasize different benefits based on the reader's position in the organization; (3) Buying stage adaptation—AI can adjust content depth based on where the prospect is in their journey; and (4) Account-specific customization—AI can incorporate relevant details about the prospect's company. Tools like PathFactory, Drift, and certain features in platforms like Uberflip can implement these personalization layers at scale. For best results, ensure your content is structured with clear metadata that the AI can use for intelligent adaptation.",
+    category: "B2B Marketing"
+  },
+  {
+    question: "How can AI help with B2B sales and marketing alignment?",
+    answer: "AI platforms like Clari, InsightSquared, and features in tools like Gong analyze patterns across your marketing and sales data to identify what truly constitutes a qualified lead for your specific business. These systems can reveal which marketing activities genuinely influence pipeline and revenue, which prospect behaviors indicate real buying intent, and which lead characteristics predict successful sales outcomes. The most valuable implementation uses AI to create a shared definition of lead quality that both teams trust because it's based on actual conversion data rather than assumptions. This data-driven approach reduces the traditional friction between marketing's lead volume goals and sales' lead quality expectations.",
+    category: "B2B Marketing"
+  },
+  {
+    question: "What AI tools can help with B2B competitive intelligence?",
+    answer: "AI-powered competitive intelligence platforms like Crayon, Klue, and Kompyte continuously monitor competitors' digital footprints—including website changes, pricing updates, new content, social media activity, customer reviews, and job postings—to identify strategic shifts and tactical moves. These systems use natural language processing to extract meaningful insights from large volumes of unstructured data. The most sophisticated platforms can alert you to significant competitor changes, identify emerging competitive threats, and even predict competitors' likely next moves based on pattern recognition. For maximum value, integrate these insights into your sales enablement process so reps can address competitive positioning in real-time.",
+    category: "B2B Marketing"
+  },
+  {
+    question: "How can AI improve B2B customer retention and expansion?",
+    answer: "AI customer success platforms like Gainsight, ChurnZero, and Totango analyze product usage patterns, support interactions, engagement metrics, and other signals to identify both risk and opportunity indicators. These systems can predict which customers are likely to churn before obvious warning signs appear, which accounts have expansion potential, and which specific actions are most likely to improve outcomes for different customer segments. The most effective implementation combines predictive insights with prescriptive recommendations—telling customer success teams not just which accounts need attention but exactly what type of intervention is most likely to succeed based on historical patterns.",
+    category: "B2B Marketing"
+  },
+  {
+    question: "What's the best way to use AI for B2B email marketing?",
+    answer: "In B2B contexts, AI email tools like Seventh Sense, Lavender, and features in platforms like Marketo can analyze engagement patterns to determine the optimal send time for each individual recipient based on when they typically read and respond to emails. These systems can also personalize subject lines and content based on the recipient's industry, role, and previous interactions with your company. The most sophisticated applications use AI to create dynamic email journeys that adapt based on recipient behavior rather than following fixed sequences. For complex sales cycles, look for tools that can coordinate email outreach across multiple stakeholders within the same account.",
+    category: "B2B Marketing"
+  },
+  {
+    question: "How can AI help with B2B customer data management and enrichment?",
+    answer: "AI-powered customer data platforms (CDPs) like Leadspace, Terminus, and features in tools like Clearbit automatically clean, deduplicate, standardize, and enrich your B2B customer data. These systems can identify and merge duplicate records, fill in missing information from external data sources, correct inaccuracies, and maintain data freshness through continuous updates. The most advanced platforms can create unified customer profiles that include not just basic firmographic data but also technographic information, buying intent signals, and relationship mapping across complex organizations. For optimal results, establish clear data governance rules that the AI can enforce automatically.",
+    category: "B2B Marketing"
+  },
+  {
+    question: "What AI tools can help with B2B marketing attribution?",
+    answer: "AI-powered B2B attribution platforms like Dreamdata, Bizible (Adobe), and CaliberMind go beyond basic models to create accurate multi-touch attribution across long, complex B2B buying journeys. These systems can connect marketing touchpoints across different channels, campaigns, and time periods to identify which combinations truly influence pipeline and revenue. Unlike traditional attribution models, AI approaches can adapt to your specific business context, weighting different touchpoints based on their actual impact rather than using fixed formulas. The most sophisticated platforms can attribute value not just to lead generation but to acceleration, deal size influence, and even post-sale expansion—providing a complete view of marketing's impact throughout the customer lifecycle.",
+    category: "B2B Marketing"
+  },
+  
   // Image Design FAQs
   {
     question: "What AI tools are recommended for image generation?",
