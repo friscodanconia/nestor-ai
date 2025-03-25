@@ -79,6 +79,58 @@ export const faqData: FAQItem[] = [
     category: "Social Media Marketing"
   },
   
+  // AI for Social Media FAQs (Additional)
+  {
+    question: "How can I use AI to identify the best times to post on different social platforms?",
+    answer: "AI-powered tools like Sprout Social, Hootsuite Insights, and Buffer analyze your historical engagement data alongside platform-wide trends to recommend optimal posting times for each network. These tools consider your specific audience's active hours, content type performance at different times, and even day-of-week variations. The most advanced tools continuously learn from your results, refining recommendations as your audience behavior changes.",
+    category: "Social Media Marketing"
+  },
+  {
+    question: "Can AI help me create more engaging social media captions?",
+    answer: "Yes, AI tools like Phrasee, Copy.ai, and even ChatGPT can generate engaging captions tailored to your brand voice and platform. For best results, provide examples of your highest-performing captions, specify your tone (conversational, professional, humorous), and include key messaging points. AI can then generate multiple caption options with emotional triggers, questions, and calls-to-action that resonate with your audience.",
+    category: "Social Media Marketing"
+  },
+  {
+    question: "How can I use AI to identify trending topics for social media content?",
+    answer: "AI-powered trend detection tools like BuzzSumo, Brandwatch, and Talkwalker scan millions of social posts to identify emerging conversations relevant to your industry. These tools can spot rising hashtags, content formats, and discussion topics before they peak. Some platforms like Lately.ai can even analyze which trending topics best align with your brand voice and audience interests, helping you prioritize the most relevant trends.",
+    category: "Social Media Marketing"
+  },
+  {
+    question: "What's the best way to use AI for social media community management?",
+    answer: "Use AI tools like Sprout Social's Smart Inbox or Khoros to automatically categorize incoming messages by sentiment, urgency, and topic. Set up AI-powered chatbots to handle common questions and route complex issues to human team members. For moderation, tools like Respondology can detect and flag potentially harmful content. The key is finding the right balance—let AI handle routine interactions while preserving human touch for sensitive or complex conversations.",
+    category: "Social Media Marketing"
+  },
+  {
+    question: "How can AI help me improve my social media ad targeting?",
+    answer: "AI enhances ad targeting through predictive audience modeling, which identifies patterns in your current customer data to find similar prospects. Tools like Facebook's Lookalike Audiences use AI to find users with behaviors matching your best customers. AI can also optimize bidding strategies in real-time, allocating budget to the best-performing audience segments. For advanced targeting, platforms like Albert or Pathmatics use AI to discover unexpected audience segments that respond well to your content.",
+    category: "Social Media Marketing"
+  },
+  {
+    question: "Can AI help me create better social media visuals?",
+    answer: "Absolutely. AI design tools like Canva's Magic Design, Adobe Sensei, or Designs.ai can generate platform-optimized visuals based on your brand guidelines. For more advanced needs, tools like DALL-E or Midjourney can create custom imagery from text descriptions. Some platforms like Crello analyze which visual styles perform best on different networks and automatically adjust designs accordingly. The key is providing clear brand guidelines and examples of successful past content.",
+    category: "Social Media Marketing"
+  },
+  {
+    question: "How can I use AI to track social media sentiment about my brand?",
+    answer: "AI-powered sentiment analysis tools like Brandwatch, Talkwalker, or Netbase Quid go beyond basic positive/negative classifications to detect emotions like frustration, excitement, or confusion in mentions of your brand. These tools can identify sentiment shifts in real-time, allowing you to address emerging issues before they escalate. The most sophisticated platforms can even analyze visual sentiment in images and videos where your brand appears.",
+    category: "Social Media Marketing"
+  },
+  {
+    question: "What AI tools can help me create a more effective social media content calendar?",
+    answer: "Tools like ContentCal, HubSpot, and CoSchedule use AI to analyze your historical content performance and recommend optimal content types, topics, and posting cadences. Some platforms like Lately.ai can suggest content themes based on trending industry topics and audience interests. For advanced planning, tools like Sprout Social's ViralPost feature can predict which content types will perform best in upcoming weeks based on platform algorithm changes and seasonal trends.",
+    category: "Social Media Marketing"
+  },
+  {
+    question: "How can AI help me measure social media ROI more effectively?",
+    answer: "AI attribution tools like Neustar, Measured, or Northbeam can connect social media touchpoints to conversion events, even when they occur across different devices or sessions. These platforms use machine learning to identify which social content types, platforms, and campaigns drive the most valuable customer journeys. Some tools can even predict the long-term revenue impact of current social engagement, helping you justify investment in brand-building content that doesn't drive immediate conversions.",
+    category: "Social Media Marketing"
+  },
+  {
+    question: "Can AI help me identify the right influencers for my brand?",
+    answer: "Yes, platforms like HypeAuditor, Upfluence, and CreatorIQ use AI to analyze influencers beyond follower counts, examining audience authenticity, engagement quality, and content relevance to your brand. Advanced tools can identify micro-influencers whose audiences closely match your target demographic, predict campaign performance based on past collaborations, and even detect potential brand safety issues by analyzing an influencer's historical content and audience interactions.",
+    category: "Social Media Marketing"
+  },
+  
   // Performance Marketing FAQs
   {
     question: "What is AI's role in performance marketing?",
@@ -192,11 +244,6 @@ export const faqData: FAQItem[] = [
   {
     question: "Can AI help me localize content for different international markets?",
     answer: "Yes, AI tools like Unbabel or DeepL can translate marketing content while preserving tone and context better than traditional translation services. For deeper localization, tools like Persado can analyze which emotional appeals work best in different cultures. However, always have a native speaker review AI-translated content, especially for idioms, cultural references, and region-specific compliance requirements.",
-    category: "Content Creation"
-  },
-  {
-    question: "How do I maintain brand voice consistency across multiple AI content tools?",
-    answer: "Create a comprehensive brand voice guide with examples of tone, style, and vocabulary preferences. With tools like ChatGPT, save custom instructions that define your brand voice. For specialized AI writing tools, create templates with your brand voice parameters. Maintain a library of successful AI-generated content that exemplifies your brand voice for reference. Implement a consistent review process to ensure all AI-generated content aligns with brand standards.",
     category: "Content Creation"
   },
   {
