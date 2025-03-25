@@ -1,21 +1,21 @@
-import { Headphones } from 'lucide-react';
+import { Layers } from 'lucide-react';
 import CollapsibleSection from '../components/CollapsibleSection';
 import CategoryLayout from '../components/CategoryLayout';
 import SEO from '../components/SEO';
-import { audioData } from '../data/categories/audio';
+import { mcpData } from '../data/categories/mcp';
 import { Text, Card, Grid } from '../components/ui';
 
-export default function Audio() {
+export default function MCP() {
   // Mobile content with collapsible sections
   const mobileContent = (
     <>
       <SEO 
-        title="AI Audio Tools"
-        description="Explore AI-powered audio tools for voice generation, music creation, audio editing, and sound enhancement."
-        keywords="AI audio tools, voice generation, AI music, audio enhancement, text-to-speech, speech-to-text"
+        title="Model Context Protocol (MCP)"
+        description="Learn about the Model Context Protocol (MCP) and how it works with AI systems."
+        keywords="MCP, Model Context Protocol, AI protocol, context protocol, RAG, retrieval augmented generation"
       />
       
-      {audioData.sections.map((section, index) => (
+      {mcpData.sections.map((section, index) => (
         <CollapsibleSection 
           key={index} 
           title={section.title} 
@@ -60,7 +60,7 @@ export default function Audio() {
   // Desktop content
   const desktopContent = (
     <Grid columns={1} gap="xl">
-      {audioData.sections.map((section, index) => (
+      {mcpData.sections.map((section, index) => (
         <Card key={index} variant="outlined">
           <div className="bg-primary-light p-4">
             <Text variant="h3" className="mb-0">
@@ -109,10 +109,10 @@ export default function Audio() {
 
   return (
     <CategoryLayout
-      title={audioData.title}
-      icon={<Headphones className="w-5 h-5" />}
-      gradientClasses={audioData.gradientClasses}
-      description={audioData.description}
+      title={mcpData.title}
+      icon={<Layers className="w-5 h-5" />}
+      gradientClasses={mcpData.gradientClasses}
+      description={mcpData.description}
       mobileContent={mobileContent}
       desktopContent={desktopContent}
       breadcrumbParent="/"
