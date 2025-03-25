@@ -355,7 +355,7 @@ export default function Agents() {
       description={agentsData.description}
       mobileContent={mobileContent}
       desktopContent={desktopContent}
-      breadcrumbParent="/"
+      
     />
   );
 }

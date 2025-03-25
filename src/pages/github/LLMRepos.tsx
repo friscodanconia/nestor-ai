@@ -102,7 +102,7 @@ const LLMRepos = () => {
       description="Explore the most innovative and impactful open-source language models that are pushing the boundaries of AI technology."
       mobileContent={mobileContent}
       desktopContent={desktopContent}
-      breadcrumbParent="/github-repos"
+      
     />
   );
 };

@@ -102,7 +102,7 @@ const ToolsRepos = () => {
       description="Explore essential development tools and utilities that enhance AI development workflows and productivity."
       mobileContent={mobileContent}
       desktopContent={desktopContent}
-      breadcrumbParent="/github-repos"
+      
     />
   );
 };

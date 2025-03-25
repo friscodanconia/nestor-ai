@@ -102,7 +102,7 @@ const ApplicationsRepos = () => {
       description="Explore repositories for practical AI applications and tools that are ready to use or integrate into your projects."
       mobileContent={mobileContent}
       desktopContent={desktopContent}
-      breadcrumbParent="/github-repos"
+      
     />
   );
 };

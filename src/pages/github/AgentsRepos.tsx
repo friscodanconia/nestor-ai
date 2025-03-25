@@ -102,7 +102,7 @@ const AgentsRepos = () => {
       description="Explore repositories focused on AI agents, automation, and autonomous systems."
       mobileContent={mobileContent}
       desktopContent={desktopContent}
-      breadcrumbParent="/github-repos"
+      
     />
   );
 };

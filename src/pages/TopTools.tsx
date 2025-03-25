@@ -191,7 +191,7 @@ export default function TopTools() {
       description={topToolsData.description}
       mobileContent={mobileContent}
       desktopContent={desktopContent}
-      breadcrumbParent="/"
+      
     />
   );
 }

@@ -102,7 +102,7 @@ export default function Apps() {
       icon={<AppWindow className="w-5 h-5" />}
       gradientClasses={appsData.gradientClasses}
       description={appsData.description}
-      breadcrumbParent="/"
+      
       mobileContent={
         <>
           {mobileContent}
