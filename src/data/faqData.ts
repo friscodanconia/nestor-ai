@@ -943,6 +943,99 @@ export const faqData: FAQItem[] = [
     category: "B2B Marketing"
   },
   
+  // AI for Video Marketing FAQs
+  {
+    question: "What AI tools can help me create marketing videos more efficiently?",
+    answer: "AI video creation tools like Synthesia, Lumen5, and InVideo can dramatically accelerate your video production process. These platforms can convert text scripts into professional-looking videos with AI-generated avatars, automated scene selection, and dynamic text animation. For more customized videos, tools like Runway ML and Descript offer AI-powered editing features including automatic B-roll generation, background removal, and one-click motion tracking. The most advanced platforms can even generate custom video templates based on your brand guidelines. For best results, start with clear messaging objectives and provide the AI with high-quality brand assets and specific style preferences.",
+    category: "Video Marketing"
+  },
+  {
+    question: "How can AI help me optimize my video content for better engagement?",
+    answer: "AI video analytics platforms like Vidyard, Wistia, and features in tools like HubSpot can identify exactly which segments of your videos drive engagement or cause drop-offs. These systems analyze viewer behavior patterns to determine optimal video length, ideal intro duration, and most effective calls-to-action for different audience segments. The most sophisticated tools can even recommend specific content adjustments based on performance data. For social video, platforms like Jellysmack and Tubular use AI to predict which video formats and topics will perform best on each platform. For maximum impact, use these insights to create platform-specific video content rather than using the same video across all channels.",
+    category: "Video Marketing"
+  },
+  {
+    question: "What's the best way to use AI for video personalization?",
+    answer: "Advanced video personalization platforms like Vidyard, Idomoo, and features in tools like BombBomb can dynamically customize video content for individual viewers or segments. These systems can insert personalized elements like the viewer's name, company logo, or relevant product images directly into videos. The most sophisticated platforms can create entirely different narrative paths based on viewer attributes or behaviors. For B2B marketing, consider using AI tools that can automatically generate personalized video thumbnails featuring the recipient's name or company to dramatically increase click-through rates. Start with a strong core video and identify specific elements that benefit from personalization rather than trying to personalize everything.",
+    category: "Video Marketing"
+  },
+  {
+    question: "How can AI help me create better video ads?",
+    answer: "AI-powered video ad platforms like VidMob, Spirable, and features in tools like Creatopy analyze performance data across thousands of video ads to identify which creative elements drive the best results. These systems can recommend specific improvements to your video ads including optimal length, most effective opening frames, best performing calls-to-action, and ideal text overlay placement. The most advanced platforms can automatically generate multiple video ad variations for testing or even dynamically assemble personalized video ads based on viewer attributes. For maximum effectiveness, provide these systems with clear conversion goals and audience targeting parameters.",
+    category: "Video Marketing"
+  },
+  {
+    question: "What AI tools can help me with video SEO?",
+    answer: "AI-powered video SEO tools like Tubular, vidIQ, and features in platforms like Wistia can analyze top-performing videos in your niche to recommend optimal titles, descriptions, tags, and thumbnails. These systems use natural language processing to identify the most relevant keywords and phrases for your video content. The most sophisticated platforms can automatically generate closed captions, transcripts, and chapter markers that improve both accessibility and search visibility. Some advanced tools can even analyze your video content frame-by-frame to identify objects and scenes that should be referenced in metadata. For best results, combine these AI recommendations with your own keyword research and competitive analysis.",
+    category: "Video Marketing"
+  },
+  
+  // AI Training & Education FAQs
+  {
+    question: "How should I approach training my marketing team on AI tools?",
+    answer: "The most effective AI training programs follow a four-phase approach: (1) Awareness—educate teams on AI capabilities and limitations without technical jargon; (2) Application—demonstrate specific use cases relevant to each role; (3) Hands-on practice—create structured exercises with real marketing scenarios; and (4) Integration—establish processes for incorporating AI tools into daily workflows. Rather than generic AI courses, look for tool-specific training resources from vendors or specialized platforms like MarTech Academy or CXL. For maximum adoption, identify AI champions within each marketing function who can provide peer support and showcase early wins. Remember that effective AI training is ongoing, not a one-time event, as tools and capabilities evolve rapidly.",
+    category: "AI Training & Education"
+  },
+  {
+    question: "What skills should marketers develop to work effectively with AI?",
+    answer: "The most valuable skills for AI-empowered marketers include: (1) Prompt engineering—learning to effectively communicate with and direct AI systems; (2) Critical evaluation—the ability to assess AI outputs for quality, accuracy, and brand alignment; (3) Strategic thinking—identifying which marketing tasks benefit most from AI assistance; (4) Data literacy—understanding what data AI needs to perform effectively; and (5) Ethical judgment—recognizing potential biases or ethical issues in AI applications. Technical coding skills are becoming less necessary as AI interfaces improve, but understanding basic concepts like training data, algorithms, and model limitations remains important. Focus training on these foundational skills rather than specific tool interfaces, which will change frequently.",
+    category: "AI Training & Education"
+  },
+  {
+    question: "How can I measure the effectiveness of AI training for my marketing team?",
+    answer: "Effective measurement of AI training impact includes both capability and outcome metrics: (1) Capability metrics—track adoption rates, proficiency assessments, time saved on tasks, and confidence surveys; (2) Outcome metrics—measure improvements in marketing KPIs directly attributable to AI-assisted work, such as content production velocity, campaign performance, or customer response times. The most comprehensive approach combines quantitative metrics with qualitative feedback through regular retrospectives where teams discuss AI successes and challenges. Establish baseline measurements before training and track progress at 30, 60, and 90 days post-training. For ongoing programs, implement a learning management system that tracks both completion rates and practical application of AI skills.",
+    category: "AI Training & Education"
+  },
+  {
+    question: "What resources are available for ongoing AI education for marketers?",
+    answer: "For continuous AI learning, marketers should leverage: (1) Vendor-specific resources—most major AI marketing platforms offer certification programs and knowledge bases; (2) Specialized courses—programs from CXL Institute, MarTech Alliance, and LinkedIn Learning focused on marketing AI applications; (3) Communities—groups like Marketing AI Institute, AI Marketing Summit, and specific tool user communities; (4) Newsletters—curated content from sources like The Algorithmic Bridge and Ben's Bites that highlight new AI developments relevant to marketers; and (5) Hands-on labs—platforms like Codecademy and Coursera that offer practical AI exercises. The most effective learning approach combines structured courses for foundations with communities and newsletters for staying current with rapid developments.",
+    category: "AI Training & Education"
+  },
+  
+  // AI Integration & Tech Stack FAQs
+  {
+    question: "How should I approach integrating AI tools into my existing marketing tech stack?",
+    answer: "The most successful AI integration approaches follow a phased methodology: (1) Audit—catalog your current martech tools and identify integration points and data flows; (2) Prioritize—select initial AI implementations that address clear pain points with minimal disruption; (3) Pilot—run contained experiments with new AI tools before full deployment; (4) Integrate—focus on clean data exchange between systems using APIs or middleware like Zapier or Make; and (5) Optimize—continuously monitor integration performance, focusing on data latency and accuracy. Avoid the common mistake of adding AI tools in isolation; instead, map how each AI component will receive inputs from and deliver outputs to your existing systems. For complex stacks, consider using a customer data platform (CDP) as the central hub for AI-ready data.",
+    category: "AI Integration & Tech Stack"
+  },
+  {
+    question: "What are the most common challenges when integrating AI into a marketing tech stack?",
+    answer: "The primary integration challenges include: (1) Data silos—disconnected systems preventing AI from accessing comprehensive customer data; (2) Data quality issues—inconsistent formats, duplicates, and gaps undermining AI performance; (3) API limitations—restricted data access or rate limits from existing tools; (4) Workflow disruption—changes to established processes creating team resistance; and (5) Governance concerns—unclear policies on how AI should access and use sensitive data. The most effective mitigation strategy addresses data foundation issues before implementing advanced AI capabilities. Start by creating a unified customer data model and implementing data cleaning processes. For workflow challenges, involve end-users in integration planning and provide adequate transition time with parallel systems before full cutover to AI-enhanced processes.",
+    category: "AI Integration & Tech Stack"
+  },
+  {
+    question: "How can I ensure my AI marketing tools work well with my CRM system?",
+    answer: "Successful AI-CRM integration requires attention to several key factors: (1) Data synchronization—establish bi-directional data flows with clear rules for which system is the source of truth for different data points; (2) Field mapping—create consistent customer attribute definitions between systems; (3) Identity resolution—implement a unified approach to identifying customers across touchpoints; (4) Permissions management—ensure AI tools have appropriate access levels to CRM data; and (5) Workflow triggers—define how AI insights should create actions in your CRM (e.g., task creation, lead scoring updates). For Salesforce users, consider tools with native AppExchange integration; for HubSpot, look for certified partners with established APIs. The most sophisticated implementations use middleware like MuleSoft or Tray.io to create custom integration flows between AI tools and your CRM.",
+    category: "AI Integration & Tech Stack"
+  },
+  {
+    question: "What should I consider when building an AI-first marketing tech stack?",
+    answer: "When designing an AI-centric marketing technology ecosystem, prioritize these foundational elements: (1) Data infrastructure—implement a customer data platform or data warehouse as your central repository with strong data governance; (2) API-first tools—select platforms with robust, well-documented APIs and webhook capabilities; (3) Modular architecture—choose specialized AI tools for specific functions rather than all-in-one solutions with limited AI capabilities; (4) Experimentation framework—build in the ability to test new AI tools without disrupting core systems; and (5) Scalability—ensure your infrastructure can handle increasing data volumes and computational demands. The most future-proof approach separates your data layer from your application layer, allowing you to swap AI tools as technology evolves while maintaining data continuity. Start by defining your ideal customer data model before selecting specific AI tools.",
+    category: "AI Integration & Tech Stack"
+  },
+  
+  // AI for Small Business FAQs
+  {
+    question: "What are the best AI marketing tools for small businesses with limited budgets?",
+    answer: "Small businesses should prioritize these high-impact, cost-effective AI tools: (1) All-in-one content platforms like Jasper or Copy.ai that offer multiple content types for a single subscription; (2) Social media assistants like Lately or Hootsuite Insights that combine content creation and scheduling; (3) Email marketing tools with AI features like Mailchimp or ConvertKit that offer predictive segmentation and subject line optimization; (4) Affordable analytics platforms like Google's free AI-powered tools or Oribi for conversion tracking; and (5) Customer service automation through platforms like Tidio or ManyChat with free starter plans. The most effective approach combines a few core AI tools rather than numerous specialized solutions. Look for platforms offering flexible month-to-month pricing, free tiers with meaningful capabilities, and straightforward implementation that doesn't require technical expertise.",
+    category: "AI for Small Business"
+  },
+  {
+    question: "How can a small business implement AI marketing without dedicated technical staff?",
+    answer: "Small businesses can successfully implement AI without technical teams by: (1) Starting with no-code AI platforms designed for marketers, like Canva's Magic Studio for design or Descript for video editing; (2) Utilizing AI features already embedded in familiar tools like Google Workspace or Microsoft 365; (3) Leveraging template-based AI systems that require minimal customization; (4) Using integration platforms like Zapier to connect AI tools without coding; and (5) Considering fractional AI consultants who can provide periodic guidance rather than full-time staff. The most practical approach focuses on solving specific business problems rather than implementing AI for its own sake. Start with a single use case—like automating social media content or optimizing email campaigns—master it completely, then gradually expand to additional applications as your comfort with AI increases.",
+    category: "AI for Small Business"
+  },
+  {
+    question: "What's the best way to measure ROI from AI marketing tools for a small business?",
+    answer: "Small businesses should focus on these practical ROI measurement approaches: (1) Time savings—track hours saved on routine tasks that can be redirected to high-value activities; (2) Direct cost comparison—calculate the cost difference between AI tools and previous solutions or outsourced services; (3) Performance lift—measure specific metrics before and after AI implementation using simple A/B tests; (4) Customer acquisition cost—track whether AI-enhanced marketing reduces your cost per new customer; and (5) Revenue impact—monitor changes in conversion rates or average order value attributable to AI personalization. The most effective measurement framework combines quantitative metrics with qualitative benefits like improved content quality or consistency. For accurate assessment, establish clear baseline measurements before implementing AI tools and isolate their impact from other business changes whenever possible.",
+    category: "AI for Small Business"
+  },
+  {
+    question: "How can small businesses use AI to compete with larger companies with bigger marketing budgets?",
+    answer: "Small businesses can leverage AI as a competitive equalizer through these strategies: (1) Hyper-localization—use AI to create highly targeted content for specific geographic areas that larger competitors might overlook; (2) Personalization at scale—implement AI-driven personalization that makes customers feel valued without requiring large teams; (3) Rapid experimentation—utilize AI to test multiple marketing approaches quickly, adapting faster than larger organizations; (4) Niche audience targeting—employ AI analytics to identify and serve underserved customer segments; and (5) Authentic differentiation—use AI content tools to amplify your unique brand voice and story consistently across channels. The most effective approach focuses on areas where being small is actually an advantage, like customer intimacy and agility. Start by using AI to deeply understand your most profitable customer segments, then create highly tailored experiences that larger competitors with standardized approaches cannot easily match.",
+    category: "AI for Small Business"
+  },
+  
   // Image Design FAQs
   {
     question: "What AI tools are recommended for image generation?",
