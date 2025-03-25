@@ -404,12 +404,12 @@ export const faqData: FAQItem[] = [
   },
   {
     question: "What's the best way to use AI for customer segmentation?",
-    answer: "AI excels at identifying natural customer segments beyond basic demographic groupings. Platforms like Bloomreach, Insider, and Custify use machine learning to discover segments based on behavioral patterns, purchase history, engagement level, and predicted future value. Unlike manual segmentation, AI can continuously refine segments as new data comes in and can identify unexpected correlations between customer attributes. The most effective approach combines AI-discovered segments with your business knowledge to create actionable customer groups.",
+    answer: "AI excels at identifying natural customer segments beyond basic demographic groupings. Platforms like Bloomreach, Insider, and Custify use machine learning to discover segments based on behavioral patterns, purchase history, engagement level, and predicted future value. Unlike manual segmentation, AI can continuously refine segments as new data comes in and can identify unexpected correlations between customer attributes. The most effective approach combines AI-discovered segments with business context to create actionable targeting strategies. Start by analyzing your existing high-value customers to identify common patterns the AI can search for in your broader audience.",
     category: "Customer Experience & Personalization"
   },
   {
     question: "How can AI chatbots improve my customer experience?",
-    answer: "Modern AI chatbots like those built with Intercom, Ada, or Drift go beyond basic FAQ responses to handle complex customer interactions. These systems can qualify leads, recommend products, process simple transactions, and seamlessly hand off to human agents when needed. The most sophisticated chatbots integrate with your CRM and knowledge base to provide personalized responses based on customer history. For best results, train your chatbot with real customer conversation data and continuously refine it based on interaction analytics.",
+    answer: "Modern AI chatbots like those built with Intercom, Ada, or Drift go beyond basic FAQ responses to handle complex customer interactions. These systems can qualify leads, recommend products, process simple transactions, and even seamlessly hand off to human agents when needed. The most sophisticated chatbots integrate with your CRM and knowledge base to provide personalized responses based on customer history. For best results, train your chatbot with real customer conversation data and continuously refine it based on interaction analytics.",
     category: "Customer Experience & Personalization"
   },
   {
@@ -619,7 +619,7 @@ export const faqData: FAQItem[] = [
   },
   {
     question: "How can AI help me improve my email deliverability rates?",
-    answer: "AI tools like SparkPost, Validity, or GlockApps analyze factors affecting deliverability across your entire email program. These systems can identify problematic sending patterns, flag content likely to trigger spam filters, optimize sending infrastructure, and even predict deliverability issues before they impact your campaigns. Some advanced platforms can automatically adjust sending volume and frequency based on recipient engagement signals to maintain optimal inbox placement.",
+    answer: "AI tools like SparkPost, Validity, or GlockApps analyze factors affecting deliverability across your entire email program. These systems can detect which sending patterns, content elements, or authentication issues are impacting deliverability and provide actionable recommendations. Some advanced platforms can automatically adjust sending volume and frequency based on recipient engagement signals to maintain optimal inbox placement.",
     category: "Email Marketing"
   },
   {
@@ -785,6 +785,58 @@ export const faqData: FAQItem[] = [
     question: "Which AI marketing tools work well together in a stack?",
     answer: "Complementary combinations include: (1) Jasper.ai for content creation with Surfer SEO for optimization; (2) ChatGPT for ideation with Canva's AI for visual creation; (3) Clearscope for content briefs with MarketMuse for topic research; (4) Seventh Sense for email timing with Phrasee for subject line optimization; and (5) Crayon for competitor intelligence with Brandwatch for social listening.",
     category: "AI Strategy & Implementation"
+  },
+  
+  // AI for E-commerce & Retail FAQs
+  {
+    question: "How can AI improve product recommendations in my online store?",
+    answer: "AI-powered recommendation engines like Nosto, Dynamic Yield, and features in platforms like Shopify and Magento go far beyond 'customers also bought' suggestions. These systems analyze individual browsing patterns, purchase history, and even contextual factors like time of day or weather to deliver highly personalized product recommendations. The most sophisticated platforms can identify complementary products, predict future needs, and adjust recommendations based on inventory levels. For best results, ensure your product data is well-structured with detailed attributes and feed the AI with comprehensive customer behavior data.",
+    category: "E-commerce & Retail"
+  },
+  {
+    question: "What AI tools can help me optimize my e-commerce pricing strategy?",
+    answer: "AI-powered pricing optimization platforms like Competera, PriceEdge, and features in tools like Intelligence Node analyze market conditions, competitor pricing, demand elasticity, and customer behavior to recommend optimal price points. These systems can identify price sensitivity by product category, customer segment, and even time period. The most advanced platforms can implement dynamic pricing that adjusts in real-time based on inventory levels, demand fluctuations, and competitive positioning. Start with a clear pricing strategy and business rules before implementing AI pricing to ensure the algorithms optimize for your specific business goals.",
+    category: "E-commerce & Retail"
+  },
+  {
+    question: "How can AI help me reduce cart abandonment?",
+    answer: "AI-powered abandonment solutions like Barilliance, Rejoiner, and features in platforms like Klaviyo analyze behavioral signals to predict abandonment before it happens and personalize recovery tactics. These systems can identify which products have high abandonment rates, which customer segments are most likely to abandon, and which recovery incentives work best for different scenarios. The most effective approach combines real-time interventions (like exit-intent offers) with personalized follow-up sequences based on the specific items abandoned and the customer's purchase history and browsing behavior.",
+    category: "E-commerce & Retail"
+  },
+  {
+    question: "Can AI help me optimize my product descriptions?",
+    answer: "Yes, AI content optimization tools like Anyword, Phrasee, and certain features in platforms like Jasper can analyze your product description performance data to identify which language patterns, feature highlights, and emotional appeals drive the most conversions for different product categories. These systems can then generate or optimize descriptions that emphasize the most impactful elements. Some advanced platforms can even personalize product descriptions based on the individual shopper's browsing history and preferences. For best results, provide the AI with your brand voice guidelines and high-performing examples.",
+    category: "E-commerce & Retail"
+  },
+  {
+    question: "How can I use AI to improve inventory management for my e-commerce business?",
+    answer: "AI-powered inventory management platforms like Lokad, Inturn, and features in tools like Manhattan Associates use machine learning to forecast demand with much greater accuracy than traditional methods. These systems analyze historical sales data alongside external factors like seasonality, marketing campaigns, and even weather patterns to predict future inventory needs. The most sophisticated platforms can optimize stock levels across multiple locations, recommend reorder timing, and even identify slow-moving inventory before it becomes problematic. For accurate predictions, feed these systems with at least two years of historical data and information about planned marketing activities.",
+    category: "E-commerce & Retail"
+  },
+  {
+    question: "What's the best way to use AI for visual search in e-commerce?",
+    answer: "AI-powered visual search tools like Syte, ViSenze, and features in platforms like Shopify can allow customers to upload images or use their camera to find visually similar products in your catalog. These systems use computer vision to identify product attributes like color, pattern, style, and shape from images. The most effective implementation combines visual search with text-based filters so customers can refine results. For optimal performance, ensure your product images are high-quality, consistent in style, and shot against clean backgrounds. Also, provide the AI with comprehensive product attribute data to improve matching accuracy.",
+    category: "E-commerce & Retail"
+  },
+  {
+    question: "How can AI chatbots improve the e-commerce shopping experience?",
+    answer: "E-commerce-specific AI chatbots like those built with Heyday, Octane AI, or Tidio go beyond basic customer service to actively assist in the shopping process. These systems can help customers find products based on their needs, provide personalized recommendations, answer product questions, and even process simple transactions. The most sophisticated chatbots integrate with your product catalog, inventory system, and customer profiles to provide truly helpful assistance. For best results, train your chatbot with real customer conversation data and continuously refine it based on interaction analytics.",
+    category: "E-commerce & Retail"
+  },
+  {
+    question: "Can AI help me create more effective product bundles and cross-sells?",
+    answer: "Yes, AI bundling tools like Bundle Builder, Bundler, and features in platforms like Fast Simon analyze purchase patterns to identify products that are frequently purchased together or complement each other in ways you might not expect. These systems can recommend optimal bundle combinations, pricing strategies, and even personalized bundles based on individual customer preferences. The most sophisticated platforms continuously test and refine bundle recommendations based on performance data. For best results, provide the AI with comprehensive transaction data and clear business rules about which products can be bundled together.",
+    category: "E-commerce & Retail"
+  },
+  {
+    question: "How can AI help me optimize my e-commerce search functionality?",
+    answer: "AI-powered search platforms like Algolia, Constructor.io, and Klevu go far beyond keyword matching to understand search intent and deliver highly relevant results. These systems can handle misspellings, synonyms, and even contextual meaning based on the shopper's behavior. The most advanced platforms can personalize search results based on individual preferences, boost high-converting or high-margin products, and even adjust results based on inventory levels. For optimal performance, enrich your product data with detailed attributes, synonyms, and related terms, and regularly review search analytics to identify and address zero-result searches.",
+    category: "E-commerce & Retail"
+  },
+  {
+    question: "What AI tools can help me reduce returns in my e-commerce business?",
+    answer: "AI-powered returns reduction platforms like Returnly, Narvar, and features in tools like True Fit analyze return patterns to identify root causes and implement preventive measures. These systems can detect which products, categories, or customer segments have abnormally high return rates and why. The most effective solutions combine better product information (like AI-enhanced size guides and more accurate product visualization) with post-purchase interventions (like AI-powered fit or satisfaction surveys). For fashion retailers, virtual try-on technologies powered by AI can significantly reduce fit-related returns by showing how items will look on the specific customer.",
+    category: "E-commerce & Retail"
   },
   
   // Image Design FAQs
