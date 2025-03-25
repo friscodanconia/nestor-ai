@@ -1,28 +1,19 @@
-import { useNavigate } from 'react-router-dom';
-import { Github, ArrowLeft } from 'lucide-react';
+import React from 'react';
+import { Github } from 'lucide-react';
+import CategoryLayout from '../../components/CategoryLayout';
+import SEO from '../../components/SEO';
 
-export default function LLMRepos() {
-  const navigate = useNavigate();
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-violet-200 to-purple-200">
-      <header className="p-6 flex justify-between items-center">
-        <button 
-          onClick={() => navigate('/github-repos')}
-          className="p-2 rounded-full bg-white/20 backdrop-blur-sm text-gray-900 hover:bg-white/30 transition-colors"
-        >
-          <ArrowLeft className="w-5 h-5" />
-        </button>
-        <div className="flex items-center gap-3">
-          <div className="bg-white/20 backdrop-blur-sm rounded-full w-10 h-10 flex items-center justify-center">
-            <Github className="w-5 h-5" />
-          </div>
-          <h1 className="text-xl font-semibold text-gray-900">Large Language Models</h1>
-        </div>
-        <div className="w-9" />
-      </header>
-
-      <main className="max-w-2xl mx-auto px-4 py-6">
+const LLMRepos = () => {
+  // Mobile content
+  const mobileContent = (
+    <>
+      <SEO 
+        title="Large Language Models"
+        description="Explore the most innovative and impactful open-source language models that are pushing the boundaries of AI technology."
+        keywords="LLM, language models, AI models, open source LLM, NLP repositories"
+      />
+      
+      <div className="space-y-6">
         <h2 className="text-2xl font-semibold mb-4 text-gray-900">Featured Repositories</h2>
         <p className="text-gray-800 text-lg mb-8 leading-relaxed">
           Explore the most innovative and impactful open-source language models that are pushing the boundaries of AI technology.
@@ -31,62 +22,89 @@ export default function LLMRepos() {
           <ul className="space-y-3 text-gray-800">
             <li>
               <a 
-                href="https://github.com/facebookresearch/llama"
-                target="_blank"
+                href="https://github.com/openai/gpt-3" 
+                target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:text-purple-800 transition-colors group text-base"
+                className="flex items-start p-4 rounded-lg bg-white/50 hover:bg-white/70 transition-colors"
               >
-                <div className="w-2 h-2 rounded-full bg-gray-900 group-hover:bg-purple-800 transition-colors"></div>
-                <span>Llama - Open and efficient foundation language models</span>
+                <div>
+                  <h3 className="font-medium text-gray-900">GPT-3</h3>
+                  <p className="mt-1 text-sm">OpenAI's language model with 175 billion parameters</p>
+                </div>
               </a>
             </li>
             <li>
               <a 
-                href="https://github.com/openai/whisper"
-                target="_blank"
+                href="https://github.com/facebookresearch/llama" 
+                target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:text-purple-800 transition-colors group text-base"
+                className="flex items-start p-4 rounded-lg bg-white/50 hover:bg-white/70 transition-colors"
               >
-                <div className="w-2 h-2 rounded-full bg-gray-900 group-hover:bg-purple-800 transition-colors"></div>
-                <span>Whisper - Robust Speech Recognition via Large-Scale Weak Supervision</span>
+                <div>
+                  <h3 className="font-medium text-gray-900">LLaMA</h3>
+                  <p className="mt-1 text-sm">Facebook's foundational large language models</p>
+                </div>
               </a>
             </li>
             <li>
               <a 
-                href="https://github.com/nomic-ai/gpt4all"
-                target="_blank"
+                href="https://github.com/google/gemma" 
+                target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:text-purple-800 transition-colors group text-base"
+                className="flex items-start p-4 rounded-lg bg-white/50 hover:bg-white/70 transition-colors"
               >
-                <div className="w-2 h-2 rounded-full bg-gray-900 group-hover:bg-purple-800 transition-colors"></div>
-                <span>GPT4All - Open-source assistant-style large language models</span>
+                <div>
+                  <h3 className="font-medium text-gray-900">Gemma</h3>
+                  <p className="mt-1 text-sm">Google's lightweight, state-of-the-art open language models</p>
+                </div>
               </a>
             </li>
             <li>
               <a 
-                href="https://github.com/microsoft/DeepSpeed"
-                target="_blank"
+                href="https://github.com/mistralai/mistral-src" 
+                target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:text-purple-800 transition-colors group text-base"
+                className="flex items-start p-4 rounded-lg bg-white/50 hover:bg-white/70 transition-colors"
               >
-                <div className="w-2 h-2 rounded-full bg-gray-900 group-hover:bg-purple-800 transition-colors"></div>
-                <span>DeepSpeed - Deep learning optimization library</span>
+                <div>
+                  <h3 className="font-medium text-gray-900">Mistral</h3>
+                  <p className="mt-1 text-sm">Mistral AI's open-source language models</p>
+                </div>
               </a>
             </li>
             <li>
               <a 
-                href="https://github.com/huggingface/transformers"
-                target="_blank"
+                href="https://github.com/ggerganov/llama.cpp" 
+                target="_blank" 
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 hover:text-purple-800 transition-colors group text-base"
+                className="flex items-start p-4 rounded-lg bg-white/50 hover:bg-white/70 transition-colors"
               >
-                <div className="w-2 h-2 rounded-full bg-gray-900 group-hover:bg-purple-800 transition-colors"></div>
-                <span>Transformers - State-of-the-art Machine Learning</span>
+                <div>
+                  <h3 className="font-medium text-gray-900">llama.cpp</h3>
+                  <p className="mt-1 text-sm">Port of Facebook's LLaMA model in C/C++</p>
+                </div>
               </a>
             </li>
           </ul>
         </div>
-      </main>
-    </div>
+      </div>
+    </>
   );
-}
+
+  // Desktop content (same as mobile for now)
+  const desktopContent = mobileContent;
+
+  return (
+    <CategoryLayout
+      title="Large Language Models"
+      icon={<Github className="w-6 h-6" />}
+      gradientClasses="bg-gradient-to-br from-violet-200 to-purple-200"
+      description="Explore the most innovative and impactful open-source language models that are pushing the boundaries of AI technology."
+      mobileContent={mobileContent}
+      desktopContent={desktopContent}
+      breadcrumbParent="/github-repos"
+    />
+  );
+};
+
+export default LLMRepos;

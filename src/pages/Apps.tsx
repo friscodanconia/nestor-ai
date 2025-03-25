@@ -1,39 +1,49 @@
 import { AppWindow } from 'lucide-react';
 import CollapsibleSection from '../components/CollapsibleSection';
 import CategoryLayout from '../components/CategoryLayout';
+import SEO from '../components/SEO';
 import { appsData } from '../data/categories/apps';
+import { Text, Card, Grid } from '../components/ui';
 
 export default function Apps() {
   // Mobile content with collapsible sections
   const mobileContent = (
     <>
+      <SEO 
+        title="AI Apps"
+        description="Explore AI-powered applications that can enhance your creativity, productivity, and daily workflows."
+        keywords="AI apps, artificial intelligence applications, creative AI tools, productivity AI, AI software"
+      />
+      
       <CollapsibleSection title="What to expect" defaultExpanded={true}>
-        <div className="space-y-4">
-          <ul className="list-disc list-inside text-base text-gray-700 space-y-1">
+        <Card variant="outlined" className="space-y-4">
+          <ul className="list-disc list-inside space-y-1">
             {appsData.whatToExpect.items.map((item, index) => (
-              <li key={index}>{item}</li>
+              <li key={index}>
+                <Text variant="body" color="secondary">{item}</Text>
+              </li>
             ))}
           </ul>
-        </div>
+        </Card>
       </CollapsibleSection>
 
       {appsData.sections.map((section, index) => (
         <CollapsibleSection key={index} title={section.title}>
-          <div className="space-y-4">
+          <Card variant="outlined" className="space-y-4">
             {section.apps.map((app, appIndex) => (
-              <p key={appIndex} className="text-base text-gray-700">
+              <Text key={appIndex} variant="body" color="secondary">
                 <a 
                   href={app.url} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="font-bold underline hover:text-rose-800"
+                  className="font-bold underline hover:text-primary-dark"
                 >
                   {app.name}
                 </a>
                 {app.name !== section.title && " - "}{app.description}
-              </p>
+              </Text>
             ))}
-          </div>
+          </Card>
         </CollapsibleSection>
       ))}
     </>
@@ -41,43 +51,49 @@ export default function Apps() {
 
   // Desktop content
   const desktopContent = (
-    <>
-      <div>
-        <h3 className="text-xl font-semibold mb-4">
-          What to expect
-        </h3>
-        <div className="space-y-4">
-          <ul className="list-disc list-inside text-base text-gray-700 space-y-1">
+    <Grid columns={1} gap="xl">
+      <Card variant="outlined">
+        <div className="bg-primary-light p-4">
+          <Text variant="h3" className="mb-0">
+            What to expect
+          </Text>
+        </div>
+        <div className="p-6 space-y-4">
+          <ul className="list-disc list-inside space-y-1">
             {appsData.whatToExpect.items.map((item, index) => (
-              <li key={index}>{item}</li>
+              <li key={index}>
+                <Text variant="body" color="secondary">{item}</Text>
+              </li>
             ))}
           </ul>
         </div>
-      </div>
+      </Card>
 
       {appsData.sections.map((section, index) => (
-        <div key={index}>
-          <h3 className="text-xl font-semibold mb-4">
-            {section.title}
-          </h3>
-          <div className="space-y-4">
+        <Card key={index} variant="outlined">
+          <div className="bg-primary-light p-4">
+            <Text variant="h3" className="mb-0">
+              {section.title}
+            </Text>
+          </div>
+          <div className="p-6 space-y-4">
             {section.apps.map((app, appIndex) => (
-              <p key={appIndex} className="text-base text-gray-700">
+              <Text key={appIndex} variant="body" color="secondary">
                 <a 
                   href={app.url} 
                   target="_blank" 
                   rel="noopener noreferrer" 
-                  className="font-bold underline hover:text-rose-800"
+                  className="font-bold underline hover:text-primary-dark"
                 >
                   {app.name}
                 </a>
                 {app.name !== section.title && " - "}{app.description}
-              </p>
+              </Text>
             ))}
           </div>
-        </div>
+        </Card>
       ))}
-    </>
+    </Grid>
   );
 
   return (
@@ -86,21 +102,28 @@ export default function Apps() {
       icon={<AppWindow className="w-5 h-5" />}
       gradientClasses={appsData.gradientClasses}
       description={appsData.description}
+      breadcrumbParent="/"
       mobileContent={
         <>
           {mobileContent}
-          <div className="mt-6 text-base text-gray-700">
-            <p>Last updated: {appsData.lastUpdated}</p>
-            <p>Have a suggestion? <a href={`mailto:${appsData.contactEmail}`} className="hover:text-rose-800">mail us {appsData.contactEmail}</a></p>
-          </div>
+          <Card variant="outlined" className="mt-6">
+            <Text variant="body" color="secondary">Last updated: {appsData.lastUpdated}</Text>
+            <Text variant="body" color="secondary">
+              Have a suggestion? <a href={`mailto:${appsData.contactEmail}`} className="hover:text-primary-dark">mail us {appsData.contactEmail}</a>
+            </Text>
+          </Card>
         </>
       }
       desktopContent={
         <>
-          <div className="mb-6 text-base text-gray-700">
-            <p>Last updated: {appsData.lastUpdated}</p>
-            <p>Have a suggestion? <a href={`mailto:${appsData.contactEmail}`} className="hover:text-rose-800">mail us {appsData.contactEmail}</a></p>
-          </div>
+          <Card variant="outlined" className="mb-6">
+            <div className="p-4">
+              <Text variant="body" color="secondary">Last updated: {appsData.lastUpdated}</Text>
+              <Text variant="body" color="secondary">
+                Have a suggestion? <a href={`mailto:${appsData.contactEmail}`} className="hover:text-primary-dark">mail us {appsData.contactEmail}</a>
+              </Text>
+            </div>
+          </Card>
           {desktopContent}
         </>
       }

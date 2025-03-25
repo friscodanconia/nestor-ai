@@ -5,7 +5,6 @@ import Search from './components/Search';
 import WelcomePanel from './components/WelcomePanel';
 import { Video as VideoIcon } from 'lucide-react';
 import SEO from './components/SEO';
-import { trackPageView } from './utils/analytics';
 
 // Force rebuild - 2025-03-24
 
@@ -394,23 +393,10 @@ function HomePage() {
   );
 }
 
-// Analytics tracker component
-const AnalyticsTracker = () => {
-  const location = useLocation();
-  
-  useEffect(() => {
-    // Track page view when location changes
-    trackPageView(location.pathname);
-  }, [location]);
-  
-  return null;
-};
-
 function App() {
   return (
     <BrowserRouter>
       <Suspense fallback={<PageLoader />}>
-        <AnalyticsTracker />
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/agents" element={<Agents />} />
