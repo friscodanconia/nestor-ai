@@ -183,6 +183,58 @@ export const faqData: FAQItem[] = [
     category: "Content Creation"
   },
   
+  // AI for Content Creation FAQs (Additional)
+  {
+    question: "How do I use AI to create content for highly technical or specialized industries?",
+    answer: "First, provide the AI with industry-specific context, terminology, and examples of good content in your field. Create custom instructions that include technical parameters and compliance requirements. For highly specialized topics, use the 'research assistant' approach—have the AI outline structure and questions, then fill in technical details yourself or with expert input. Always fact-check AI-generated technical content against reliable industry sources.",
+    category: "Content Creation"
+  },
+  {
+    question: "Can AI help me localize content for different international markets?",
+    answer: "Yes, AI tools like Unbabel or DeepL can translate marketing content while preserving tone and context better than traditional translation services. For deeper localization, tools like Persado can analyze which emotional appeals work best in different cultures. However, always have a native speaker review AI-translated content, especially for idioms, cultural references, and region-specific compliance requirements.",
+    category: "Content Creation"
+  },
+  {
+    question: "How do I maintain brand voice consistency across multiple AI content tools?",
+    answer: "Create a comprehensive brand voice guide with examples of tone, style, and vocabulary preferences. With tools like ChatGPT, save custom instructions that define your brand voice. For specialized AI writing tools, create templates with your brand voice parameters. Maintain a library of successful AI-generated content that exemplifies your brand voice for reference. Implement a consistent review process to ensure all AI-generated content aligns with brand standards.",
+    category: "Content Creation"
+  },
+  {
+    question: "What's the best way to use AI for creating video scripts?",
+    answer: "Start by providing the AI with your video's goal, target audience, key points, and desired tone. For best results, give examples of successful video scripts in your industry. Use AI to generate multiple script variations, then combine the strongest elements. For technical videos, have the AI create the structure and transitions, while you provide the specialized content. Always review for brand voice and edit for natural speech patterns before production.",
+    category: "Content Creation"
+  },
+  {
+    question: "How can I use AI to repurpose long-form content into multiple formats?",
+    answer: "Feed your long-form piece to an AI tool like ChatGPT or Jasper, requesting specific transformations: 'Convert this blog post into 5 LinkedIn posts,' 'Extract the key statistics for an infographic,' or 'Create a script for a 2-minute video summary.' The AI can identify core messages and adapt them to different formats while maintaining key points. For best results, provide format-specific guidelines (e.g., 'Keep tweets under 280 characters and include relevant hashtags').",
+    category: "Content Creation"
+  },
+  {
+    question: "How can AI help me create more inclusive content?",
+    answer: "Use tools like Textio or Gender Decoder to identify potentially exclusionary language. Prompt AI with specific instructions about inclusive representation. Have diverse reviewers check AI-generated content. Train custom AI models using examples of inclusive content. Remember that AI can help identify issues, but human judgment is essential for truly inclusive content.",
+    category: "Content Creation"
+  },
+  {
+    question: "What AI tools can help with content repurposing across channels?",
+    answer: "Tools like Repurpose.io or Lately.ai can transform long-form content into social posts, email newsletters, or video scripts. ChatGPT can reformat blog posts into different lengths and styles. Jasper's templates help adapt content for different platforms. For visual repurposing, tools like Synthesia can turn text into video content.",
+    category: "Content Creation"
+  },
+  {
+    question: "What's the best approach for fact-checking AI-generated content?",
+    answer: "Never assume AI content is factually accurate. Implement a systematic fact-checking process: verify statistics, dates, quotes, and claims against reliable sources. Use tools like Google Fact Check Explorer or Factmata to assist. Consider including source requirements in your AI prompts. For specialized content, have subject matter experts review for accuracy.",
+    category: "Content Creation"
+  },
+  {
+    question: "How can I use AI to improve my podcast content?",
+    answer: "AI can help with topic research (finding trending discussions), content planning (suggesting episode structures), transcript creation (tools like Descript or Otter.ai), audience analysis (identifying popular topics), and even content repurposing (turning episodes into blog posts or social clips). Some hosts even use AI for interview question generation or initial script drafting.",
+    category: "Content Creation"
+  },
+  {
+    question: "Can AI help me create better video scripts and storyboards?",
+    answer: "Yes, tools like Jasper, Copy.ai, or ChatGPT can draft video scripts based on your brief. For storyboarding, tools like Boords or StoryboardThat incorporate AI to suggest visual sequences. The key is providing detailed prompts including target audience, key messages, desired length, and tone. Always review and refine AI-generated scripts for authenticity and brand alignment.",
+    category: "Content Creation"
+  },
+  
   // SEO FAQs
   {
     question: "I'm worried AI-generated copy might hurt our SEO—should I be concerned?",
@@ -349,7 +401,7 @@ export const faqData: FAQItem[] = [
   },
   {
     question: "I run a subscription box. Can AI pinpoint who's about to cancel so I can send a retention offer?",
-    answer: "Yes, this is called churn prediction. AI analyzes behavior patterns (like decreased engagement, fewer logins, support tickets) to flag at-risk customers before they cancel. Platforms like Custify or Profitwell use these signals to create risk scores. You can then target the highest-risk segment with special offers or check-ins.",
+    answer: "Yes, this is called churn prediction. AI analyzes behavior patterns (like decreased engagement, fewer logins, support tickets) to flag at-risk customers before they cancel. Platforms like Custify or Profitwell use these signals to create risk scores. You can then target the highest-risk segment with retention campaigns.",
     category: "Analytics & Data"
   },
   {
