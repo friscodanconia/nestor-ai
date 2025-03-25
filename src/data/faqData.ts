@@ -101,7 +101,7 @@ export const faqData: FAQItem[] = [
     category: "Social Media Marketing"
   },
   {
-    question: "How can AI help me improve my social media ad targeting?",
+    question: "How can I use AI to improve my social media ad targeting?",
     answer: "AI enhances ad targeting through predictive audience modeling, which identifies patterns in your current customer data to find similar prospects. Tools like Facebook's Lookalike Audiences use AI to find users with behaviors matching your best customers. AI can also optimize bidding strategies in real-time, allocating budget to the best-performing audience segments. For advanced targeting, platforms like Albert or Pathmatics use AI to discover unexpected audience segments that respond well to your content.",
     category: "Social Media Marketing"
   },
@@ -436,6 +436,58 @@ export const faqData: FAQItem[] = [
     question: "Can AI help me create more effective customer onboarding experiences?",
     answer: "Yes, AI-powered onboarding platforms like Appcues, WalkMe, and Pendo analyze user behavior to optimize the onboarding journey and personalize guidance based on individual needs. These systems can identify which features new users should be introduced to first, detect when users are struggling, and automatically adjust the onboarding flow to improve activation rates. The most sophisticated tools can even predict which onboarding path will lead to the highest long-term retention for different user segments based on their initial interaction patterns.",
     category: "Customer Experience & Personalization"
+  },
+  
+  // AI for Analytics & Data FAQs
+  {
+    question: "How can AI help me make sense of large amounts of marketing data?",
+    answer: "AI analytics platforms like Tableau with Einstein, Google Analytics 4, and Datorama can automatically identify patterns, anomalies, and correlations in your marketing data that would be impossible to spot manually. These tools can unify data from multiple sources, apply machine learning to detect meaningful trends, and generate insights in plain language. The most advanced systems can even proactively alert you to significant changes in key metrics and suggest possible causes. Start by clearly defining your business questions before implementing AI analytics to ensure you're getting actionable insights rather than just interesting observations.",
+    category: "Analytics & Data"
+  },
+  {
+    question: "What AI tools can help me create better marketing attribution models?",
+    answer: "AI-powered attribution platforms like Neustar, Measured, and Attribution go beyond traditional models by using machine learning to analyze the actual impact of each touchpoint on conversions. These systems can process vast amounts of cross-channel data to identify which combinations of interactions most effectively drive conversions for different customer segments. The most sophisticated tools can even account for external factors like seasonality, competitor actions, and market conditions when calculating attribution. For best results, feed these systems with comprehensive data from all marketing channels and conversion points.",
+    category: "Analytics & Data"
+  },
+  {
+    question: "How can I use AI to predict future marketing performance?",
+    answer: "Predictive analytics tools like Pecan AI, DataRobot, and features in platforms like Adobe Analytics use machine learning to forecast future performance based on historical data patterns. These systems can predict metrics like conversion rates, customer acquisition costs, and campaign ROI under different scenarios. The most valuable predictions come from combining your marketing data with external factors like industry trends, seasonal patterns, and competitive activity. Start with predicting a few high-impact metrics before expanding to more complex forecasting models.",
+    category: "Analytics & Data"
+  },
+  {
+    question: "What's the best way to use AI for marketing experimentation and testing?",
+    answer: "AI-powered testing platforms like Optimizely, VWO, and Adobe Target's auto-allocate features go beyond traditional A/B testing by using machine learning to dynamically adjust test parameters. These systems can automatically identify which variations are performing best and shift traffic accordingly, reducing the time and sample size needed to reach statistical significance. The most sophisticated platforms can even suggest which elements to test based on their potential impact and automatically generate test variations. Focus on testing high-impact pages and conversion points first before expanding to more granular elements.",
+    category: "Analytics & Data"
+  },
+  {
+    question: "How can AI help me identify the most valuable customer segments?",
+    answer: "AI segmentation tools like Amplitude, Mixpanel, and certain features in tools like Segment can analyze customer behavior patterns to identify high-value micro-segments you might miss with traditional analysis. These systems look beyond basic demographics to find behavioral and engagement patterns that correlate with metrics like lifetime value, purchase frequency, and advocacy. The most effective approach combines AI-discovered segments with business context to create actionable targeting strategies. Start by analyzing your existing high-value customers to identify common patterns the AI can search for in your broader audience.",
+    category: "Analytics & Data"
+  },
+  {
+    question: "Can AI help me understand which marketing activities actually drive revenue?",
+    answer: "Yes, AI-powered marketing mix modeling (MMM) tools like Nielsen's Marketing Effectiveness, Neustar's MMM, and Analytic Partners can quantify the actual revenue impact of different marketing channels and campaigns. Unlike traditional attribution, these systems can account for external factors, long-term brand effects, and offline activities. The most sophisticated platforms can even simulate different budget allocation scenarios to optimize future spending. For accurate results, these tools need at least 2-3 years of historical data across all marketing channels, sales performance, and external market factors.",
+    category: "Analytics & Data"
+  },
+  {
+    question: "How can I use AI to get better insights from customer surveys?",
+    answer: "AI-powered survey analysis tools like Qualtrics XM, SurveyMonkey's Analyze, and MonkeyLearn can process thousands of open-ended responses to identify themes, sentiment, and unexpected insights that manual analysis might miss. These systems can categorize responses, detect emotional intensity, and correlate feedback themes with customer segments or behaviors. The most valuable approach combines AI analysis of open-ended questions with structured quantitative data to get both the 'what' and the 'why' behind customer feedback. Design surveys with AI analysis in mind by including targeted open-ended questions alongside your structured metrics.",
+    category: "Analytics & Data"
+  },
+  {
+    question: "What AI tools can help me visualize complex marketing data?",
+    answer: "AI-enhanced data visualization platforms like Tableau with Ask Data, Power BI with Q&A, and ThoughtSpot use natural language processing and machine learning to create insightful visualizations from complex datasets. These tools allow you to ask questions in plain language and automatically generate the most appropriate charts or graphs. The most advanced systems can even suggest visualizations based on the patterns in your data and explain insights in natural language. Focus on creating dashboards that answer specific business questions rather than just displaying metrics to make these tools most effective.",
+    category: "Analytics & Data"
+  },
+  {
+    question: "How can AI help me detect and respond to changes in customer behavior?",
+    answer: "AI anomaly detection tools like Adobe Analytics' Anomaly Detection, Google Analytics Intelligence, and Anodot continuously monitor your customer data to identify significant changes in behavior patterns. These systems establish baseline expectations for metrics and alert you when actual performance deviates unexpectedly. The most sophisticated platforms can not only detect anomalies but also suggest possible causes and recommended actions. Set up alerts for your most critical conversion and engagement metrics, and configure sensitivity thresholds appropriate to your business's natural volatility.",
+    category: "Analytics & Data"
+  },
+  {
+    question: "Can AI help me create more accurate customer lifetime value (CLV) models?",
+    answer: "Yes, AI-powered CLV prediction tools like Retina, Custify, and features in platforms like Bloomreach use machine learning to analyze purchase patterns, engagement metrics, and behavioral signals to forecast the future value of customers. Unlike traditional RFM models, these systems can identify early indicators of high lifetime value even before a customer makes multiple purchases. The most effective models incorporate both transactional data and engagement metrics from multiple touchpoints. Use these predictions to optimize acquisition spending, personalize retention efforts, and identify high-potential customers for special treatment.",
+    category: "Analytics & Data"
   },
   
   // Image Design FAQs
