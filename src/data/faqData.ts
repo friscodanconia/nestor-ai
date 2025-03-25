@@ -428,6 +428,58 @@ export const faqData: FAQItem[] = [
     category: "Analytics & Data"
   },
   
+  // AI Strategy & Implementation FAQs
+  {
+    question: "How do I build a comprehensive AI marketing strategy from scratch?",
+    answer: "Start by auditing your current marketing processes to identify pain points AI could solve. Then research relevant AI tools, prioritize implementations based on ROI potential, and create a phased rollout plan with clear KPIs. Begin with quick wins (like automated email sequences) before tackling complex projects (like predictive analytics).",
+    category: "AI Strategy & Implementation"
+  },
+  {
+    question: "What's the typical timeline for implementing AI in a marketing department?",
+    answer: "For small businesses, expect 3-6 months from strategy to basic implementation. Enterprise-level AI integration typically takes 6-12 months for full deployment. Start with a 30-day pilot of one tool, then expand based on results. The learning curve varies by tool complexity—chatbots might take weeks to optimize, while predictive analytics could take months.",
+    category: "AI Strategy & Implementation"
+  },
+  {
+    question: "How do I convince my marketing team to adopt AI tools?",
+    answer: "Focus on specific pain points AI can solve rather than the technology itself. Show concrete examples of time saved or results improved. Start with a small pilot project with clear metrics. Involve skeptical team members in the selection process, and provide adequate training. Share case studies from similar companies that successfully implemented AI.",
+    category: "AI Strategy & Implementation"
+  },
+  {
+    question: "What skills should I look for when hiring someone to manage our AI marketing tools?",
+    answer: "Look for a blend of marketing strategy understanding and technical aptitude. Key skills include data analysis, prompt engineering, basic understanding of machine learning concepts, adaptability, and critical thinking. Experience with your specific marketing channels is valuable. They should be comfortable learning new tools quickly and translating AI capabilities into marketing outcomes.",
+    category: "AI Strategy & Implementation"
+  },
+  {
+    question: "How do I measure the ROI of AI marketing tools?",
+    answer: "Track before-and-after metrics in three categories: efficiency (time saved, resources reallocated), performance (conversion rates, engagement metrics), and revenue impact (sales attributed to AI-optimized campaigns). Calculate time savings by comparing manual vs. AI-assisted workflows. For content tools, measure production speed increases and engagement metrics. Most AI platforms offer analytics dashboards to help track these metrics.",
+    category: "AI Strategy & Implementation"
+  },
+  {
+    question: "How do I integrate AI marketing tools with my existing CRM?",
+    answer: "Most modern AI marketing tools offer native integrations with popular CRMs like Salesforce, HubSpot, or Zoho. Look for pre-built connectors or APIs. If direct integration isn't available, middleware solutions like Zapier or Make can connect systems. For enterprise setups, consider consulting with an integration specialist who understands both your CRM architecture and the AI tool's capabilities.",
+    category: "AI Strategy & Implementation"
+  },
+  {
+    question: "Can AI tools work with my legacy marketing systems?",
+    answer: "Yes, but with varying degrees of effort. Modern AI tools typically connect to legacy systems through APIs, webhooks, or data export/import processes. Older systems might require middleware connectors or custom integration work. In some cases, you may need to extract data periodically from legacy systems into formats the AI can process. Consider the integration complexity before purchasing any AI tool.",
+    category: "AI Strategy & Implementation"
+  },
+  {
+    question: "What's the difference between marketing automation and AI marketing?",
+    answer: "Marketing automation executes pre-defined workflows based on rules you create (if X happens, do Y). AI marketing goes beyond by learning patterns, making predictions, and adapting strategies without explicit programming. For example, automation sends an email when someone abandons a cart; AI determines the optimal send time, personalizes content based on behavior patterns, and continuously optimizes messaging based on performance.",
+    category: "AI Strategy & Implementation"
+  },
+  {
+    question: "How do I avoid creating a disconnected stack of AI marketing tools?",
+    answer: "Start with a clear data strategy that defines how information flows between systems. Prioritize tools with robust API capabilities and pre-built integrations with your core platforms. Consider unified platforms that offer multiple AI capabilities rather than single-point solutions. Create a central dashboard that pulls metrics from all tools. Regularly audit your stack to eliminate redundant or underused tools.",
+    category: "AI Strategy & Implementation"
+  },
+  {
+    question: "Which AI marketing tools work well together in a stack?",
+    answer: "Complementary combinations include: (1) Jasper.ai for content creation with Surfer SEO for optimization; (2) ChatGPT for ideation with Canva's AI for visual creation; (3) Clearscope for content briefs with MarketMuse for topic research; (4) Seventh Sense for email timing with Phrasee for subject line optimization; and (5) Crayon for competitor intelligence with Brandwatch for social listening.",
+    category: "AI Strategy & Implementation"
+  },
+  
   // Image Design FAQs
   {
     question: "What AI tools are recommended for image generation?",
