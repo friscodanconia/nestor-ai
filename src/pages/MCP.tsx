@@ -120,7 +120,6 @@ export default function MCP() {
       description={mcpData.description}
       mobileContent={mobileContent}
       desktopContent={desktopContent}
-      breadcrumbParent="/"
     />
   );
 }

@@ -125,7 +125,6 @@ export default function GithubRepos() {
       description={githubReposData.description}
       mobileContent={mobileContent}
       desktopContent={desktopContent}
-      breadcrumbParent="/"
     />
   );
 }

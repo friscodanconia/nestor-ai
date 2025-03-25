@@ -1,5 +1,4 @@
-import React from 'react';
-import { Helmet } from 'react-helmet';
+import React, { useEffect } from 'react';
 
 interface SEOProps {
   title?: string;
@@ -30,127 +29,140 @@ const SEO: React.FC<SEOProps> = ({
   title = 'AI Tools Guide',
   description = 'Discover the best AI tools and resources for various categories including marketing, video, audio, agents, and more.',
   canonicalUrl,
-  ogImage = '/images/og-image.svg', // Default OG image in public/images directory
+  ogImage = '/images/og-image.jpg',
   ogType = 'website',
   twitterCard = 'summary_large_image',
-  keywords = 'AI tools, artificial intelligence, machine learning, AI guide, AI resources',
+  keywords = 'AI tools, artificial intelligence, machine learning, AI resources, AI guide',
   noIndex = false,
   schemaType = 'WebPage',
   datePublished,
   dateModified,
-  articleTags = [],
-  faqItems = []
+  articleTags,
+  faqItems,
 }) => {
-  // Construct the full title with site name
-  const fullTitle = `${title} | Nestor AI`;
-  
-  // Get the current URL
-  const currentUrl = typeof window !== 'undefined' ? window.location.href : '';
-  
-  // Use provided canonical URL or current URL
-  const canonical = canonicalUrl || currentUrl;
+  useEffect(() => {
+    // Set document title
+    document.title = title;
 
-  // Build JSON-LD structured data based on schema type
-  const buildJsonLd = () => {
-    const baseSchema: SchemaBase = {
+    // Function to create or update a meta tag
+    const setMetaTag = (name: string, content: string) => {
+      let meta = document.querySelector(`meta[name="${name}"]`) as HTMLMetaElement;
+      if (!meta) {
+        meta = document.createElement('meta');
+        meta.name = name;
+        document.head.appendChild(meta);
+      }
+      meta.content = content;
+    };
+
+    // Function to create or update a property meta tag (like og:title)
+    const setPropertyMetaTag = (property: string, content: string) => {
+      let meta = document.querySelector(`meta[property="${property}"]`) as HTMLMetaElement;
+      if (!meta) {
+        meta = document.createElement('meta');
+        meta.setAttribute('property', property);
+        document.head.appendChild(meta);
+      }
+      meta.content = content;
+    };
+
+    // Set basic meta tags
+    setMetaTag('description', description);
+    if (keywords) setMetaTag('keywords', keywords);
+    if (noIndex) setMetaTag('robots', 'noindex, nofollow');
+
+    // Set Open Graph meta tags
+    setPropertyMetaTag('og:title', title);
+    setPropertyMetaTag('og:description', description);
+    setPropertyMetaTag('og:type', ogType);
+    if (ogImage) setPropertyMetaTag('og:image', ogImage);
+    if (canonicalUrl) setPropertyMetaTag('og:url', canonicalUrl);
+
+    // Set Twitter Card meta tags
+    setMetaTag('twitter:card', twitterCard);
+    setMetaTag('twitter:title', title);
+    setMetaTag('twitter:description', description);
+    if (ogImage) setMetaTag('twitter:image', ogImage);
+
+    // Set canonical URL if provided
+    let canonicalElement = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
+    if (canonicalUrl) {
+      if (!canonicalElement) {
+        canonicalElement = document.createElement('link');
+        canonicalElement.rel = 'canonical';
+        document.head.appendChild(canonicalElement);
+      }
+      canonicalElement.href = canonicalUrl;
+    } else if (canonicalElement) {
+      canonicalElement.remove();
+    }
+
+    // Create schema.org JSON-LD
+    let schema: SchemaBase | any = {
       '@context': 'https://schema.org',
       '@type': schemaType,
-      name: fullTitle,
+      name: title,
       description: description,
-      url: canonical,
+      url: canonicalUrl || window.location.href,
     };
 
     if (ogImage) {
-      baseSchema.image = ogImage;
+      schema.image = ogImage;
     }
 
-    // Add specific properties based on schema type
-    switch (schemaType) {
-      case 'Article':
-        return {
-          ...baseSchema,
-          headline: title,
-          author: {
-            '@type': 'Organization',
-            name: 'Nestor AI'
-          },
-          publisher: {
-            '@type': 'Organization',
-            name: 'Nestor AI',
-            logo: {
-              '@type': 'ImageObject',
-              url: '/images/logo.svg'
-            }
-          },
-          datePublished: datePublished || new Date().toISOString(),
-          dateModified: dateModified || new Date().toISOString(),
-          keywords: articleTags.join(', ')
-        };
-      
-      case 'FAQPage':
-        return {
-          ...baseSchema,
-          mainEntity: faqItems.map(item => ({
-            '@type': 'Question',
-            name: item.question,
-            acceptedAnswer: {
-              '@type': 'Answer',
-              text: item.answer
-            }
-          }))
-        };
-      
-      default:
-        return baseSchema;
+    // Add additional schema properties based on schemaType
+    if (schemaType === 'Article' && datePublished) {
+      schema.datePublished = datePublished;
+      if (dateModified) {
+        schema.dateModified = dateModified;
+      }
+      if (articleTags && articleTags.length > 0) {
+        schema.keywords = articleTags.join(',');
+      }
+    } else if (schemaType === 'FAQPage' && faqItems && faqItems.length > 0) {
+      schema.mainEntity = faqItems.map(item => ({
+        '@type': 'Question',
+        name: item.question,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.answer
+        }
+      }));
     }
-  };
 
-  const jsonLd = buildJsonLd();
+    // Add or update the JSON-LD script
+    let scriptElement = document.querySelector('script[type="application/ld+json"]') as HTMLScriptElement;
+    if (!scriptElement) {
+      scriptElement = document.createElement('script');
+      scriptElement.setAttribute('type', 'application/ld+json');
+      document.head.appendChild(scriptElement);
+    }
+    scriptElement.textContent = JSON.stringify(schema);
 
-  return (
-    <Helmet>
-      {/* Basic Meta Tags */}
-      <title>{fullTitle}</title>
-      <meta name="description" content={description} />
-      <meta name="keywords" content={keywords} />
-      
-      {/* Canonical URL */}
-      <link rel="canonical" href={canonical} />
-      
-      {/* Open Graph Tags */}
-      <meta property="og:title" content={fullTitle} />
-      <meta property="og:description" content={description} />
-      <meta property="og:type" content={ogType} />
-      <meta property="og:url" content={canonical} />
-      {ogImage && <meta property="og:image" content={ogImage} />}
-      <meta property="og:site_name" content="Nestor AI" />
-      
-      {/* Twitter Card Tags */}
-      <meta name="twitter:card" content={twitterCard} />
-      <meta name="twitter:title" content={fullTitle} />
-      <meta name="twitter:description" content={description} />
-      {ogImage && <meta name="twitter:image" content={ogImage} />}
-      
-      {/* Robots Meta Tag */}
-      {noIndex ? (
-        <meta name="robots" content="noindex, nofollow" />
-      ) : (
-        <meta name="robots" content="index, follow" />
-      )}
-      
-      {/* Additional Meta Tags */}
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
-      <meta name="language" content="English" />
-      <meta name="revisit-after" content="7 days" />
-      <meta name="author" content="Nestor AI" />
-      
-      {/* JSON-LD Structured Data */}
-      <script type="application/ld+json">
-        {JSON.stringify(jsonLd)}
-      </script>
-    </Helmet>
-  );
+    // Cleanup function to remove script when component unmounts
+    return () => {
+      if (scriptElement && scriptElement.parentNode) {
+        scriptElement.parentNode.removeChild(scriptElement);
+      }
+    };
+  }, [
+    title,
+    description,
+    canonicalUrl,
+    ogImage,
+    ogType,
+    twitterCard,
+    keywords,
+    noIndex,
+    schemaType,
+    datePublished,
+    dateModified,
+    articleTags,
+    faqItems
+  ]);
+
+  // This component doesn't render anything visible
+  return null;
 };
 
 export default SEO;
