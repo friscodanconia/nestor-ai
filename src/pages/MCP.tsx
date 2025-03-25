@@ -1,4 +1,4 @@
-import { Layers } from 'lucide-react';
+import { FileCode } from 'lucide-react';
 import CollapsibleSection from '../components/CollapsibleSection';
 import CategoryLayout from '../components/CategoryLayout';
 import SEO from '../components/SEO';
@@ -115,7 +115,7 @@ export default function MCP() {
   return (
     <CategoryLayout
       title={mcpData.title}
-      icon={<Layers className="w-5 h-5" />}
+      icon={<FileCode className="w-5 h-5" />}
       gradientClasses={mcpData.gradientClasses}
       description={mcpData.description}
       mobileContent={mobileContent}
