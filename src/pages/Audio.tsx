@@ -1,4 +1,4 @@
-import { Headphones } from 'lucide-react';
+import { Music } from 'lucide-react';
 import CollapsibleSection from '../components/CollapsibleSection';
 import CategoryLayout from '../components/CategoryLayout';
 import SEO from '../components/SEO';
@@ -11,8 +11,8 @@ export default function Audio() {
     <>
       <SEO 
         title="AI Audio Tools"
-        description="Explore AI-powered audio tools for voice generation, music creation, audio editing, and sound enhancement."
-        keywords="AI audio tools, voice generation, AI music, audio enhancement, text-to-speech, speech-to-text"
+        description="Discover the best AI tools for audio creation, editing, and enhancement."
+        keywords="AI audio tools, text to speech, music generation, audio editing, voice cloning"
       />
       
       {audioData.sections.map((section, index) => (
@@ -31,7 +31,7 @@ export default function Audio() {
                 <ul className="list-disc pl-5 space-y-3">
                   {section.tools.map((tool, toolIndex) => (
                     <li key={toolIndex} className="space-y-1">
-                      {tool.url ? (
+                      {tool.url !== undefined && tool.url !== null ? (
                         <a 
                           href={tool.url}
                           target="_blank"
@@ -77,7 +77,7 @@ export default function Audio() {
                 <ul className="list-disc pl-5 space-y-4">
                   {section.tools.map((tool, toolIndex) => (
                     <li key={toolIndex} className="space-y-2">
-                      {tool.url ? (
+                      {tool.url !== undefined && tool.url !== null ? (
                         <a 
                           href={tool.url}
                           target="_blank"
@@ -110,7 +110,7 @@ export default function Audio() {
   return (
     <CategoryLayout
       title={audioData.title}
-      icon={<Headphones className="w-5 h-5" />}
+      icon={<Music className="w-5 h-5" />}
       gradientClasses={audioData.gradientClasses}
       description={audioData.description}
       mobileContent={mobileContent}

@@ -10,9 +10,9 @@ export default function GithubRepos() {
   const mobileContent = (
     <>
       <SEO 
-        title="GitHub Repos"
-        description={githubReposData.description}
-        keywords="GitHub repositories, AI repos, machine learning code, open source AI, developer resources, LLM frameworks, AI tools"
+        title="GitHub AI Repositories"
+        description="Discover the best open-source AI repositories on GitHub for development, research, and learning."
+        keywords="GitHub AI repos, AI open source, machine learning repositories, LLM frameworks, AI development tools"
       />
       
       {githubReposData.sections.map((section, index) => (
@@ -31,7 +31,7 @@ export default function GithubRepos() {
                 <ul className="list-disc pl-5 space-y-3">
                   {section.tools.map((tool, toolIndex) => (
                     <li key={toolIndex} className="space-y-1">
-                      {tool.url ? (
+                      {tool.url !== undefined && tool.url !== null ? (
                         <a 
                           href={tool.url}
                           target="_blank"
@@ -77,7 +77,7 @@ export default function GithubRepos() {
                 <ul className="list-disc pl-5 space-y-4">
                   {section.tools.map((tool, toolIndex) => (
                     <li key={toolIndex} className="space-y-2">
-                      {tool.url ? (
+                      {tool.url !== undefined && tool.url !== null ? (
                         <a 
                           href={tool.url}
                           target="_blank"
@@ -110,7 +110,7 @@ export default function GithubRepos() {
   return (
     <CategoryLayout
       title={githubReposData.title}
-      icon={<Github className="w-6 h-6" />}
+      icon={<Github className="w-5 h-5" />}
       gradientClasses={githubReposData.gradientClasses}
       description={githubReposData.description}
       mobileContent={mobileContent}

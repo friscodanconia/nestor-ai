@@ -31,7 +31,7 @@ export default function MCP() {
                 <ul className="list-disc pl-5 space-y-3">
                   {section.tools.map((tool, toolIndex) => (
                     <li key={toolIndex} className="space-y-1">
-                      {tool.url ? (
+                      {tool.url !== undefined && tool.url !== null ? (
                         <a 
                           href={tool.url}
                           target="_blank"
@@ -77,7 +77,7 @@ export default function MCP() {
                 <ul className="list-disc pl-5 space-y-4">
                   {section.tools.map((tool, toolIndex) => (
                     <li key={toolIndex} className="space-y-2">
-                      {tool.url ? (
+                      {tool.url !== undefined && tool.url !== null ? (
                         <a 
                           href={tool.url}
                           target="_blank"

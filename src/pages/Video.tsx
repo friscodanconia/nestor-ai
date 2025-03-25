@@ -11,8 +11,8 @@ export default function Video() {
     <>
       <SEO 
         title="AI Video Tools"
-        description="Discover AI-powered video creation, editing, and enhancement tools that can transform your video content."
-        keywords="AI video tools, video generation, video editing, AI video enhancement, video creation"
+        description="Discover the best AI tools for video creation, editing, and enhancement."
+        keywords="AI video tools, text to video, video editing AI, video enhancement, AI video generation"
       />
       
       {videoData.sections.map((section, index) => (
@@ -31,7 +31,7 @@ export default function Video() {
                 <ul className="list-disc pl-5 space-y-3">
                   {section.tools.map((tool, toolIndex) => (
                     <li key={toolIndex} className="space-y-1">
-                      {tool.url ? (
+                      {tool.url !== undefined && tool.url !== null ? (
                         <a 
                           href={tool.url}
                           target="_blank"
@@ -77,7 +77,7 @@ export default function Video() {
                 <ul className="list-disc pl-5 space-y-4">
                   {section.tools.map((tool, toolIndex) => (
                     <li key={toolIndex} className="space-y-2">
-                      {tool.url ? (
+                      {tool.url !== undefined && tool.url !== null ? (
                         <a 
                           href={tool.url}
                           target="_blank"
