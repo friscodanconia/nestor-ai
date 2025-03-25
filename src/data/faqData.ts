@@ -121,7 +121,7 @@ export const faqData: FAQItem[] = [
     category: "Social Media Marketing"
   },
   {
-    question: "How can AI help me measure social media ROI more effectively?",
+    question: "How can I use AI to measure social media ROI more effectively?",
     answer: "AI attribution tools like Neustar, Measured, or Northbeam can connect social media touchpoints to conversion events, even when they occur across different devices or sessions. These platforms use machine learning to identify which social content types, platforms, and campaigns drive the most valuable customer journeys. Some tools can even predict the long-term revenue impact of current social engagement, helping you justify investment in brand-building content that doesn't drive immediate conversions.",
     category: "Social Media Marketing"
   },
@@ -319,7 +319,7 @@ export const faqData: FAQItem[] = [
     category: "SEO"
   },
   {
-    question: "How can AI help me figure out what my competitors are ranking for?",
+    question: "How can I use AI to figure out what my competitors are ranking for?",
     answer: "You can run a competitor domain in Ahrefs or SEMrush to get their top keywords. Then ask ChatGPT: 'Analyze these keywords. Which are quick wins for me if I focus on them?' AI might notice your competitor ranks for 'eco-friendly packaging tips' with moderate volume but low competition—ripe for your own content.",
     category: "SEO"
   },
@@ -592,4 +592,57 @@ export const faqData: FAQItem[] = [
     answer: "The GitHub Repos section of Nestor features curated lists of open-source AI projects hosted on GitHub. These repositories include LLMs, agent frameworks, tools, and applications that developers can use, contribute to, or learn from.",
     category: "Development"
   }
+];
+
+// AI for Email Marketing FAQs (Additional)
+{
+  question: "How can AI help me write more effective email subject lines?",
+  answer: "AI tools like Phrasee, Persado, or even ChatGPT can generate and test subject lines optimized for your specific audience. These systems analyze historical open rates and engagement patterns to predict which emotional triggers, word combinations, and character lengths will perform best. For maximum effectiveness, provide the AI with your campaign goals (e.g., driving sales vs. nurturing), brand voice guidelines, and examples of previously successful subject lines.",
+  category: "Email Marketing"
+},
+{
+  question: "Can AI help me personalize email content beyond just using the recipient's name?",
+  answer: "Absolutely. Advanced AI email platforms like Movable Ink, Zeta Global, or Optimove can dynamically personalize content based on individual user behavior, purchase history, browsing patterns, and demographic data. These systems can automatically select product recommendations, adjust messaging tone, choose the most relevant images, and even determine optimal send times for each recipient. The key is having clean, comprehensive customer data to feed into the AI system.",
+  category: "Email Marketing"
+},
+{
+  question: "How can I use AI to optimize my email send times?",
+  answer: "AI-powered send time optimization tools like Seventh Sense, Mailchimp's Send Time Optimization, or Klaviyo's Smart Send Time analyze each recipient's historical open patterns to determine when they're most likely to engage with emails. Unlike traditional approaches that send to everyone at once, these tools deliver emails individually at the optimal time for each recipient within your specified timeframe. This approach typically increases open rates by 10-25% compared to standard send times.",
+  category: "Email Marketing"
+},
+{
+  question: "What's the best way to use AI for email list segmentation?",
+  answer: "Rather than manually creating segments based on assumptions, AI can identify natural clusters in your audience based on behavioral patterns. Tools like Bloomreach, Braze, or Iterable use machine learning to create dynamic segments that automatically update as user behavior changes. The most advanced systems can even predict future behaviors—like identifying subscribers who show early warning signs of disengagement before they unsubscribe, allowing for proactive retention campaigns.",
+  category: "Email Marketing"
+},
+{
+  question: "How can AI help me improve my email deliverability rates?",
+  answer: "AI tools like SparkPost, Validity, or GlockApps analyze factors affecting deliverability across your entire email program. These systems can identify problematic sending patterns, flag content likely to trigger spam filters, optimize sending infrastructure, and even predict deliverability issues before they impact your campaigns. Some advanced platforms can automatically adjust sending volume and frequency based on recipient engagement signals to maintain optimal inbox placement.",
+  category: "Email Marketing"
+},
+{
+  question: "Can AI help me create more effective email automation workflows?",
+  answer: "Yes, platforms like Cordial, Blueshift, or Salesforce Marketing Cloud Einstein analyze customer journey data to identify optimal trigger points, message content, and sequence timing for automated emails. Unlike traditional rules-based workflows, AI-powered systems can continuously optimize based on performance data, automatically testing different paths and content variations to improve conversion rates. Some advanced platforms can even predict which customers will respond best to which automation sequences.",
+  category: "Email Marketing"
+},
+{
+  question: "How can I use AI to write better email copy that converts?",
+  answer: "AI writing tools like Persado, Phrasee, or even ChatGPT can generate email copy optimized for your specific goals and audience. These systems analyze which language patterns, emotional appeals, and CTAs drive the most engagement for your particular subscriber base. For best results, provide the AI with your campaign objectives, brand voice guidelines, and examples of high-performing emails. Then A/B test AI-generated variations against your traditional copy to measure the impact.",
+  category: "Email Marketing"
+},
+{
+  question: "What AI tools can help me analyze email campaign performance more effectively?",
+  answer: "Beyond basic metrics, AI analytics tools like Litmus, Email on Acid, or Windsor.ai can uncover deeper insights from your email performance data. These platforms can identify which content elements drive engagement, which subscriber segments respond to which messaging approaches, and how email performance correlates with other marketing channels. The most sophisticated tools can even predict lifetime value impact from email engagement patterns, helping you prioritize campaigns with the greatest long-term impact.",
+  category: "Email Marketing"
+},
+{
+  question: "How can AI help me reduce email unsubscribe rates?",
+  answer: "AI can identify early warning signs of subscriber fatigue before people unsubscribe. Platforms like Optimail, Retention Science, or Custify analyze engagement patterns to detect when subscribers are showing disengagement signals. The AI can then automatically adjust email frequency, content type, or even pause communications temporarily for at-risk subscribers. Some systems can also identify the optimal re-engagement campaign type for different subscriber segments based on their historical behavior patterns.",
+  category: "Email Marketing"
+},
+{
+  question: "Can AI help me create better email designs that drive more clicks?",
+  answer: "Yes, tools like Movable Ink, Taxi for Email, or even Canva's AI features can generate email designs optimized for engagement. These systems can analyze which layout elements, image types, button placements, and color schemes drive the highest click rates for your specific audience. Some advanced platforms can even dynamically adjust email designs for individual recipients based on their past engagement patterns—showing more images to visually-oriented users or more text to those who prefer reading.",
+  category: "Email Marketing"
+}
 ];
