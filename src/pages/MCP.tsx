@@ -2,8 +2,13 @@ import { Layers } from 'lucide-react';
 import CollapsibleSection from '../components/CollapsibleSection';
 import CategoryLayout from '../components/CategoryLayout';
 import SEO from '../components/SEO';
-import { mcpData } from '../data/categories/mcp';
+import { mcpData, MCPTool } from '../data/categories/mcp';
 import { Text, Card, Grid } from '../components/ui';
+
+// Type guard function to check if a tool has a URL
+const hasUrl = (tool: MCPTool): tool is MCPTool & { url: string } => {
+  return tool.url !== undefined && tool.url !== null && tool.url !== '';
+};
 
 export default function MCP() {
   // Mobile content with collapsible sections
@@ -31,7 +36,7 @@ export default function MCP() {
                 <ul className="list-disc pl-5 space-y-3">
                   {section.tools.map((tool, toolIndex) => (
                     <li key={toolIndex} className="space-y-1">
-                      {tool.url !== undefined && tool.url !== null ? (
+                      {hasUrl(tool) ? (
                         <a 
                           href={tool.url}
                           target="_blank"
@@ -77,7 +82,7 @@ export default function MCP() {
                 <ul className="list-disc pl-5 space-y-4">
                   {section.tools.map((tool, toolIndex) => (
                     <li key={toolIndex} className="space-y-2">
-                      {tool.url !== undefined && tool.url !== null ? (
+                      {hasUrl(tool) ? (
                         <a 
                           href={tool.url}
                           target="_blank"

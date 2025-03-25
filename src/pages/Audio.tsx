@@ -5,6 +5,32 @@ import SEO from '../components/SEO';
 import { audioData } from '../data/categories/audio';
 import { Text, Card, Grid } from '../components/ui';
 
+// Define the AudioTool interface to match the structure in audioData
+interface AudioTool {
+  name: string;
+  description: string;
+  url?: string;
+}
+
+// Define the AudioSection interface to match the structure in audioData
+interface AudioSection {
+  title: string;
+  description: string;
+  linkText?: string;
+  linkUrl?: string;
+  tools?: AudioTool[];
+}
+
+// Type guard function to check if a tool has a URL
+const hasUrl = (tool: AudioTool): tool is AudioTool & { url: string } => {
+  return tool.url !== undefined && tool.url !== null && tool.url !== '';
+};
+
+// Type guard to check if section has tools
+const hasTools = (section: AudioSection): section is AudioSection & { tools: AudioTool[] } => {
+  return section.tools !== undefined && Array.isArray(section.tools) && section.tools.length > 0;
+};
+
 export default function Audio() {
   // Mobile content with collapsible sections
   const mobileContent = (
@@ -26,12 +52,12 @@ export default function Audio() {
               {section.description}
             </Text>
             
-            {section.tools && section.tools.length > 0 && (
+            {hasTools(section) && (
               <div className="mt-4">
                 <ul className="list-disc pl-5 space-y-3">
-                  {section.tools.map((tool, toolIndex) => (
+                  {(section.tools as AudioTool[]).map((tool, toolIndex) => (
                     <li key={toolIndex} className="space-y-1">
-                      {tool.url !== undefined && tool.url !== null ? (
+                      {hasUrl(tool) ? (
                         <a 
                           href={tool.url}
                           target="_blank"
@@ -72,12 +98,12 @@ export default function Audio() {
               {section.description}
             </Text>
             
-            {section.tools && section.tools.length > 0 && (
+            {hasTools(section) && (
               <div className="mt-4">
                 <ul className="list-disc pl-5 space-y-4">
-                  {section.tools.map((tool, toolIndex) => (
+                  {(section.tools as AudioTool[]).map((tool, toolIndex) => (
                     <li key={toolIndex} className="space-y-2">
-                      {tool.url !== undefined && tool.url !== null ? (
+                      {hasUrl(tool) ? (
                         <a 
                           href={tool.url}
                           target="_blank"
