@@ -1,13 +1,4 @@
-// This file is auto-generated. Do not edit directly.
-export interface FAQ {
-  id: string;
-  question: string;
-  answer: string;
-  category: string;
-  keywords?: string[];
-}
-
-const faqData: FAQ[] = [
+[
   {
     "question": "“We see AI vendor hype about ‘predicting marketing trends for next 5 years.’ Is that realistic or marketing fluff?",
     "answer": "As an AI marketing expert, I can confidently say that the ability to predict marketing trends for the next 5 years is definitely realistic, and not just marketing fluff. AI has advanced significantly in recent years and has proven to be a powerful tool for predicting future trends in various industries, including marketing.\n\nFor example, AI-powered tools like Google Trends and Trendspottr can analyze large amounts of data from various sources and identify patterns and trends that human marketers may miss. This allows businesses to stay ahead of the curve and make informed decisions about their marketing strategies.\n\nHowever, it's important to note that AI predictions are not infallible and should not be relied on solely. Human intuition and expertise are still crucial in interpreting and implementing these predictions effectively. My advice would be to use AI predictions as a guiding factor, but also incorporate human insights and adaptability to ensure the success of your marketing efforts.",
@@ -18410,6 +18401,4 @@ const faqData: FAQ[] = [
     ],
     "id": "social_media_whats_the_future_of_ai_in_soci_1"
   }
-];
-
-export default faqData;
+]
