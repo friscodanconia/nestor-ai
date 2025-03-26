@@ -1,12 +1,4 @@
-// Auto-generated from categorizeFaqs.js
-export interface FAQItem {
-  question: string;
-  answer: string;
-  category: string;
-  keywords?: string;
-}
-
-export const faqData: FAQItem[] = [
+[
   {
     "question": "4. “Can AI create full eBooks or whitepapers for me, or is that pushing it?",
     "answer": "Answer not found in the original document.",
@@ -3738,4 +3730,4 @@ export const faqData: FAQItem[] = [
     "category": "Social Media",
     "keywords": "fake followers, bots, authenticity, metrics, verification, HypeAuditor, Socialbakers, engagement fraud, follower quality, audience verification, influencer vetting, fake engagement, social proof, bot detection, account analysis, follower audit, credibility check, influencer fraud, engagement analysis, social media fraud, artificial inflation, inauthentic accounts, follower legitimacy, metric manipulation, audience validation, account validation, statistical anomalies, platform manipulation, fraudulent activity, authenticity verification"
   }
-];
+]
