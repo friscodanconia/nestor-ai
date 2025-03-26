@@ -197,27 +197,32 @@ export const faqData: FAQItem[] = [
   // MCP (Model Context Protocol)
   {
     question: "What is Model Context Protocol (MCP)?",
-    answer: "Model Context Protocol (MCP) is a standardized way for applications to communicate with AI models. It defines how context, instructions, and data are passed to models, enabling more consistent and controllable AI interactions across different platforms.",
+    answer: "Model Context Protocol (MCP) is a standardized way for applications to communicate with AI models. It's an open standard created by Anthropic that allows AI assistants to safely access your information while keeping your data protected. Think of it as a 'universal translator' or 'USB-C port for AI' that connects AI to the systems where your data lives.",
     category: "MCP"
   },
   {
     question: "How does MCP improve AI applications?",
-    answer: "MCP provides a structured framework for AI interactions, making it easier to build reliable applications, ensure consistent behavior across different models, and maintain control over AI outputs while reducing unexpected behaviors.",
+    answer: "MCP improves AI applications by providing a structured framework for AI interactions. It enables more consistent behavior across different platforms, maintains control over AI outputs, enhances privacy and security (servers control their own resources so AI never sees raw data), offers versatility (one protocol for everything from Slack to your local file system), and simplifies integration (connect once, and let MCP handle the rest behind the scenes).",
     category: "MCP"
   },
   {
     question: "Is MCP only for large language models?",
-    answer: "While MCP was initially designed with large language models in mind, its principles can be applied to various AI systems, including multimodal models that handle text, images, audio, and other data types.",
+    answer: "While MCP was initially designed with large language models in mind, it's an open standard that can be applied to various AI systems, including multimodal models that handle text, images, audio, and other data types. Recently, OpenAI announced support for the MCP protocol in their agents SDK and ChatGPT desktop app, showing its broader applicability.",
     category: "MCP"
   },
   {
     question: "How can developers implement MCP in their applications?",
-    answer: "Developers can implement MCP by structuring their model interactions according to the protocol specifications, using available libraries and SDKs that support MCP, and following best practices for context management.",
+    answer: "Developers can implement MCP by building custom MCP servers using Anthropic's SDKs and documentation. The process typically involves: 1) Setting up a development environment with Python or TypeScript, 2) Using the MCP SDK to define what your server provides (resources, tools, or prompts), 3) Creating the connections to your data source, and 4) Testing locally with Claude Desktop. Anthropic maintains an open-source repository of MCP servers that can serve as references.",
     category: "MCP"
   },
   {
     question: "What problems does MCP solve in AI development?",
-    answer: "MCP addresses challenges like inconsistent model behavior, difficulty in controlling AI outputs, lack of standardization across different models, and the complexity of managing context in conversational AI applications.",
+    answer: "MCP addresses several key challenges in AI development: 1) Inconsistent model behavior across different platforms, 2) Difficulty in controlling AI outputs, 3) Lack of standardization across different models, 4) Complexity of managing context in conversational AI applications, and 5) Security concerns when connecting AI to sensitive data sources. MCP's client-server architecture creates clear system boundaries that enhance security and reliability.",
+    category: "MCP"
+  },
+  {
+    question: "How can I start using MCP as a non-developer?",
+    answer: "As a non-developer, you can start using MCP by: 1) Downloading an MCP-compatible application like Claude Desktop, Cursor, or Windsurf, 2) Looking for the MCP icon in your AI app and clicking to set up available servers, 3) Approving only the specific data sources you want to connect, and 4) Asking questions naturally that require multiple sources of information. MCP works behind the scenes to make your AI experiences better without requiring technical knowledge.",
     category: "MCP"
   },
 
