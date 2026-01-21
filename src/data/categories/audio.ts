@@ -56,6 +56,11 @@ export const audioData = {
           url: "https://suno.com/"
         },
         {
+          name: "Udio",
+          description: "AI music generator with high-quality audio output. Create songs with specific styles, genres, and moods. Strong competitor to Suno.",
+          url: "https://udio.com/"
+        },
+        {
           name: "Soundraw",
           description: "AI music generator that creates royalty-free tracks for content creators. Offers style, mood, and instrument customization.",
           url: "https://soundraw.io/"
@@ -64,11 +69,27 @@ export const audioData = {
           name: "AIVA",
           description: "Composes emotional soundtrack music for films, video games, and commercials. Trained on classical and contemporary music to create original compositions.",
           url: "https://www.aiva.ai/"
+        }
+      ]
+    },
+    {
+      title: "Developer Tools & Frameworks",
+      description: "Build your own audio AI applications with these frameworks.",
+      tools: [
+        {
+          name: "NVIDIA NeMo",
+          description: "Scalable generative AI framework for speech AI, LLMs, and multimodal. ASR, TTS, and NLP capabilities for researchers and developers. ⭐ 16K+",
+          url: "https://github.com/NVIDIA-NeMo/NeMo"
         },
         {
-          name: "Harmonai",
-          description: "Open-source music generation project with tools like Dance Diffusion for creating new sounds and musical pieces through AI.",
-          url: "https://www.harmonai.org/"
+          name: "Whisper",
+          description: "OpenAI's open-source speech recognition model. Robust transcription across languages and accents. Self-hostable.",
+          url: "https://github.com/openai/whisper"
+        },
+        {
+          name: "Coqui TTS",
+          description: "Open-source text-to-speech engine. Train custom voices, multiple languages. Great for self-hosting.",
+          url: "https://github.com/coqui-ai/TTS"
         }
       ]
     },

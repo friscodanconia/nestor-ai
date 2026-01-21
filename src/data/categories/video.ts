@@ -111,6 +111,12 @@ export const videoData = {
           personalNote: "Changed how I edit videos. Transcript-based editing is genius."
         },
         {
+          name: "MoneyPrinterTurbo",
+          url: "https://github.com/harry0703/MoneyPrinterTurbo",
+          description: "Generate high-quality short videos with one click using AI. Automates script, voiceover, visuals. Great for content creators. ⭐ 49K+",
+          pricing: "Free / Open source"
+        },
+        {
           name: "Opus Clip",
           url: "https://opus.pro",
           description: "Automatically extracts viral clips from long videos. AI identifies the most engaging moments. Perfect for repurposing content.",

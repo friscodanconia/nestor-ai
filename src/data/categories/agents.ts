@@ -200,22 +200,37 @@ export const agentsData = {
   // What tools can you use section
   toolCategories: [
     {
-      title: "Development Frameworks",
+      title: "Agent Frameworks",
       tools: [
         {
-          name: "LangChain",
-          url: "https://www.langchain.com",
-          description: "Popular framework for building LLM applications with built-in agent capabilities."
+          name: "OpenAI Agents SDK",
+          url: "https://github.com/openai/openai-agents-python",
+          description: "Official lightweight framework from OpenAI for multi-agent workflows. The new standard for building agents. ⭐ 18K+"
+        },
+        {
+          name: "LangGraph",
+          url: "https://github.com/langchain-ai/langgraph",
+          description: "Build resilient language agents as graphs. From LangChain team. Great for complex multi-step workflows. ⭐ 23K+"
         },
         {
           name: "LlamaIndex",
           url: "https://llamaindex.ai",
-          description: "Framework focused on connecting LLMs with external data sources."
+          description: "Leading framework for building LLM-powered agents over your data. Excellent for RAG applications. ⭐ 46K+"
+        },
+        {
+          name: "AutoGen",
+          url: "https://github.com/microsoft/autogen",
+          description: "Microsoft's programming framework for agentic AI. Multi-agent conversations and collaboration. ⭐ 53K+"
         },
         {
           name: "CrewAI",
           url: "https://www.crewai.io/",
-          description: "Framework for orchestrating role-playing autonomous AI agents."
+          description: "Framework for orchestrating role-playing autonomous AI agents. Great for team-based agent setups."
+        },
+        {
+          name: "Haystack",
+          url: "https://github.com/deepset-ai/haystack",
+          description: "AI orchestration framework for customizable LLM applications. Production-ready pipelines. ⭐ 24K+"
         }
       ]
     },
@@ -223,39 +238,54 @@ export const agentsData = {
       title: "Agent Platforms",
       tools: [
         {
-          name: "AgentGPT",
-          url: "https://agentgpt.reworkd.ai",
-          description: "Open-source platform for creating and deploying autonomous AI agents."
+          name: "Coze Studio",
+          url: "https://github.com/coze-dev/coze-studio",
+          description: "All-in-one visual tools for agent creation, debugging, and deployment. By ByteDance. ⭐ 19K+"
+        },
+        {
+          name: "OpenHands",
+          url: "https://github.com/OpenHands/OpenHands",
+          description: "AI-driven development platform. Autonomous coding agent that can build entire projects. ⭐ 66K+"
+        },
+        {
+          name: "LobeChat",
+          url: "https://github.com/lobehub/lobe-chat",
+          description: "Open-source AI agent workspace. Multiple providers, knowledge base, plugins. Beautiful UI. ⭐ 70K+"
         },
         {
           name: "E2B",
           url: "https://e2b.dev",
           description: "Infrastructure for running AI agents in secure sandboxed environments."
-        },
-        {
-          name: "Fixie",
-          url: "https://fixie.ai",
-          description: "Platform for building and deploying AI agents with API access."
         }
       ]
     },
     {
-      title: "APIs and Models",
+      title: "Memory & Context",
       tools: [
         {
-          name: "OpenAI Function Calling",
-          url: "https://openai.com/blog/function-calling-and-other-api-updates",
-          description: "Enables LLMs to call functions and use tools."
+          name: "mem0",
+          url: "https://github.com/mem0ai/mem0",
+          description: "Universal memory layer for AI agents. Persistent memory across conversations. ⭐ 45K+"
         },
         {
-          name: "Claude",
-          url: "https://www.anthropic.com/claude",
-          description: "Alternative LLM with strong reasoning capabilities for agent systems."
+          name: "Quivr",
+          url: "https://github.com/QuivrHQ/quivr",
+          description: "Opinionated RAG for integrating GenAI in your apps. Easy integration in existing products. ⭐ 38K+"
+        }
+      ]
+    },
+    {
+      title: "Learning Resources",
+      tools: [
+        {
+          name: "AI Agents for Beginners",
+          url: "https://github.com/microsoft/ai-agents-for-beginners",
+          description: "Microsoft's 12-lesson course on building AI agents. Great starting point. ⭐ 49K+"
         },
         {
-          name: "Hugging Face",
-          url: "https://huggingface.co",
-          description: "Repository of open-source models that can be used for agent development."
+          name: "Agents Towards Production",
+          url: "https://github.com/NirDiamant/agents-towards-production",
+          description: "End-to-end tutorials for production-grade GenAI agents. From spark to scale. ⭐ 16K+"
         }
       ]
     }

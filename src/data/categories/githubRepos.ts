@@ -28,6 +28,78 @@ export const githubReposData: GithubReposData = {
       description: "This section highlights valuable open-source repositories for AI developers, researchers, and enthusiasts. These repositories provide frameworks, models, and tools that can help you build and implement AI solutions across various domains."
     },
     {
+      title: "🔥 Trending & Must-Know Repos",
+      description: "The most impactful AI repositories right now - high stars, active development, and practical applications:",
+      tools: [
+        {
+          name: "OpenHands",
+          description: "AI-driven development platform. Autonomous coding agent that can build entire projects from natural language. ⭐ 66K+",
+          url: "https://github.com/OpenHands/OpenHands"
+        },
+        {
+          name: "LobeChat",
+          description: "Open-source AI agent workspace with beautiful UI. Multiple providers, knowledge base, plugins. ⭐ 70K+",
+          url: "https://github.com/lobehub/lobe-chat"
+        },
+        {
+          name: "Open Interpreter",
+          description: "A natural language interface for computers. Run code, control your computer with plain English. ⭐ 61K+",
+          url: "https://github.com/openinterpreter/open-interpreter"
+        },
+        {
+          name: "NextChat",
+          description: "Light and fast AI assistant supporting Web, iOS, MacOS, Android, Linux, Windows. Self-hostable. ⭐ 87K+",
+          url: "https://github.com/ChatGPTNextWeb/NextChat"
+        },
+        {
+          name: "Repomix",
+          description: "Pack your entire repository into a single AI-friendly file. Perfect for feeding codebases to LLMs. ⭐ 21K+",
+          url: "https://github.com/yamadashy/repomix"
+        },
+        {
+          name: "Dyad",
+          description: "Local, open-source AI app builder. v0/Lovable/Bolt alternative that runs locally. ⭐ 19K+",
+          url: "https://github.com/dyad-sh/dyad"
+        }
+      ]
+    },
+    {
+      title: "📚 Learning Resources",
+      description: "Free courses and guides to learn AI development:",
+      tools: [
+        {
+          name: "Generative AI for Beginners",
+          description: "Microsoft's 21-lesson course on building with Generative AI. Comprehensive and beginner-friendly. ⭐ 105K+",
+          url: "https://github.com/microsoft/generative-ai-for-beginners"
+        },
+        {
+          name: "AI Agents for Beginners",
+          description: "Microsoft's 12-lesson course specifically on building AI agents. Practical and hands-on. ⭐ 49K+",
+          url: "https://github.com/microsoft/ai-agents-for-beginners"
+        },
+        {
+          name: "LLMs from Scratch",
+          description: "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step. Deep understanding of how LLMs work. ⭐ 83K+",
+          url: "https://github.com/rasbt/LLMs-from-scratch"
+        },
+        {
+          name: "Prompt Engineering Guide",
+          description: "Comprehensive guides, papers, lessons, and resources for prompt engineering, RAG, and AI agents. ⭐ 69K+",
+          url: "https://github.com/dair-ai/Prompt-Engineering-Guide"
+        },
+        {
+          name: "Awesome Generative AI Guide",
+          description: "One-stop repository for GenAI research updates, interview resources, notebooks, and more. ⭐ 24K+",
+          url: "https://github.com/aishwaryanr/awesome-generative-ai-guide"
+        },
+        {
+          name: "Awesome ChatGPT Prompts",
+          description: "Curated collection of prompts for ChatGPT. Great for learning prompt patterns. ⭐ 143K+",
+          url: "https://github.com/f/awesome-chatgpt-prompts"
+        }
+      ]
+    },
+    {
       title: "AI Development Frameworks",
       description: "Open-source frameworks serve as the foundation for developing AI applications, providing structured approaches to common tasks and challenges."
     },

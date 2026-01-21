@@ -68,11 +68,23 @@ export const appsData = {
           personalNote: "This is how I build everything now. Agent mode handles entire features autonomously."
         },
         {
+          name: "OpenHands",
+          url: "https://github.com/OpenHands/OpenHands",
+          description: "AI-driven development platform. Autonomous coding agent that can build entire projects from natural language descriptions. ⭐ 66K+",
+          pricing: "Free / Open source"
+        },
+        {
           name: "Bolt.new",
           url: "https://bolt.new",
           description: "Describe what you want, get a full-stack app. Uses Claude under the hood. Great for prototypes. Deploy directly to Netlify.",
           pricing: "Free (limited) / Pro $20/mo",
           personalNote: "My go-to for quick prototypes. Paste an image of a design, it builds it."
+        },
+        {
+          name: "Dyad",
+          url: "https://github.com/dyad-sh/dyad",
+          description: "Local, open-source AI app builder for power users. v0/Lovable/Bolt alternative that runs locally. ⭐ 19K+",
+          pricing: "Free / Open source"
         },
         {
           name: "Replit",
@@ -85,6 +97,12 @@ export const appsData = {
           url: "https://v0.dev",
           description: "Vercel's AI component generator. Describe a UI, get production-ready React/Tailwind code. Excellent for frontend work.",
           pricing: "Free (limited) / Premium $20/mo"
+        },
+        {
+          name: "Repomix",
+          url: "https://github.com/yamadashy/repomix",
+          description: "Pack your entire repository into a single AI-friendly file. Essential for feeding codebases to LLMs. ⭐ 21K+",
+          pricing: "Free / Open source"
         }
       ]
     },
@@ -212,6 +230,36 @@ export const appsData = {
           url: "https://replika.ai",
           description: "AI companion for chat, calls, or video. Learns your personality over time.",
           pricing: "Free / Pro $20/mo"
+        }
+      ]
+    },
+    {
+      title: "Self-Hosted AI",
+      description: "Run AI locally or self-host for privacy and control",
+      apps: [
+        {
+          name: "NextChat",
+          url: "https://github.com/ChatGPTNextWeb/NextChat",
+          description: "Light and fast AI assistant. Self-host your own ChatGPT interface. Web, iOS, MacOS, Android, Linux, Windows. ⭐ 87K+",
+          pricing: "Free / Open source"
+        },
+        {
+          name: "LobeChat",
+          url: "https://github.com/lobehub/lobe-chat",
+          description: "Beautiful AI agent workspace. Multiple providers, knowledge base, plugins. Self-hostable with Docker. ⭐ 70K+",
+          pricing: "Free / Open source"
+        },
+        {
+          name: "Open Interpreter",
+          url: "https://github.com/openinterpreter/open-interpreter",
+          description: "Natural language interface for your computer. Run code, control apps with plain English. Runs locally. ⭐ 61K+",
+          pricing: "Free / Open source"
+        },
+        {
+          name: "Ollama",
+          url: "https://ollama.ai",
+          description: "Run Llama, Mistral, and other LLMs locally. Simple setup, great performance on Apple Silicon.",
+          pricing: "Free"
         }
       ]
     }
