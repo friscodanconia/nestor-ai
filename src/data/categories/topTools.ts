@@ -150,9 +150,16 @@ export const topToolsData: {
       title: "Image Generation",
       tools: [
         {
+          name: "Google Imagen 3",
+          url: "https://deepmind.google/technologies/imagen-3/",
+          description: "Google's latest image model in Gemini. Exceptional photorealism and prompt understanding. The quality is stunning - best for realistic images.",
+          pricing: "Free in Gemini / API pricing varies",
+          personalExperience: "Currently my top pick for photorealistic images. The quality jump is remarkable."
+        },
+        {
           name: "Midjourney",
           url: "https://midjourney.com",
-          description: "Still the gold standard for artistic image generation. V6 has excellent prompt understanding and photorealism. Discord-based but web UI coming.",
+          description: "The artistic favorite. V6.1 has excellent style control and consistency. Discord-based, web UI now available.",
           pricing: "Basic $10/mo, Standard $30/mo"
         },
         {
@@ -174,35 +181,42 @@ export const topToolsData: {
           pricing: "Varies by platform"
         }
       ],
-      personalExperience: "For consistent outputs, I use Freepik's AI suite - lots of features in one place.",
+      personalExperience: "Google Imagen 3 for photorealism, Midjourney for artistic styles. Both are excellent.",
       freepikUrl: "https://freepik.com"
     },
     {
       title: "Video Generation",
       tools: [
         {
+          name: "Google Veo 2 / Veo 3",
+          url: "https://deepmind.google/technologies/veo/",
+          description: "Google's video models are now top-tier. Veo 2 produces cinematic quality, Veo 3/3.1 adds better physics and longer outputs. Available in Gemini and VideoFX.",
+          pricing: "Free in Gemini / VideoFX waitlist",
+          personalExperience: "Veo 3 quality rivals Sora. The physics understanding is impressive."
+        },
+        {
           name: "Runway Gen-3",
           url: "https://runwayml.com",
-          description: "Industry-leading text-to-video. Gen-3 Alpha produces cinematic quality. Motion brush for precise control.",
+          description: "Industry standard for creative professionals. Gen-3 Alpha Turbo is fast and high quality. Motion brush for precise control.",
           pricing: "Free trial, Standard $15/mo"
+        },
+        {
+          name: "Sora (OpenAI)",
+          url: "https://openai.com/sora",
+          description: "OpenAI's video model. Cinematic quality with excellent physics. Available through ChatGPT Pro.",
+          pricing: "ChatGPT Pro $200/mo"
         },
         {
           name: "Kling AI",
           url: "https://klingai.com",
-          description: "Chinese video model, excellent quality and longer outputs (up to 2 min). Free tier is generous.",
+          description: "Excellent quality and longer outputs (up to 2 min). Free tier is very generous.",
           pricing: "Free (generous), Pro plans available"
         },
         {
           name: "Luma Dream Machine",
           url: "https://lumalabs.ai/dream-machine",
-          description: "Fast video generation with good quality. Image-to-video is particularly strong.",
+          description: "Fast generation with good quality. Image-to-video is particularly strong.",
           pricing: "Free (limited), Standard $24/mo"
-        },
-        {
-          name: "Pika",
-          url: "https://pika.art",
-          description: "Fun, creative video generation. Good for short clips and effects. Easy to use.",
-          pricing: "Free (limited), Standard $10/mo"
         }
       ]
     },

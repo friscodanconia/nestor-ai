@@ -26,45 +26,46 @@ export const videoData = {
     },
     {
       title: "Text-to-Video Generation",
-      description: "Create videos from text descriptions. The quality varies, but the best tools produce remarkable results.",
+      description: "Create videos from text descriptions. 2025 brought massive quality improvements - the best tools now produce cinematic results.",
       tools: [
+        {
+          name: "Google Veo 2 / Veo 3",
+          url: "https://deepmind.google/technologies/veo/",
+          description: "Google's video models have caught up and arguably surpassed competitors. Veo 2 produces cinematic quality, Veo 3 and 3.1 add better physics, longer outputs, and improved consistency. Available in Gemini and through VideoFX.",
+          pricing: "Free in Gemini / VideoFX waitlist",
+          personalNote: "Veo 3 quality is exceptional. The physics understanding and consistency are best-in-class."
+        },
         {
           name: "Sora (OpenAI)",
           url: "https://openai.com/sora",
-          description: "OpenAI's video model, finally released in late 2024. Produces cinematic quality with excellent physics and consistency. Available through ChatGPT Pro ($200/mo) or directly.",
+          description: "OpenAI's video model with cinematic quality and excellent physics. Good for realistic scenes and consistent characters.",
           pricing: "ChatGPT Pro $200/mo includes Sora"
         },
         {
           name: "Runway Gen-3 Alpha",
           url: "https://runwayml.com",
-          description: "The industry standard for creative professionals. Gen-3 Alpha produces Hollywood-quality clips. Motion Brush for precise control. Strong ecosystem of features.",
+          description: "The industry standard for creative professionals. Gen-3 Alpha Turbo is fast and high quality. Motion Brush for precise control. Strong ecosystem.",
           pricing: "Free trial / Standard $15/mo / Unlimited $95/mo",
-          personalNote: "Most polished experience. If you're serious about AI video, start here."
+          personalNote: "Most polished editing experience. Great for professional workflows."
         },
         {
           name: "Kling AI",
           url: "https://klingai.com",
-          description: "Chinese model that rivals Sora. Excellent quality, longer outputs (up to 2 minutes), and a generous free tier. Motion control and character consistency features.",
+          description: "Excellent quality, longer outputs (up to 2 minutes), and a very generous free tier. Motion control and character consistency.",
           pricing: "Free (generous) / Pro plans available",
-          personalNote: "Best free option. The quality surprised me - often matches paid tools."
+          personalNote: "Best free option. Quality often matches paid tools."
         },
         {
           name: "Luma Dream Machine",
           url: "https://lumalabs.ai/dream-machine",
-          description: "Fast generation with good quality. Particularly strong for image-to-video. Clean interface, easy to use.",
+          description: "Fast generation with good quality. Particularly strong for image-to-video. Clean interface.",
           pricing: "Free (limited) / Standard $24/mo"
         },
         {
           name: "Pika",
           url: "https://pika.art",
-          description: "Fun and creative. Great for stylized videos, effects, and quick experiments. Less realistic but more artistic.",
+          description: "Fun and creative. Great for stylized videos and effects. More artistic than realistic.",
           pricing: "Free (limited) / Standard $10/mo"
-        },
-        {
-          name: "Vidu",
-          url: "https://vidu.io",
-          description: "Another strong Chinese model. Good quality and fast generation. Worth trying alongside Kling.",
-          pricing: "Free tier available"
         }
       ]
     },
@@ -185,7 +186,7 @@ export const videoData = {
     },
     {
       title: "Getting Started Recommendations",
-      description: "**If you're new to AI video:**\n1. Start with **Kling** (free) or **Pika** (fun) to experiment\n2. Move to **Runway** when you need professional quality\n3. Use **Descript** for editing - it's a game changer\n\n**For professional use:**\n- **Runway Gen-3** for creative work\n- **HeyGen** for corporate/training videos\n- **Opus Clip** for social media content\n\n**Important notes:**\n- Quality varies by prompt - experiment extensively\n- Generation takes time - batch your requests\n- Always review outputs - AI makes mistakes\n- Rights vary by platform - check terms of service"
+      description: "**If you're new to AI video:**\n1. Start with **Kling** (free) or **Veo in Gemini** (free) to experiment\n2. Move to **Runway** or **Veo 3** when you need professional quality\n3. Use **Descript** for editing - it's a game changer\n\n**For professional use:**\n- **Veo 3** or **Runway Gen-3** for cinematic work\n- **HeyGen** for corporate/training videos\n- **Opus Clip** for social media content\n\n**Top picks by use case:**\n- Best free: Kling, Veo (in Gemini)\n- Best quality: Veo 3, Sora\n- Best for editing: Runway\n- Best for avatars: HeyGen\n\n**Important notes:**\n- Quality varies by prompt - experiment extensively\n- Generation takes time - batch your requests\n- Always review outputs - AI makes mistakes\n- Rights vary by platform - check terms of service"
     }
   ]
 };
