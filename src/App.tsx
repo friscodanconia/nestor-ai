@@ -364,29 +364,15 @@ function HomePage() {
             </div>
           </div>
           
-          {/* NEW LAYOUT: FAQ (50%) and Blog (50%) in a single row */}
-          <div className="md:col-span-3 flex flex-row gap-3 md:gap-5">
-            <div className="w-[50%]">
-              <CategoryCard
-                title="FAQs"
-                description="Frequently asked questions about AI tools"
-                icon={<HelpCircle className="w-6 h-6 sm:w-8 sm:h-8" />}
-                className="bg-gradient-to-br from-amber-200 to-yellow-200 h-full"
-                onClick={() => navigate('/faq')}
-                onMouseEnter={() => prefetchPage('/faq')}
-              />
-            </div>
-            <div className="w-[50%]">
-              <CategoryCard
-                title="Blog"
-                description="Latest insights and tutorials on AI technology"
-                icon={<FileText className="w-6 h-6 sm:w-8 sm:h-8" />}
-                className="bg-gradient-to-br from-lime-200 to-green-200 h-full"
-                onClick={() => navigate('/blog')}
-                onMouseEnter={() => prefetchPage('/blog')}
-              />
-            </div>
-          </div>
+          {/* FAQ - Full width (Blog hidden until content is ready) */}
+          <CategoryCard
+            title="FAQs"
+            description="Frequently asked questions about AI tools"
+            icon={<HelpCircle className="w-6 h-6 sm:w-8 sm:h-8" />}
+            className="bg-gradient-to-br from-amber-200 to-yellow-200 md:col-span-3"
+            onClick={() => navigate('/faq')}
+            onMouseEnter={() => prefetchPage('/faq')}
+          />
         </div>
       </main>
     </div>

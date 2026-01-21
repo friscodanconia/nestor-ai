@@ -2,6 +2,7 @@ import React from 'react';
 import { DollarSign } from 'lucide-react';
 import CategoryLayout from '../components/CategoryLayout';
 import Text from '../components/ui/Text';
+import { Card, Grid } from '../components/ui';
 import { personalFinanceData, PersonalFinanceTopic } from '../data/categories/personalFinance';
 import CollapsibleSection from '../components/CollapsibleSection';
 import SEO from '../components/SEO';
@@ -77,8 +78,38 @@ const PersonalFinance = () => {
     </>
   );
 
-  // Desktop content (same as mobile for now)
-  const desktopContent = mobileContent;
+  // Desktop content with Card layout
+  const desktopContent = (
+    <Grid columns={1} gap="xl">
+      {personalFinanceData.map((topic, index) => (
+        <Card key={index} variant="outlined">
+          <div className="bg-primary-light p-4">
+            <Text variant="h3" className="mb-0">{topic.title}</Text>
+          </div>
+          <div className="p-6 space-y-4">
+            <div className="prose prose-slate max-w-none">{formatDescription(topic.description)}</div>
+            {topic.links && topic.links.length > 0 && (
+              <div className="space-y-2">
+                <Text variant="subtitle" className="font-medium">Useful Links:</Text>
+                <ul className="list-disc pl-5 space-y-1">
+                  {topic.links.map((link, linkIndex) => (
+                    <li key={linkIndex}>
+                      <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary-dark transition-colors">{link.name}</a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+            {topic.readMoreUrl && (
+              <div className="pt-2">
+                <a href={topic.readMoreUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-primary hover:text-primary-dark transition-colors">Read more →</a>
+              </div>
+            )}
+          </div>
+        </Card>
+      ))}
+    </Grid>
+  );
 
   return (
     <CategoryLayout
