@@ -25,7 +25,7 @@ export default function AIInMarketing() {
           href={readMoreUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="font-bold text-primary hover:text-primary-dark transition-colors"
+          className="font-bold text-blue-600 hover:text-blue-800 underline transition-colors"
         >
           read more here
         </a>.

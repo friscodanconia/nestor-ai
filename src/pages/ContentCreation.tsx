@@ -49,7 +49,7 @@ const ContentCreation = () => {
                           href={link.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-primary hover:text-primary-dark transition-colors"
+                          className="text-blue-600 hover:text-blue-800 underline transition-colors"
                         >
                           {link.name}
                         </a>
@@ -94,7 +94,7 @@ const ContentCreation = () => {
                 <ul className="list-disc pl-5 space-y-1">
                   {topic.links.map((link, linkIndex) => (
                     <li key={linkIndex}>
-                      <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-primary hover:text-primary-dark transition-colors">{link.name}</a>
+                      <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline transition-colors">{link.name}</a>
                     </li>
                   ))}
                 </ul>
