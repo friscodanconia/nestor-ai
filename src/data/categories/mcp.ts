@@ -13,73 +13,119 @@ export interface MCPSection {
 export const mcpData = {
   title: "Model Context Protocol (MCP)",
   gradientClasses: "bg-gradient-to-br from-purple-200 to-indigo-200",
-  description: "Learn about the Model Context Protocol (MCP) and how it works with AI systems.",
+  description: "Anthropic's open standard that connects AI assistants to external data sources and tools. Think of it as USB-C for AI - one standard protocol that works everywhere.",
+  
+  lastUpdated: "January 2026",
   
   sections: [
     {
-      title: "What is Model Context Protocol?",
-      description: "The Model Context Protocol (MCP) is a framework for structuring and managing the context that AI models use to generate responses. It provides a standardized way to organize information, instructions, and constraints that guide AI behavior.\n\nMCP helps ensure that AI systems have the right information at the right time, improving the quality, relevance, and safety of AI-generated content."
+      title: "What is MCP?",
+      description: "Model Context Protocol is an open standard introduced by Anthropic in late 2024. It allows AI models like Claude to securely connect to external tools, databases, and services.\n\nBefore MCP, every AI integration was custom-built. Now, with MCP, you build one server and any MCP-compatible client can use it. It's like how USB-C standardized device connections.\n\n**Key benefits:**\n- One protocol to connect AI to any data source\n- Secure, two-way communication\n- Open standard anyone can implement\n- Works with Claude Desktop, Cursor, and more"
     },
     {
-      title: "Key Components of MCP",
-      description: "- Context management for large language models: Techniques for efficiently handling and prioritizing the limited context window available to AI models.\n- Structured information retrieval and organization: Methods for organizing and retrieving relevant information to provide as context.\n- Memory systems for persistent knowledge: Implementation of short-term and long-term memory structures to maintain consistency across interactions.\n- Instruction formatting and prioritization: Standards for how to format and prioritize instructions given to AI models.\n- Safety guardrails and constraint enforcement: Systems to ensure AI outputs adhere to safety guidelines and ethical constraints."
+      title: "How MCP Works",
+      description: "MCP has three main components:\n\n**1. MCP Hosts** - Applications like Claude Desktop or Cursor that want to access external tools\n\n**2. MCP Clients** - Protocol handlers that maintain connections to servers\n\n**3. MCP Servers** - Lightweight programs that expose specific capabilities:\n- **Resources**: File-like data that can be read (documents, database records)\n- **Tools**: Functions the AI can execute (search, create file, query database)\n- **Prompts**: Pre-built templates for common tasks"
     },
     {
-      title: "Benefits of MCP",
-      description: "- Improved AI reliability: Ensures models consistently receive the context they need to produce accurate and helpful responses.\n- Better context efficiency: Optimizes the use of limited context windows by prioritizing the most relevant information.\n- Enhanced safety: Provides consistent implementation of safety measures across different AI systems.\n- Standardized development: Creates a common framework for AI developers to work with, accelerating innovation.\n- Reduced hallucinations: Helps minimize AI hallucinations by providing structured, reliable context."
-    },
-    {
-      title: "Implementation Approaches",
-      description: "Various approaches can be used to implement MCP principles in AI systems:",
+      title: "Popular MCP Servers",
+      description: "These are ready-to-use MCP servers you can install:",
       tools: [
         {
-          name: "Prompt Engineering",
-          description: "Advanced prompt engineering techniques represent the simplest form of MCP, using carefully structured prompts with embedded instructions, constraints, and context management."
+          name: "File System",
+          description: "Read, write, and manage local files. Essential for coding assistants.",
+          url: "https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem"
         },
         {
-          name: "Context Windows Management",
-          description: "Techniques for optimizing the use of context windows including token pruning, context compression, and priority-based context selection."
+          name: "GitHub",
+          description: "Interact with GitHub repos - read code, create issues, manage PRs.",
+          url: "https://github.com/modelcontextprotocol/servers/tree/main/src/github"
         },
         {
-          name: "Retrieval Augmented Generation (RAG)",
-          description: "RAG systems implement many MCP principles by retrieving relevant information from external knowledge bases and incorporating it into the model's context."
+          name: "PostgreSQL",
+          description: "Query and interact with PostgreSQL databases.",
+          url: "https://github.com/modelcontextprotocol/servers/tree/main/src/postgres"
         },
         {
-          name: "Tool Use and Function Calling",
-          description: "By connecting AI models to external tools and functions, MCPs can extend AI capabilities while maintaining a structured approach to context management."
+          name: "Slack",
+          description: "Read messages, search conversations, post to channels.",
+          url: "https://github.com/modelcontextprotocol/servers/tree/main/src/slack"
+        },
+        {
+          name: "Google Drive",
+          description: "Search and read files from Google Drive.",
+          url: "https://github.com/modelcontextprotocol/servers/tree/main/src/gdrive"
+        },
+        {
+          name: "Brave Search",
+          description: "Web search capabilities via Brave's API.",
+          url: "https://github.com/modelcontextprotocol/servers/tree/main/src/brave-search"
+        },
+        {
+          name: "Puppeteer",
+          description: "Browser automation - navigate, screenshot, interact with web pages.",
+          url: "https://github.com/modelcontextprotocol/servers/tree/main/src/puppeteer"
         }
       ]
     },
     {
-      title: "Useful Resources",
-      description: "These frameworks and tools can help you implement MCP principles in your AI applications:",
+      title: "Getting Started with MCP",
+      description: "Here's how to start using MCP:\n\n**1. Install Claude Desktop**\nDownload from [claude.ai/download](https://claude.ai/download). The desktop app supports MCP natively.\n\n**2. Configure MCP Servers**\nEdit `~/Library/Application Support/Claude/claude_desktop_config.json` (Mac) or equivalent on Windows.\n\n**3. Add a server:**\n```json\n{\n  \"mcpServers\": {\n    \"filesystem\": {\n      \"command\": \"npx\",\n      \"args\": [\"-y\", \"@modelcontextprotocol/server-filesystem\", \"/path/to/folder\"]\n    }\n  }\n}\n```\n\n**4. Restart Claude Desktop**\nThe MCP connection icon will appear, and Claude can now access your files."
+    },
+    {
+      title: "MCP-Compatible Apps",
+      description: "These applications support MCP:",
       tools: [
         {
-          name: "LlamaIndex",
-          description: "Framework for building RAG applications with structured data access and retrieval.",
-          url: "https://www.llamaindex.ai/"
+          name: "Claude Desktop",
+          description: "Anthropic's official desktop app with native MCP support.",
+          url: "https://claude.ai/download"
         },
         {
-          name: "LangChain",
-          description: "Framework for developing applications powered by language models with components for memory, retrieval, and tool use.",
-          url: "https://www.langchain.com/"
+          name: "Cursor",
+          description: "AI code editor with MCP integration for enhanced capabilities.",
+          url: "https://cursor.com"
         },
         {
-          name: "DSPy",
-          description: "Framework for algorithmically optimizing LM prompts and weights from Stanford NLP.",
-          url: "https://github.com/stanfordnlp/dspy"
+          name: "Zed",
+          description: "Fast, collaborative code editor with MCP support.",
+          url: "https://zed.dev"
         },
         {
-          name: "Guidance",
-          description: "Microsoft's language model programming framework for structured generation.",
-          url: "https://github.com/microsoft/guidance"
-        },
-        {
-          name: "PromptFlow",
-          description: "Microsoft's framework to build high-quality LLM apps - from prototyping, testing to production deployment and monitoring.",
-          url: "https://github.com/microsoft/promptflow"
+          name: "Cline",
+          description: "VS Code extension with MCP support for autonomous coding.",
+          url: "https://github.com/cline/cline"
         }
       ]
+    },
+    {
+      title: "Building Your Own MCP Server",
+      description: "Want to connect AI to your own tools? Here's how:\n\n**Python SDK:**\n```bash\npip install mcp\n```\n\n**TypeScript SDK:**\n```bash\nnpm install @modelcontextprotocol/sdk\n```\n\n**Key concepts:**\n- Define **tools** as functions with JSON schemas\n- Define **resources** as data that can be read\n- Handle requests and return structured responses\n\n**Resources:**",
+      tools: [
+        {
+          name: "MCP Specification",
+          description: "Official specification and documentation.",
+          url: "https://spec.modelcontextprotocol.io"
+        },
+        {
+          name: "MCP Servers Repository",
+          description: "Official collection of reference server implementations.",
+          url: "https://github.com/modelcontextprotocol/servers"
+        },
+        {
+          name: "Python SDK",
+          description: "Official Python SDK for building MCP servers.",
+          url: "https://github.com/modelcontextprotocol/python-sdk"
+        },
+        {
+          name: "TypeScript SDK",
+          description: "Official TypeScript SDK for building MCP servers.",
+          url: "https://github.com/modelcontextprotocol/typescript-sdk"
+        }
+      ]
+    },
+    {
+      title: "Why MCP Matters",
+      description: "MCP is significant because:\n\n**For users:**\n- One-time setup, works across apps\n- AI can access your actual data securely\n- No more copy-pasting context into chat\n\n**For developers:**\n- Build once, work everywhere\n- Standard protocol means less custom code\n- Growing ecosystem of pre-built servers\n\n**For the industry:**\n- Open standard prevents vendor lock-in\n- Accelerates AI integration adoption\n- Sets foundation for more capable AI agents\n\nMCP is still early (released Nov 2024), but adoption is growing fast. If you use Claude, setting up a few MCP servers can significantly enhance your workflow."
     }
   ]
 };
