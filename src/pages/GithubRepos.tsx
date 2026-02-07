@@ -5,44 +5,41 @@ import SEO from '../components/SEO';
 import { githubReposData, GithubRepoTool, GithubRepoSection } from '../data/categories/githubRepos';
 import { Text, Card, Grid } from '../components/ui';
 
-// Type guard function to check if a tool has a URL
 const hasUrl = (tool: GithubRepoTool): tool is GithubRepoTool & { url: string } => {
   return tool.url !== undefined && tool.url !== null && tool.url !== '';
 };
 
-// Type guard to check if section has tools
 const hasTools = (section: GithubRepoSection): section is GithubRepoSection & { tools: GithubRepoTool[] } => {
   return section.tools !== undefined && Array.isArray(section.tools) && section.tools.length > 0;
 };
 
 export default function GithubRepos() {
-  // Mobile content with collapsible sections
   const mobileContent = (
     <>
-      <SEO 
+      <SEO
         title="GitHub AI Repositories"
         description="Discover the best open-source AI repositories on GitHub for development, research, and learning."
         keywords="GitHub AI repos, AI open source, machine learning repositories, LLM frameworks, AI development tools"
       />
-      
+
       {githubReposData.sections.map((section, index) => (
-        <CollapsibleSection 
-          key={index} 
-          title={section.title} 
+        <CollapsibleSection
+          key={index}
+          title={section.title}
           defaultExpanded={index === 0}
         >
           <Card variant="outlined" className="space-y-4">
             <Text variant="body" color="secondary" className="whitespace-pre-line">
               {section.description}
             </Text>
-            
+
             {hasTools(section) && (
               <div className="mt-4">
                 <ul className="list-disc pl-5 space-y-3">
                   {(section.tools as GithubRepoTool[]).map((tool, toolIndex) => (
                     <li key={toolIndex} className="space-y-1">
                       {hasUrl(tool) ? (
-                        <a 
+                        <a
                           href={tool.url}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -56,6 +53,16 @@ export default function GithubRepos() {
                       <Text variant="body-sm" color="secondary" className="block">
                         {tool.description}
                       </Text>
+                      {tool.pricing && (
+                        <Text variant="caption" className="block mt-1 text-emerald-700 font-medium">
+                          💰 {tool.pricing}
+                        </Text>
+                      )}
+                      {tool.researchNote && (
+                        <Text variant="caption" className="block mt-1 italic text-indigo-700">
+                          💡 {tool.researchNote}
+                        </Text>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -67,7 +74,6 @@ export default function GithubRepos() {
     </>
   );
 
-  // Desktop content
   const desktopContent = (
     <Grid columns={1} gap="xl">
       {githubReposData.sections.map((section, index) => (
@@ -81,14 +87,14 @@ export default function GithubRepos() {
             <Text variant="body" color="secondary" className="whitespace-pre-line">
               {section.description}
             </Text>
-            
+
             {hasTools(section) && (
               <div className="mt-4">
                 <ul className="list-disc pl-5 space-y-4">
                   {(section.tools as GithubRepoTool[]).map((tool, toolIndex) => (
                     <li key={toolIndex} className="space-y-2">
                       {hasUrl(tool) ? (
-                        <a 
+                        <a
                           href={tool.url}
                           target="_blank"
                           rel="noopener noreferrer"
@@ -106,6 +112,16 @@ export default function GithubRepos() {
                       <Text variant="body-sm" color="secondary" className="block">
                         {tool.description}
                       </Text>
+                      {tool.pricing && (
+                        <Text variant="caption" className="block mt-1 text-emerald-700 font-medium">
+                          💰 {tool.pricing}
+                        </Text>
+                      )}
+                      {tool.researchNote && (
+                        <Text variant="caption" className="block mt-1 italic text-indigo-700">
+                          💡 {tool.researchNote}
+                        </Text>
+                      )}
                     </li>
                   ))}
                 </ul>

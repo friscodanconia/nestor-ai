@@ -1,108 +1,130 @@
-import React from 'react';
 import { Plane } from 'lucide-react';
-import CategoryLayout from '../components/CategoryLayout';
-import Text from '../components/ui/Text';
-import { Card, Grid } from '../components/ui';
-import { travelLifestyleData, TravelLifestyleTopic } from '../data/categories/travelLifestyle';
 import CollapsibleSection from '../components/CollapsibleSection';
+import CategoryLayout from '../components/CategoryLayout';
 import SEO from '../components/SEO';
+import { travelLifestyleData, TravelTool, TravelSection } from '../data/categories/travelLifestyle';
+import { Text, Card, Grid } from '../components/ui';
 
-const formatDescription = (description: string) => {
-  return description.split('\n\n').map((paragraph, index) => (
-    <p key={index} className="mb-3 last:mb-0">
-      {paragraph}
-    </p>
-  ));
+const hasUrl = (tool: TravelTool): tool is TravelTool & { url: string } => {
+  return tool.url !== undefined && tool.url !== null && tool.url !== '';
 };
 
-const TravelLifestyle = () => {
-  // Mobile content with collapsible sections
+const hasTools = (section: TravelSection): section is TravelSection & { tools: TravelTool[] } => {
+  return section.tools !== undefined && Array.isArray(section.tools) && section.tools.length > 0;
+};
+
+export default function TravelLifestyle() {
   const mobileContent = (
     <>
-      <SEO 
+      <SEO
         title="Travel & Lifestyle"
-        description="Discover AI tools that can enhance your travel experiences and lifestyle."
-        keywords="AI travel, trip planning, language translation, local recommendations, lifestyle"
+        description="AI tools for travel planning, translation, recommendations, and smart home."
+        keywords="AI travel, trip planning, translation, smart home, lifestyle AI"
       />
-      
-      <div className="space-y-8">
-        {travelLifestyleData.map((topic, index) => (
-          <CollapsibleSection 
-            key={index}
-            title={topic.title}
-            defaultExpanded={index === 0}
-          >
-            <div className="space-y-4">
-              <div className="prose prose-slate max-w-none">
-                {formatDescription(topic.description)}
-              </div>
-              
-              {topic.links && topic.links.length > 0 && (
-                <div className="space-y-2">
-                  <Text variant="subtitle" className="font-medium">
-                    Useful Links:
-                  </Text>
-                  <ul className="list-disc pl-5 space-y-1">
-                    {topic.links.map((link, linkIndex) => (
-                      <li key={linkIndex}>
-                        <a 
-                          href={link.url}
+
+      {travelLifestyleData.sections.map((section, index) => (
+        <CollapsibleSection
+          key={index}
+          title={section.title}
+          defaultExpanded={index === 0}
+        >
+          <Card variant="outlined" className="space-y-4">
+            <Text variant="body" color="secondary" className="whitespace-pre-line">
+              {section.description}
+            </Text>
+
+            {hasTools(section) && (
+              <div className="mt-4">
+                <ul className="list-disc pl-5 space-y-3">
+                  {(section.tools as TravelTool[]).map((tool, toolIndex) => (
+                    <li key={toolIndex} className="space-y-1">
+                      {hasUrl(tool) ? (
+                        <a
+                          href={tool.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-blue-600 hover:text-blue-800 underline transition-colors"
+                          className="font-bold text-gray-700 underline hover:text-primary-dark"
                         >
-                          {link.name}
+                          {tool.name}
                         </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              
-              {topic.readMoreUrl && (
-                <div className="pt-2">
-                  <a 
-                    href={topic.readMoreUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm font-medium text-primary hover:text-primary-dark transition-colors"
-                  >
-                    Read more →
-                  </a>
-                </div>
-              )}
-            </div>
-          </CollapsibleSection>
-        ))}
-      </div>
-    </>
-  );
-
-  // Desktop content with Card layout
-  const desktopContent = (
-    <Grid columns={1} gap="xl">
-      {travelLifestyleData.map((topic, index) => (
-        <Card key={index} variant="outlined">
-          <div className="bg-primary-light p-4">
-            <Text variant="h3" className="mb-0">{topic.title}</Text>
-          </div>
-          <div className="p-6 space-y-4">
-            <div className="prose prose-slate max-w-none">{formatDescription(topic.description)}</div>
-            {topic.links && topic.links.length > 0 && (
-              <div className="space-y-2">
-                <Text variant="subtitle" className="font-medium">Useful Links:</Text>
-                <ul className="list-disc pl-5 space-y-1">
-                  {topic.links.map((link, linkIndex) => (
-                    <li key={linkIndex}>
-                      <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline transition-colors">{link.name}</a>
+                      ) : (
+                        <Text variant="subtitle" className="font-medium">{tool.name}</Text>
+                      )}
+                      <Text variant="body-sm" color="secondary" className="block">
+                        {tool.description}
+                      </Text>
+                      {tool.pricing && (
+                        <Text variant="caption" className="block mt-1 text-emerald-700 font-medium">
+                          💰 {tool.pricing}
+                        </Text>
+                      )}
+                      {tool.researchNote && (
+                        <Text variant="caption" className="block mt-1 italic text-indigo-700">
+                          💡 {tool.researchNote}
+                        </Text>
+                      )}
                     </li>
                   ))}
                 </ul>
               </div>
             )}
-            {topic.readMoreUrl && (
-              <div className="pt-2">
-                <a href={topic.readMoreUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-primary hover:text-primary-dark transition-colors">Read more →</a>
+          </Card>
+        </CollapsibleSection>
+      ))}
+    </>
+  );
+
+  const desktopContent = (
+    <Grid columns={1} gap="xl">
+      {travelLifestyleData.sections.map((section, index) => (
+        <Card key={index} variant="outlined">
+          <div className="bg-primary-light p-4">
+            <Text variant="h3" className="mb-0">
+              {section.title}
+            </Text>
+          </div>
+          <div className="p-6 space-y-4">
+            <Text variant="body" color="secondary" className="whitespace-pre-line">
+              {section.description}
+            </Text>
+
+            {hasTools(section) && (
+              <div className="mt-4">
+                <ul className="list-disc pl-5 space-y-4">
+                  {(section.tools as TravelTool[]).map((tool, toolIndex) => (
+                    <li key={toolIndex} className="space-y-2">
+                      {hasUrl(tool) ? (
+                        <a
+                          href={tool.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-base text-gray-700 underline hover:text-primary-dark"
+                        >
+                          <Text variant="body" as="span" weight="semibold">
+                            {tool.name}
+                          </Text>
+                        </a>
+                      ) : (
+                        <Text variant="body" as="span" weight="semibold">
+                          {tool.name}
+                        </Text>
+                      )}
+                      <Text variant="body-sm" color="secondary" className="block">
+                        {tool.description}
+                      </Text>
+                      {tool.pricing && (
+                        <Text variant="caption" className="block mt-1 text-emerald-700 font-medium">
+                          💰 {tool.pricing}
+                        </Text>
+                      )}
+                      {tool.researchNote && (
+                        <Text variant="caption" className="block mt-1 italic text-indigo-700">
+                          💡 {tool.researchNote}
+                        </Text>
+                      )}
+                    </li>
+                  ))}
+                </ul>
               </div>
             )}
           </div>
@@ -113,14 +135,12 @@ const TravelLifestyle = () => {
 
   return (
     <CategoryLayout
-      title="Travel & Lifestyle"
+      title={travelLifestyleData.title}
       icon={<Plane className="w-6 h-6" />}
-      gradientClasses="bg-gradient-to-br from-sky-100 to-blue-200"
-      description="Discover AI tools that can enhance your travel experiences and lifestyle."
+      gradientClasses={travelLifestyleData.gradientClasses}
+      description={travelLifestyleData.description}
       mobileContent={mobileContent}
       desktopContent={desktopContent}
     />
   );
-};
-
-export default TravelLifestyle;
+}

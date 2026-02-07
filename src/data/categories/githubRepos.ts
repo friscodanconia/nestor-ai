@@ -2,6 +2,8 @@ export interface GithubRepoTool {
   name: string;
   description: string;
   url?: string;
+  pricing?: string;
+  researchNote?: string;
 }
 
 export interface GithubRepoSection {
@@ -14,355 +16,308 @@ export interface GithubReposData {
   title: string;
   description: string;
   gradientClasses: string;
+  lastUpdated: string;
   sections: GithubRepoSection[];
 }
 
 export const githubReposData: GithubReposData = {
   title: "GitHub Repos",
-  description: "Explore our curated collection of innovative AI and machine learning repositories.",
+  description: "The best open-source AI repositories, curated and opinionated. These aren't just popular — they're the ones actually worth your time. Star counts updated February 2026.",
   gradientClasses: "bg-gradient-to-br from-violet-200 to-purple-200",
-  
+
+  lastUpdated: "February 2026",
+
   sections: [
     {
-      title: "Curated List of Github Repos",
-      description: "This section highlights valuable open-source repositories for AI developers, researchers, and enthusiasts. These repositories provide frameworks, models, and tools that can help you build and implement AI solutions across various domains."
+      title: "Why This List Exists",
+      description: "GitHub has thousands of AI repos. Most are abandonware, demos, or academic projects that never worked outside the author's machine. This list focuses on repos that are actively maintained, practically useful, and worth starring. We prioritize repos you'll actually use over repos with impressive READMEs."
     },
     {
       title: "🔥 Trending & Must-Know Repos",
-      description: "The most impactful AI repositories right now - high stars, active development, and practical applications:",
+      description: "The most impactful AI repositories right now — high activity, real-world usage, and worth watching closely:",
       tools: [
         {
           name: "OpenHands",
-          description: "AI-driven development platform. Autonomous coding agent that can build entire projects from natural language. ⭐ 66K+",
-          url: "https://github.com/OpenHands/OpenHands"
+          description: "The leading open-source AI coding agent. Give it a GitHub issue, get back a pull request. Can plan, write, test, and debug code autonomously. Rapidly improving and backed by a strong team. ⭐ 72K+",
+          url: "https://github.com/All-Hands-AI/OpenHands"
         },
         {
           name: "LobeChat",
-          description: "Open-source AI agent workspace with beautiful UI. Multiple providers, knowledge base, plugins. ⭐ 70K+",
+          description: "Beautiful open-source AI chat interface. Multiple model providers, knowledge base, plugins, function calling, vision, TTS. The best self-hosted ChatGPT alternative. ⭐ 75K+",
           url: "https://github.com/lobehub/lobe-chat"
         },
         {
-          name: "Open Interpreter",
-          description: "A natural language interface for computers. Run code, control your computer with plain English. ⭐ 61K+",
-          url: "https://github.com/openinterpreter/open-interpreter"
-        },
-        {
           name: "NextChat",
-          description: "Light and fast AI assistant supporting Web, iOS, MacOS, Android, Linux, Windows. Self-hostable. ⭐ 87K+",
+          description: "Lightweight AI assistant supporting Web, iOS, MacOS, Android, Linux, Windows. Self-hostable with one-click deploy. Clean UI, fast, and reliable. ⭐ 82K+",
           url: "https://github.com/ChatGPTNextWeb/NextChat"
         },
         {
+          name: "Open Interpreter",
+          description: "Natural language interface for your computer. Tell it what you want, it writes and runs code to do it. Like ChatGPT's Code Interpreter but local and with full system access. ⭐ 58K+",
+          url: "https://github.com/openinterpreter/open-interpreter"
+        },
+        {
           name: "Repomix",
-          description: "Pack your entire repository into a single AI-friendly file. Perfect for feeding codebases to LLMs. ⭐ 21K+",
+          description: "Pack your entire repository into a single AI-friendly file. Essential for feeding codebases to LLMs. Respects .gitignore, supports custom formatting, and handles large repos gracefully. ⭐ 25K+",
           url: "https://github.com/yamadashy/repomix"
         },
         {
           name: "Dyad",
-          description: "Local, open-source AI app builder. v0/Lovable/Bolt alternative that runs locally. ⭐ 19K+",
+          description: "Open-source local AI app builder. Like v0/Lovable/Bolt but runs entirely on your machine. Build full-stack apps through conversation. Growing fast. ⭐ 22K+",
           url: "https://github.com/dyad-sh/dyad"
+        },
+        {
+          name: "Dify",
+          description: "Open-source LLM app development platform. Visual workflow builder for chatbots, agents, and RAG pipelines. Production-ready with strong enterprise adoption. ⭐ 68K+",
+          url: "https://github.com/langgenius/dify"
+        },
+        {
+          name: "Ollama",
+          description: "Run LLMs locally with a single command. Supports Llama 3, Mistral, Gemma, Phi, and dozens more. Dead simple to use. The Docker of local LLMs. ⭐ 115K+",
+          url: "https://github.com/ollama/ollama"
         }
       ]
     },
     {
       title: "📚 Learning Resources",
-      description: "Free courses and guides to learn AI development:",
+      description: "The best free courses and guides for learning AI development. These are the ones people actually complete:",
       tools: [
         {
           name: "Generative AI for Beginners",
-          description: "Microsoft's 21-lesson course on building with Generative AI. Comprehensive and beginner-friendly. ⭐ 105K+",
+          description: "Microsoft's 21-lesson course on building with Generative AI. Covers prompting, RAG, agents, fine-tuning, and deployment. The most comprehensive free AI course. ⭐ 110K+",
           url: "https://github.com/microsoft/generative-ai-for-beginners"
         },
         {
           name: "AI Agents for Beginners",
-          description: "Microsoft's 12-lesson course specifically on building AI agents. Practical and hands-on. ⭐ 49K+",
+          description: "Microsoft's 12-lesson course on building AI agents. Covers tool use, planning, memory, multi-agent systems. Practical, hands-on, and well-structured. ⭐ 55K+",
           url: "https://github.com/microsoft/ai-agents-for-beginners"
         },
         {
           name: "LLMs from Scratch",
-          description: "Implement a ChatGPT-like LLM in PyTorch from scratch, step by step. Deep understanding of how LLMs work. ⭐ 83K+",
+          description: "Build a ChatGPT-like LLM in PyTorch from scratch, step by step. The best resource for understanding how LLMs actually work under the hood. ⭐ 90K+",
           url: "https://github.com/rasbt/LLMs-from-scratch"
         },
         {
           name: "Prompt Engineering Guide",
-          description: "Comprehensive guides, papers, lessons, and resources for prompt engineering, RAG, and AI agents. ⭐ 69K+",
+          description: "Comprehensive guides, papers, and resources for prompt engineering, RAG, and AI agents. The reference resource for getting better at prompting. ⭐ 75K+",
           url: "https://github.com/dair-ai/Prompt-Engineering-Guide"
         },
         {
-          name: "Awesome Generative AI Guide",
-          description: "One-stop repository for GenAI research updates, interview resources, notebooks, and more. ⭐ 24K+",
-          url: "https://github.com/aishwaryanr/awesome-generative-ai-guide"
+          name: "Awesome ChatGPT Prompts",
+          description: "Curated collection of ChatGPT prompts and persona templates. Great for learning prompt patterns and finding inspiration. ⭐ 120K+",
+          url: "https://github.com/f/awesome-chatgpt-prompts"
         },
         {
-          name: "Awesome ChatGPT Prompts",
-          description: "Curated collection of prompts for ChatGPT. Great for learning prompt patterns. ⭐ 143K+",
-          url: "https://github.com/f/awesome-chatgpt-prompts"
+          name: "Awesome Generative AI Guide",
+          description: "One-stop resource for GenAI research updates, interview prep, notebooks, and tutorials. Well-organized and regularly updated. ⭐ 28K+",
+          url: "https://github.com/aishwaryanr/awesome-generative-ai-guide"
         }
       ]
     },
     {
-      title: "AI Development Frameworks",
-      description: "Open-source frameworks serve as the foundation for developing AI applications, providing structured approaches to common tasks and challenges."
+      title: "🤖 AI Coding Tools",
+      description: "Open-source tools for AI-assisted software development — the fastest-growing category in AI:",
+      tools: [
+        {
+          name: "OpenHands",
+          description: "Autonomous AI software developer. Handles planning, coding, testing, and debugging. Can resolve GitHub issues end-to-end. The most capable open-source coding agent. ⭐ 72K+",
+          url: "https://github.com/All-Hands-AI/OpenHands"
+        },
+        {
+          name: "Aider",
+          description: "AI pair programming in your terminal. Works with any LLM (Claude, GPT-4, local models). Understands your entire repo, makes changes, and creates commits. Surprisingly effective. ⭐ 28K+",
+          url: "https://github.com/paul-gauthier/aider"
+        },
+        {
+          name: "Continue",
+          description: "Open-source AI code assistant that works in VS Code and JetBrains. Use any model (local or cloud). Tab autocomplete, chat, and inline editing. The open-source Copilot alternative. ⭐ 22K+",
+          url: "https://github.com/continuedev/continue"
+        },
+        {
+          name: "MoneyPrinterTurbo",
+          description: "Generate high-quality short videos with one click. AI handles script, voiceover, visuals, and editing. Great for content creators automating video production. ⭐ 55K+",
+          url: "https://github.com/harry0703/MoneyPrinterTurbo"
+        }
+      ]
     },
     {
-      title: "Large Language Model (LLM) Frameworks",
-      description: "These frameworks provide the building blocks for working with large language models:",
+      title: "🧠 LLM Frameworks & Infrastructure",
+      description: "The foundational frameworks for building LLM-powered applications:",
       tools: [
         {
           name: "LangChain",
-          description: "A framework for developing applications powered by language models. LangChain provides components for working with LLMs and a standard interface for chaining these components together to create complex applications.",
+          description: "The most popular framework for building LLM applications. Chains, agents, retrieval, and memory. Massive ecosystem of integrations. Divisive but ubiquitous. ⭐ 100K+",
           url: "https://github.com/langchain-ai/langchain"
         },
         {
+          name: "LangGraph",
+          description: "Build stateful, multi-step agent workflows as graphs. From the LangChain team. More structured and reliable than raw LangChain for complex agents. ⭐ 28K+",
+          url: "https://github.com/langchain-ai/langgraph"
+        },
+        {
           name: "LlamaIndex",
-          description: "A data framework for building LLM applications over external data. It provides tools for indexing, structuring, and accessing private or domain-specific data for use with LLMs.",
-          url: "https://github.com/jerryjliu/llama_index"
+          description: "Data framework for LLM applications. Best for connecting LLMs to your data — documents, databases, APIs. The go-to for RAG applications. ⭐ 40K+",
+          url: "https://github.com/run-llama/llama_index"
+        },
+        {
+          name: "OpenAI Agents SDK",
+          description: "OpenAI's official framework for building multi-agent systems. Lightweight, clean abstractions for tools, handoffs, and guardrails. Production-focused. ⭐ 20K+",
+          url: "https://github.com/openai/openai-agents-python"
         },
         {
           name: "DSPy",
-          description: "A framework from Stanford NLP for programming with foundation models. DSPy optimizes prompts and weights for reliable LLM performance.",
+          description: "Framework from Stanford NLP for programming (not prompting) LLMs. Automatically optimizes prompts and few-shot examples. A different paradigm that's gaining traction. ⭐ 22K+",
           url: "https://github.com/stanfordnlp/dspy"
         },
         {
-          name: "Guidance",
-          description: "A language model programming framework from Microsoft that allows for more controlled generation from LLMs through structured templates.",
-          url: "https://github.com/microsoft/guidance"
+          name: "AutoGen",
+          description: "Microsoft's framework for multi-agent conversations. Agents collaborate and debate to produce better outputs. Strong for research and complex reasoning. ⭐ 40K+",
+          url: "https://github.com/microsoft/autogen"
         },
         {
           name: "Semantic Kernel",
-          description: "Microsoft's lightweight SDK that integrates LLMs with conventional programming languages through plugins, memories, and planning.",
+          description: "Microsoft's SDK for integrating LLMs into applications. Strong .NET and Python support. Good for enterprise teams in the Microsoft ecosystem. ⭐ 24K+",
           url: "https://github.com/microsoft/semantic-kernel"
+        },
+        {
+          name: "vLLM",
+          description: "High-throughput LLM inference engine. If you're self-hosting models, vLLM is the standard for serving them efficiently. PagedAttention delivers 2-4x throughput improvement. ⭐ 40K+",
+          url: "https://github.com/vllm-project/vllm"
         }
       ]
     },
     {
-      title: "Machine Learning Frameworks",
-      description: "General-purpose machine learning frameworks for various AI tasks:",
+      title: "🔌 Agent Platforms & Memory",
+      description: "Infrastructure and platforms for building, deploying, and enhancing AI agents:",
       tools: [
         {
-          name: "Hugging Face Transformers",
-          description: "A library providing thousands of pre-trained models for natural language processing, computer vision, speech, and more.",
-          url: "https://github.com/huggingface/transformers"
+          name: "Coze Studio",
+          description: "Visual agent creation and deployment tools by ByteDance. Build agents with drag-and-drop, test interactively, deploy anywhere. ⭐ 22K+",
+          url: "https://github.com/coze-dev/coze-studio"
         },
         {
-          name: "PyTorch Lightning",
-          description: "A lightweight PyTorch wrapper that helps organize code and scale models from research prototypes to production.",
-          url: "https://github.com/Lightning-AI/pytorch-lightning"
+          name: "mem0",
+          description: "Persistent memory layer for AI agents. Agents remember user preferences, past interactions, and learned context across sessions. Essential for personalized agents. ⭐ 50K+",
+          url: "https://github.com/mem0ai/mem0"
         },
         {
-          name: "Jax",
-          description: "Google's high-performance numerical computing library combining NumPy and automatic differentiation for machine learning research.",
-          url: "https://github.com/google/jax"
-        }
-      ]
-    },
-    {
-      title: "AI Application Repositories",
-      description: "These repositories provide complete or partial solutions for specific AI applications."
-    },
-    {
-      title: "Multimodal AI",
-      description: "Repositories for working with multiple modalities like text, images, and audio:",
-      tools: [
-        {
-          name: "CLIP",
-          description: "OpenAI's Contrastive Language-Image Pre-training model that connects text and images, enabling flexible zero-shot image classification.",
-          url: "https://github.com/openai/CLIP"
-        },
-        {
-          name: "Stable Diffusion",
-          description: "A latent text-to-image diffusion model for generating detailed images from text descriptions.",
-          url: "https://github.com/CompVis/stable-diffusion"
-        },
-        {
-          name: "AudioCraft",
-          description: "Meta's audio generation framework including models for text-to-music generation, sound effect synthesis, and audio compression.",
-          url: "https://github.com/facebookresearch/audiocraft"
-        },
-        {
-          name: "Whisper",
-          description: "OpenAI's automatic speech recognition system that approaches human-level robustness and accuracy.",
-          url: "https://github.com/openai/whisper"
-        }
-      ]
-    },
-    {
-      title: "AI Agents and Automation",
-      description: "Repositories focused on autonomous AI agents and workflow automation:",
-      tools: [
-        {
-          name: "AutoGPT",
-          description: "An experimental open-source application showcasing the capabilities of GPT-4 in an autonomous agent setting.",
-          url: "https://github.com/Significant-Gravitas/AutoGPT"
-        },
-        {
-          name: "BabyAGI",
-          description: "A simple AI agent that uses task-driven autonomy to achieve goals, showcasing a minimal implementation of autonomous LLM workflows.",
-          url: "https://github.com/yoheinakajima/babyagi"
+          name: "Letta (MemGPT)",
+          description: "Framework for agents with long-term memory. Manages core, recall, and archival memory tiers automatically. Enables agents that truly learn over time. ⭐ 15K+",
+          url: "https://github.com/letta-ai/letta"
         },
         {
           name: "LangFlow",
-          description: "A UI for LangChain that provides a visual way to build and prototype LLM workflows.",
+          description: "Visual UI for building LLM workflows. Drag-and-drop components, test in real-time, export as Python code or deploy as API. ⭐ 40K+",
           url: "https://github.com/langflow-ai/langflow"
         },
         {
           name: "Flowise",
-          description: "A drag-and-drop UI for building LLM flows that can be deployed as API endpoints.",
+          description: "Drag-and-drop LLM flow builder. Deploy chatbots and agents as API endpoints without code. Popular with non-technical teams. ⭐ 35K+",
           url: "https://github.com/FlowiseAI/Flowise"
         }
       ]
     },
     {
-      title: "Developer Tools",
-      description: "These repositories provide utilities and tools that enhance the AI development process."
-    },
-    {
-      title: "Data Processing and Evaluation",
-      description: "Tools for processing data and evaluating model performance:",
+      title: "🖼️ Multimodal AI",
+      description: "Repos for working with multiple modalities — text, images, audio, and video:",
       tools: [
         {
-          name: "LM-Harness",
-          description: "A framework for evaluating language models on a wide range of tasks and benchmarks.",
-          url: "https://github.com/EleutherAI/lm-evaluation-harness"
+          name: "Stable Diffusion WebUI",
+          description: "The most popular interface for running Stable Diffusion locally. Full-featured UI for image generation with extensions for ControlNet, LoRA, and more. ⭐ 148K+",
+          url: "https://github.com/AUTOMATIC1111/stable-diffusion-webui"
         },
         {
+          name: "ComfyUI",
+          description: "Node-based UI for Stable Diffusion. More powerful and flexible than WebUI for complex workflows. The power-user's choice for image generation. ⭐ 70K+",
+          url: "https://github.com/comfyanonymous/ComfyUI"
+        },
+        {
+          name: "Whisper",
+          description: "OpenAI's speech recognition model. Best-in-class transcription across languages and accents. Self-hostable. The default choice for speech-to-text. ⭐ 76K+",
+          url: "https://github.com/openai/whisper"
+        },
+        {
+          name: "AudioCraft",
+          description: "Meta's audio generation framework. MusicGen for music, AudioGen for sound effects, EnCodec for compression. ⭐ 22K+",
+          url: "https://github.com/facebookresearch/audiocraft"
+        }
+      ]
+    },
+    {
+      title: "🔬 ML Foundations",
+      description: "Core machine learning frameworks and libraries that underpin the AI ecosystem:",
+      tools: [
+        {
+          name: "Hugging Face Transformers",
+          description: "The hub for pre-trained models. Thousands of models for NLP, vision, audio, and multimodal tasks. The npm of machine learning. ⭐ 140K+",
+          url: "https://github.com/huggingface/transformers"
+        },
+        {
+          name: "PyTorch Lightning",
+          description: "Lightweight PyTorch wrapper for organized, scalable ML code. Handles distributed training, logging, and checkpointing so you focus on the model. ⭐ 28K+",
+          url: "https://github.com/Lightning-AI/pytorch-lightning"
+        },
+        {
+          name: "JAX",
+          description: "Google's high-performance ML framework. Composable transformations (grad, jit, vmap) on NumPy code. Powers Google DeepMind's research. ⭐ 32K+",
+          url: "https://github.com/jax-ml/jax"
+        },
+        {
+          name: "Ultralytics (YOLOv8/11)",
+          description: "State-of-the-art object detection. YOLO models for real-time detection, segmentation, and classification. Production-ready and easy to use. ⭐ 35K+",
+          url: "https://github.com/ultralytics/ultralytics"
+        }
+      ]
+    },
+    {
+      title: "🛠️ Developer Tools & Evaluation",
+      description: "Tools for building, testing, evaluating, and deploying AI systems:",
+      tools: [
+        {
           name: "Weights & Biases",
-          description: "Developer tools for machine learning experiment tracking, dataset versioning, and model management.",
+          description: "ML experiment tracking, dataset versioning, and model management. The standard for tracking ML experiments. Free for individuals. ⭐ 10K+",
           url: "https://github.com/wandb/wandb"
         },
         {
           name: "MLflow",
-          description: "A platform for managing the end-to-end machine learning lifecycle, including experimentation, reproducibility, and deployment.",
+          description: "Platform for the full ML lifecycle — experimentation, reproducibility, deployment, and registry. The open-source MLOps standard. ⭐ 20K+",
           url: "https://github.com/mlflow/mlflow"
-        }
-      ]
-    },
-    {
-      title: "Deployment and Optimization",
-      description: "Tools for optimizing and deploying AI models in production:",
-      tools: [
+        },
+        {
+          name: "LM-Evaluation-Harness",
+          description: "Framework for evaluating language models across hundreds of benchmarks. The standard tool for LLM evaluation. Used by most leaderboards. ⭐ 8K+",
+          url: "https://github.com/EleutherAI/lm-evaluation-harness"
+        },
         {
           name: "ONNX Runtime",
-          description: "A cross-platform inference accelerator that helps optimize and deploy models across hardware platforms.",
+          description: "Cross-platform inference accelerator. Optimize and deploy models across hardware — CPU, GPU, mobile, edge. Microsoft-backed and production-proven. ⭐ 15K+",
           url: "https://github.com/microsoft/onnxruntime"
-        },
-        {
-          name: "TensorRT",
-          description: "NVIDIA's SDK for high-performance deep learning inference, optimizing models for deployment on NVIDIA GPUs.",
-          url: "https://github.com/NVIDIA/TensorRT"
-        },
-        {
-          name: "vLLM",
-          description: "A high-throughput and memory-efficient inference and serving engine for LLMs, optimizing for production deployment.",
-          url: "https://github.com/vllm-project/vllm"
-        },
-        {
-          name: "TinyML",
-          description: "Resources for running machine learning models on microcontrollers and edge devices with severe memory constraints.",
-          url: "https://github.com/tinyml-team/tinyml"
         }
       ]
     },
     {
-      title: "Educational Resources",
-      description: "Repositories containing examples, tutorials, and courses for learning AI development:",
-      tools: [
-        {
-          name: "Machine Learning for Beginners",
-          description: "Microsoft's curriculum featuring lessons on machine learning basics, classical techniques, and neural networks.",
-          url: "https://github.com/microsoft/ML-For-Beginners"
-        },
-        {
-          name: "Deep Learning Drizzle",
-          description: "A curated collection of deep learning lectures, tutorials, and resources from top institutions.",
-          url: "https://github.com/kmario23/deep-learning-drizzle"
-        },
-        {
-          name: "Papers with Code",
-          description: "Links state-of-the-art research papers with their official and unofficial implementations.",
-          url: "https://github.com/paperswithcode/paperswithcode-data"
-        }
-      ]
-    },
-    {
-      title: "Specialized AI Domains",
-      description: "Repositories focused on specific AI application areas or specialized techniques."
-    },
-    {
-      title: "Computer Vision",
-      description: "Repositories for computer vision tasks:",
-      tools: [
-        {
-          name: "YOLOv8",
-          description: "The latest version of the YOLO (You Only Look Once) object detection architecture, known for its speed and accuracy.",
-          url: "https://github.com/ultralytics/ultralytics"
-        },
-        {
-          name: "Detectron2",
-          description: "Meta's computer vision library providing state-of-the-art detection and segmentation algorithms.",
-          url: "https://github.com/facebookresearch/detectron2"
-        }
-      ]
-    },
-    {
-      title: "Natural Language Processing",
-      description: "Repositories for NLP tasks:",
-      tools: [
-        {
-          name: "spaCy",
-          description: "An industrial-strength NLP library with pre-trained models for text processing tasks like tokenization, part-of-speech tagging, and named entity recognition.",
-          url: "https://github.com/explosion/spaCy"
-        },
-        {
-          name: "NLTK",
-          description: "A comprehensive suite of libraries and programs for symbolic and statistical natural language processing.",
-          url: "https://github.com/nltk/nltk"
-        }
-      ]
-    },
-    {
-      title: "Reinforcement Learning",
-      description: "Repositories for reinforcement learning:",
-      tools: [
-        {
-          name: "Stable-Baselines3",
-          description: "A set of reliable implementations of reinforcement learning algorithms in PyTorch.",
-          url: "https://github.com/DLR-RM/stable-baselines3"
-        },
-        {
-          name: "Gymnasium",
-          description: "A collection of environments for developing and comparing reinforcement learning algorithms.",
-          url: "https://github.com/Farama-Foundation/Gymnasium"
-        }
-      ]
-    },
-    {
-      title: "Useful Links",
-      description: "Additional resources for discovering AI repositories:",
+      title: "🔗 Useful Links",
+      description: "Essential bookmarks for staying current with AI open source:",
       tools: [
         {
           name: "GitHub Trending",
-          description: "Discover currently popular repositories.",
+          description: "See what's gaining stars right now. Filter by language and time range. Check weekly for the best signal-to-noise ratio.",
           url: "https://github.com/trending"
         },
         {
-          name: "Awesome Lists",
-          description: "Curated lists of awesome projects across many domains.",
-          url: "https://github.com/sindresorhus/awesome"
-        },
-        {
-          name: "Papers With Code",
-          description: "Find code implementations of research papers.",
-          url: "https://paperswithcode.com/"
-        },
-        {
-          name: "Hugging Face",
-          description: "Community and platform for sharing models and datasets.",
+          name: "Hugging Face Hub",
+          description: "The community platform for sharing models, datasets, and demos. Where most open-source AI models are published first.",
           url: "https://huggingface.co/"
         },
         {
-          name: "Model Zoo",
-          description: "Discover open source deep learning code and pretrained models.",
-          url: "https://modelzoo.co/"
+          name: "Papers With Code",
+          description: "Find code implementations of research papers. The bridge between academic AI and practical applications.",
+          url: "https://paperswithcode.com/"
+        },
+        {
+          name: "Awesome Lists",
+          description: "Curated lists of awesome projects across every AI domain. Start with awesome-llm and awesome-generative-ai.",
+          url: "https://github.com/sindresorhus/awesome"
         }
       ]
     }

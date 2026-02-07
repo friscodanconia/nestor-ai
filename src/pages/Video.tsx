@@ -56,6 +56,16 @@ export default function Video() {
                       <Text variant="body-sm" color="secondary" className="block">
                         {tool.description}
                       </Text>
+                      {tool.pricing && (
+                        <Text variant="caption" className="block mt-1 text-emerald-700 font-medium">
+                          💰 {tool.pricing}
+                        </Text>
+                      )}
+                      {tool.personalNote && (
+                        <Text variant="caption" className="block mt-1 italic text-indigo-700">
+                          💡 {tool.personalNote}
+                        </Text>
+                      )}
                     </li>
                   ))}
                 </ul>
@@ -106,6 +116,16 @@ export default function Video() {
                       <Text variant="body-sm" color="secondary" className="block">
                         {tool.description}
                       </Text>
+                      {tool.pricing && (
+                        <Text variant="caption" className="block mt-1 text-emerald-700 font-medium">
+                          💰 {tool.pricing}
+                        </Text>
+                      )}
+                      {tool.personalNote && (
+                        <Text variant="caption" className="block mt-1 italic text-indigo-700">
+                          💡 {tool.personalNote}
+                        </Text>
+                      )}
                     </li>
                   ))}
                 </ul>

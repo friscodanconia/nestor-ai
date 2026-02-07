@@ -119,21 +119,34 @@ export default function Search() {
         });
       }
       
-      // Add topics if available (for aiInMarketing)
-      if (data.topics) {
-        data.topics.forEach((topic: any) => {
-          if (topic.title && topic.description) {
+      // Add sections and their tools if available (standard category structure)
+      if (data.sections) {
+        data.sections.forEach((section: any) => {
+          if (section.title && section.description) {
             items.push({
-              title: topic.title,
+              title: section.title,
               path,
-              content: topic.description || '',
-              excerpt: topic.description ? topic.description.substring(0, 120) + '...' : '',
+              content: section.description || '',
+              excerpt: section.description ? section.description.substring(0, 120) + '...' : '',
               category: categoryName
+            });
+          }
+          if (section.tools) {
+            section.tools.forEach((tool: any) => {
+              if (tool.name && tool.description) {
+                items.push({
+                  title: tool.name,
+                  path,
+                  content: [tool.description, tool.pricing, tool.researchNote || tool.personalNote].filter(Boolean).join(' '),
+                  excerpt: tool.description ? tool.description.substring(0, 120) + '...' : '',
+                  category: categoryName
+                });
+              }
             });
           }
         });
       }
-      
+
       // Add examples if available
       if (data.examples) {
         data.examples.forEach((example: any) => {

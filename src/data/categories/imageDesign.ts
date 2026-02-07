@@ -1,126 +1,172 @@
-export interface ImageDesignTopic {
-  title: string;
+export interface ImageDesignTool {
+  name: string;
   description: string;
-  links?: {
-    name: string;
-    url: string;
-  }[];
-  readMoreUrl?: string;
+  url?: string;
+  pricing?: string;
+  researchNote?: string;
 }
 
-export const imageDesignData: ImageDesignTopic[] = [
-  {
-    title: "AI Image Design Overview",
-    description: "AI image design tools have transformed the creative landscape, enabling both professionals and beginners to create stunning visuals with minimal technical expertise. These tools range from text-to-image generators to sophisticated editing platforms that can understand and implement complex visual concepts through natural language instructions.\n\nThe accessibility of these tools has democratized design, allowing individuals and small businesses to create professional-quality graphics without extensive training or expensive software. However, the most effective results still come from users who understand design principles and can provide clear, detailed instructions to the AI systems."
-  },
-  {
-    title: "Text-to-Image Design Tools",
-    description: "Text-to-image design tools convert written descriptions into visual compositions. Unlike general AI art generators, these tools are specifically optimized for creating functional designs like logos, marketing materials, and product mockups.\n\nThese platforms often include design-specific features like typography management, brand color integration, and composition controls that help ensure the generated images are not just visually appealing but also practical for business applications. Many also offer customization options that allow users to refine the initial AI-generated concepts to better match their specific requirements.",
-    links: [
-      {
-        name: "Canva AI",
-        url: "https://www.canva.com/ai-image-generator/"
-      },
-      {
-        name: "Adobe Firefly",
-        url: "https://www.adobe.com/products/firefly.html"
-      },
-      {
-        name: "Designs.ai",
-        url: "https://designs.ai/"
-      },
-      {
-        name: "Brandmark",
-        url: "https://brandmark.io/"
-      }
-    ]
-  },
-  {
-    title: "AI-Enhanced Photo Editing",
-    description: "AI-powered photo editing tools offer sophisticated image manipulation capabilities through intuitive interfaces. These tools can understand semantic content within images and make intelligent adjustments based on high-level instructions.\n\nFeatures typically include automated background removal, object erasing, image enhancement, and style transfer. The AI components can analyze the content of photos to make contextually appropriate edits, such as selectively adjusting lighting on faces while preserving background elements, or removing unwanted objects while seamlessly filling in the background.",
-    links: [
-      {
-        name: "Luminar Neo",
-        url: "https://skylum.com/luminar"
-      },
-      {
-        name: "Photoshop AI Features",
-        url: "https://www.adobe.com/products/photoshop/ai.html"
-      },
-      {
-        name: "Removal.ai",
-        url: "https://removal.ai/"
-      },
-      {
-        name: "Fotor",
-        url: "https://www.fotor.com/"
-      }
-    ]
-  },
-  {
-    title: "Logo and Brand Identity Design",
-    description: "AI logo generators create custom brand identities based on business descriptions and style preferences. These tools have evolved from simple template-based systems to sophisticated design engines that can produce unique, conceptually relevant logos.\n\nModern AI logo creators typically begin by asking users about their industry, brand values, and aesthetic preferences. They then generate multiple design concepts that users can refine through feedback and customization. Many platforms also extend beyond logo creation to develop complete brand identity packages, including color schemes, typography recommendations, and basic brand guidelines.",
-    links: [
-      {
-        name: "Looka",
-        url: "https://looka.com/"
-      },
-      {
-        name: "Brandmark",
-        url: "https://brandmark.io/"
-      },
-      {
-        name: "Tailor Brands",
-        url: "https://www.tailorbrands.com/"
-      },
-      {
-        name: "Wix Logo Maker",
-        url: "https://www.wix.com/logo/maker"
-      }
-    ]
-  },
-  {
-    title: "Social Media Graphics",
-    description: "AI tools for social media graphics help create platform-specific visual content optimized for engagement. These tools understand the unique requirements of different social platforms and can generate appropriately sized and styled graphics.\n\nMany of these systems can automatically adapt designs to multiple formats (stories, posts, banners) while maintaining visual consistency. Some also incorporate data-driven insights about which visual elements tend to perform well for specific audiences or content types, helping creators optimize their graphics for maximum impact.",
-    links: [
-      {
-        name: "Canva Magic Media",
-        url: "https://www.canva.com/magic-media/"
-      },
-      {
-        name: "Crello",
-        url: "https://crello.com/"
-      },
-      {
-        name: "Pablo by Buffer",
-        url: "https://pablo.buffer.com/"
-      },
-      {
-        name: "Piktochart",
-        url: "https://piktochart.com/"
-      }
-    ]
-  },
-  {
-    title: "Product Visualization",
-    description: "AI product visualization tools create realistic product mockups and promotional imagery without physical photography. These systems can generate lifelike representations of products in various contexts and environments.\n\nThese tools are particularly valuable for e-commerce businesses, allowing them to create professional product images without expensive photo shoots. Advanced features include the ability to visualize products that don't yet exist physically, test different design variations, and place products in contextually relevant settings to demonstrate their use and appeal.",
-    links: [
-      {
-        name: "Booth.ai",
-        url: "https://www.booth.ai/"
-      },
-      {
-        name: "Mokker",
-        url: "https://mokker.ai/"
-      },
-      {
-        name: "Pixelz",
-        url: "https://www.pixelz.com/"
-      },
-      {
-        name: "Threekit",
-        url: "https://www.threekit.com/"
-      }
-    ]
-  }
-];
+export interface ImageDesignSection {
+  title: string;
+  description: string;
+  tools?: ImageDesignTool[];
+}
+
+export const imageDesignData = {
+  title: "Image & Design",
+  gradientClasses: "bg-gradient-to-br from-purple-100 to-indigo-200",
+  description: "AI image tools have evolved from party tricks to professional essentials. Whether you're generating images from text, editing photos, or building brand assets — the quality ceiling keeps rising. Here's what actually delivers.",
+
+  lastUpdated: "February 2026",
+
+  sections: [
+    {
+      title: "The State of AI Image Tools",
+      description: "The AI image space moves fast. Key developments as of early 2026:\n\n- **Quality**: The best models produce images indistinguishable from professional photography\n- **Control**: You can now direct specific elements — composition, lighting, text placement\n- **Text in images**: Models like Ideogram and Flux finally render readable text reliably\n- **Editing**: AI-powered editing (inpainting, outpainting, object removal) is production-ready\n- **Commercial safety**: Adobe Firefly and similar tools trained on licensed data for safe commercial use\n\nThe biggest shift: AI image generation has moved from \"cool demo\" to \"daily workflow tool\" for designers, marketers, and content creators."
+    },
+    {
+      title: "Text-to-Image Generation",
+      description: "Create images from text descriptions. The quality gap between models has narrowed, but each has distinct strengths.",
+      tools: [
+        {
+          name: "Midjourney",
+          url: "https://www.midjourney.com/",
+          description: "Produces the most aesthetically pleasing images with a distinctive cinematic quality. V6.1 handles complex prompts, multiple subjects, and text rendering. Web editor and mobile app now available alongside Discord.",
+          pricing: "Basic $10/mo (200 images) / Standard $30/mo / Pro $60/mo / Mega $120/mo",
+          researchNote: "Still the overall quality leader for marketing and creative work. The learning curve for prompt engineering pays off significantly."
+        },
+        {
+          name: "DALL-E 3",
+          url: "https://openai.com/dall-e-3",
+          description: "Best prompt adherence — what you describe is what you get. Integrated into ChatGPT for conversational iteration. Excellent for conceptual illustrations and diagrams.",
+          pricing: "Included with ChatGPT Plus $20/mo / API pricing per image"
+        },
+        {
+          name: "Flux (by Black Forest Labs)",
+          url: "https://blackforestlabs.ai/",
+          description: "Open-source model with exceptional quality. Flux Pro rivals Midjourney. Flux Dev is free for non-commercial use. Strong text rendering and photorealism. Available through Replicate, fal.ai, and other providers.",
+          pricing: "Flux Dev free (open source) / Flux Pro via API ~$0.05/image",
+          researchNote: "The open-source option that's actually competitive with commercial tools. Great for developers building image features into products."
+        },
+        {
+          name: "Stable Diffusion 3.5",
+          url: "https://stability.ai/",
+          description: "The most customizable option. Run locally, fine-tune on your own data, create custom LoRAs. Huge community of models, extensions, and workflows. ComfyUI is the power-user interface.",
+          pricing: "Free (open source, run locally) / API from $0.04/image",
+          researchNote: "Best for technical users who want maximum control. The ecosystem of community models and workflows is unmatched. Requires a decent GPU to run locally."
+        },
+        {
+          name: "Ideogram",
+          url: "https://ideogram.ai/",
+          description: "Best text rendering in images, period. Creates logos, posters, signs, and graphics with actually readable text. Also strong for graphic design-style outputs and typography-heavy compositions.",
+          pricing: "Free (limited) / Basic $8/mo / Plus $20/mo / Pro $60/mo",
+          researchNote: "Go-to tool when you need text in images. The typography quality is significantly ahead of other models."
+        },
+        {
+          name: "Google Imagen 3",
+          url: "https://deepmind.google/technologies/imagen-3/",
+          description: "Google's latest image model available through Gemini and ImageFX. Excellent photorealism, good text understanding, and strong detail handling.",
+          pricing: "Free in Gemini / ImageFX"
+        }
+      ]
+    },
+    {
+      title: "AI Photo Editing",
+      description: "AI-powered editing that goes far beyond traditional filters. Remove objects, extend backgrounds, change styles, and enhance quality.",
+      tools: [
+        {
+          name: "Adobe Photoshop (Generative Fill/Expand)",
+          url: "https://www.adobe.com/products/photoshop.html",
+          description: "Generative Fill and Generative Expand are game-changers. Select any area, describe what you want, and Photoshop generates it seamlessly. Commercially safe (Firefly-powered). Industry standard for a reason.",
+          pricing: "Photoshop $22.99/mo / Photography Plan $9.99/mo / All Apps $59.99/mo",
+          researchNote: "Generative Fill alone justified the subscription for many photographers and designers. The integration into existing workflows is seamless."
+        },
+        {
+          name: "Luminar Neo",
+          url: "https://skylum.com/luminar",
+          description: "AI photo editor focused on one-click enhancements. Sky replacement, portrait retouching, object removal, and lighting adjustments. Great for photographers who want fast, natural-looking edits.",
+          pricing: "Subscription $9.95/mo / Lifetime from $149"
+        },
+        {
+          name: "Remove.bg",
+          url: "https://www.remove.bg/",
+          description: "Instant, accurate background removal. API available for batch processing. The quality is consistently excellent — handles hair, transparent objects, and complex edges.",
+          pricing: "Free (preview) / Credits from $0.20/image / Subscription from $9/mo"
+        },
+        {
+          name: "Cleanup.pictures",
+          url: "https://cleanup.pictures/",
+          description: "Remove unwanted objects, people, or blemishes from photos by painting over them. Simple, fast, and surprisingly effective. No signup required for basic use.",
+          pricing: "Free (limited) / Pro $5/mo"
+        },
+        {
+          name: "Topaz Photo AI",
+          url: "https://www.topazlabs.com/topaz-photo-ai",
+          description: "AI-powered photo enhancement: denoise, sharpen, upscale resolution. Works wonders on old photos, low-light shots, and phone photos. Processes locally on your machine.",
+          pricing: "One-time $199 / Annual updates $99/yr"
+        }
+      ]
+    },
+    {
+      title: "Design & Brand Tools",
+      description: "AI tools for creating logos, brand assets, presentations, and design systems.",
+      tools: [
+        {
+          name: "Canva",
+          url: "https://www.canva.com/",
+          description: "The all-in-one design platform with AI features baked in. Magic Media generates images, Magic Write handles text, Magic Eraser removes objects. Templates for everything. The default choice for non-designers.",
+          pricing: "Free / Pro $15/mo / Teams $10/mo per user",
+          researchNote: "Not the most powerful tool in any single category, but the integration of AI across the entire design workflow makes it incredibly productive."
+        },
+        {
+          name: "Figma AI",
+          url: "https://www.figma.com/",
+          description: "The professional design tool now with AI features. Auto-generate layouts, rename layers intelligently, search by visual similarity. For product designers and teams.",
+          pricing: "Free (3 projects) / Professional $15/mo per editor / Organization $45/mo"
+        },
+        {
+          name: "Looka",
+          url: "https://looka.com/",
+          description: "AI logo generator that creates professional brand packages. Input your business details and preferences, get logo options with full brand kits including colors, fonts, and social assets.",
+          pricing: "Free to design / Premium Package $96 one-time / Brand Kit subscription $96/yr"
+        },
+        {
+          name: "Recraft",
+          url: "https://www.recraft.ai/",
+          description: "AI-native design tool. Generate and edit vector graphics, illustrations, and icons with AI. Maintains style consistency across a set. Great for creating cohesive design systems.",
+          pricing: "Free (limited) / Pro $20/mo / Team $30/mo per user",
+          researchNote: "The vector generation capability is unique and genuinely useful for creating icon sets and illustrations with a consistent style."
+        }
+      ]
+    },
+    {
+      title: "Product & E-commerce Visuals",
+      description: "Generate professional product photos and lifestyle shots without expensive photo shoots.",
+      tools: [
+        {
+          name: "Pebblely",
+          url: "https://pebblely.com/",
+          description: "Drop in a product photo, generate professional lifestyle backgrounds instantly. Perfect for e-commerce listings, social ads, and marketing materials.",
+          pricing: "Free (40 images) / Pro $19/mo / Premium $39/mo"
+        },
+        {
+          name: "Photoroom",
+          url: "https://www.photoroom.com/",
+          description: "AI-powered product photography. Background removal, background generation, image resizing for different platforms. Used by millions of sellers on marketplaces.",
+          pricing: "Free / Pro $12.99/mo / Teams $29.99/mo per user",
+          researchNote: "The go-to for small e-commerce sellers. The batch processing and marketplace-specific templates save huge amounts of time."
+        },
+        {
+          name: "Flair AI",
+          url: "https://flair.ai/",
+          description: "Drag-and-drop product photography. Place your product in AI-generated scenes. Control composition by positioning products and props on a canvas.",
+          pricing: "Free (limited) / Pro $10/mo / Enterprise custom"
+        }
+      ]
+    },
+    {
+      title: "Getting Started Recommendations",
+      description: "**For casual/personal use:**\n1. Start with **Canva** — it does everything reasonably well in one place\n2. Try **Ideogram** for anything with text in images\n3. Use **DALL-E 3** via ChatGPT for quick illustrations\n\n**For professional design:**\n- **Midjourney** for hero images and marketing visuals\n- **Photoshop Generative Fill** for photo editing and compositing\n- **Figma** for UI/product design with AI assist\n\n**For e-commerce:**\n- **Photoroom** or **Pebblely** for product shots\n- **Remove.bg** for bulk background removal\n\n**For developers:**\n- **Flux** (open source) or **Stable Diffusion** for custom implementations\n- **Replicate** or **fal.ai** for API access to latest models\n\n**Tips:**\n- Learn basic prompt engineering — specificity dramatically improves results\n- Always generate multiple options and iterate\n- Check commercial usage rights for your specific use case\n- AI-generated images still need human curation and sometimes touch-up"
+    }
+  ]
+};

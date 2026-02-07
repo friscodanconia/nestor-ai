@@ -1,108 +1,130 @@
-import React from 'react';
 import { Gamepad2 } from 'lucide-react';
-import CategoryLayout from '../components/CategoryLayout';
-import Text from '../components/ui/Text';
-import { Card, Grid } from '../components/ui';
-import { gamingData, GamingTopic } from '../data/categories/gaming';
 import CollapsibleSection from '../components/CollapsibleSection';
+import CategoryLayout from '../components/CategoryLayout';
 import SEO from '../components/SEO';
+import { gamingData, GamingTool, GamingSection } from '../data/categories/gaming';
+import { Text, Card, Grid } from '../components/ui';
 
-const formatDescription = (description: string) => {
-  return description.split('\n\n').map((paragraph, index) => (
-    <p key={index} className="mb-3 last:mb-0">
-      {paragraph}
-    </p>
-  ));
+const hasUrl = (tool: GamingTool): tool is GamingTool & { url: string } => {
+  return tool.url !== undefined && tool.url !== null && tool.url !== '';
 };
 
-const Gaming = () => {
-  // Mobile content with collapsible sections
+const hasTools = (section: GamingSection): section is GamingSection & { tools: GamingTool[] } => {
+  return section.tools !== undefined && Array.isArray(section.tools) && section.tools.length > 0;
+};
+
+export default function Gaming() {
   const mobileContent = (
     <>
-      <SEO 
+      <SEO
         title="Gaming"
-        description="Discover AI tools that can enhance your gaming experiences."
-        keywords="AI gaming, game development, procedural generation, NPCs, player experience"
+        description="AI tools for game development, NPCs, procedural generation, and esports."
+        keywords="AI gaming, NPC AI, game development, procedural generation, esports analytics"
       />
-      
-      <div className="space-y-8">
-        {gamingData.map((topic, index) => (
-          <CollapsibleSection 
-            key={index}
-            title={topic.title}
-            defaultExpanded={index === 0}
-          >
-            <div className="space-y-4">
-              <div className="prose prose-slate max-w-none">
-                {formatDescription(topic.description)}
-              </div>
-              
-              {topic.links && topic.links.length > 0 && (
-                <div className="space-y-2">
-                  <Text variant="subtitle" className="font-medium">
-                    Useful Links:
-                  </Text>
-                  <ul className="list-disc pl-5 space-y-1">
-                    {topic.links.map((link, linkIndex) => (
-                      <li key={linkIndex}>
-                        <a 
-                          href={link.url}
+
+      {gamingData.sections.map((section, index) => (
+        <CollapsibleSection
+          key={index}
+          title={section.title}
+          defaultExpanded={index === 0}
+        >
+          <Card variant="outlined" className="space-y-4">
+            <Text variant="body" color="secondary" className="whitespace-pre-line">
+              {section.description}
+            </Text>
+
+            {hasTools(section) && (
+              <div className="mt-4">
+                <ul className="list-disc pl-5 space-y-3">
+                  {(section.tools as GamingTool[]).map((tool, toolIndex) => (
+                    <li key={toolIndex} className="space-y-1">
+                      {hasUrl(tool) ? (
+                        <a
+                          href={tool.url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-blue-600 hover:text-blue-800 underline transition-colors"
+                          className="font-bold text-gray-700 underline hover:text-primary-dark"
                         >
-                          {link.name}
+                          {tool.name}
                         </a>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              
-              {topic.readMoreUrl && (
-                <div className="pt-2">
-                  <a 
-                    href={topic.readMoreUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-sm font-medium text-primary hover:text-primary-dark transition-colors"
-                  >
-                    Read more →
-                  </a>
-                </div>
-              )}
-            </div>
-          </CollapsibleSection>
-        ))}
-      </div>
-    </>
-  );
-
-  // Desktop content with Card layout
-  const desktopContent = (
-    <Grid columns={1} gap="xl">
-      {gamingData.map((topic, index) => (
-        <Card key={index} variant="outlined">
-          <div className="bg-primary-light p-4">
-            <Text variant="h3" className="mb-0">{topic.title}</Text>
-          </div>
-          <div className="p-6 space-y-4">
-            <div className="prose prose-slate max-w-none">{formatDescription(topic.description)}</div>
-            {topic.links && topic.links.length > 0 && (
-              <div className="space-y-2">
-                <Text variant="subtitle" className="font-medium">Useful Links:</Text>
-                <ul className="list-disc pl-5 space-y-1">
-                  {topic.links.map((link, linkIndex) => (
-                    <li key={linkIndex}>
-                      <a href={link.url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:text-blue-800 underline transition-colors">{link.name}</a>
+                      ) : (
+                        <Text variant="subtitle" className="font-medium">{tool.name}</Text>
+                      )}
+                      <Text variant="body-sm" color="secondary" className="block">
+                        {tool.description}
+                      </Text>
+                      {tool.pricing && (
+                        <Text variant="caption" className="block mt-1 text-emerald-700 font-medium">
+                          💰 {tool.pricing}
+                        </Text>
+                      )}
+                      {tool.researchNote && (
+                        <Text variant="caption" className="block mt-1 italic text-indigo-700">
+                          💡 {tool.researchNote}
+                        </Text>
+                      )}
                     </li>
                   ))}
                 </ul>
               </div>
             )}
-            {topic.readMoreUrl && (
-              <div className="pt-2">
-                <a href={topic.readMoreUrl} target="_blank" rel="noopener noreferrer" className="text-sm font-medium text-primary hover:text-primary-dark transition-colors">Read more →</a>
+          </Card>
+        </CollapsibleSection>
+      ))}
+    </>
+  );
+
+  const desktopContent = (
+    <Grid columns={1} gap="xl">
+      {gamingData.sections.map((section, index) => (
+        <Card key={index} variant="outlined">
+          <div className="bg-primary-light p-4">
+            <Text variant="h3" className="mb-0">
+              {section.title}
+            </Text>
+          </div>
+          <div className="p-6 space-y-4">
+            <Text variant="body" color="secondary" className="whitespace-pre-line">
+              {section.description}
+            </Text>
+
+            {hasTools(section) && (
+              <div className="mt-4">
+                <ul className="list-disc pl-5 space-y-4">
+                  {(section.tools as GamingTool[]).map((tool, toolIndex) => (
+                    <li key={toolIndex} className="space-y-2">
+                      {hasUrl(tool) ? (
+                        <a
+                          href={tool.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-base text-gray-700 underline hover:text-primary-dark"
+                        >
+                          <Text variant="body" as="span" weight="semibold">
+                            {tool.name}
+                          </Text>
+                        </a>
+                      ) : (
+                        <Text variant="body" as="span" weight="semibold">
+                          {tool.name}
+                        </Text>
+                      )}
+                      <Text variant="body-sm" color="secondary" className="block">
+                        {tool.description}
+                      </Text>
+                      {tool.pricing && (
+                        <Text variant="caption" className="block mt-1 text-emerald-700 font-medium">
+                          💰 {tool.pricing}
+                        </Text>
+                      )}
+                      {tool.researchNote && (
+                        <Text variant="caption" className="block mt-1 italic text-indigo-700">
+                          💡 {tool.researchNote}
+                        </Text>
+                      )}
+                    </li>
+                  ))}
+                </ul>
               </div>
             )}
           </div>
@@ -113,14 +135,12 @@ const Gaming = () => {
 
   return (
     <CategoryLayout
-      title="Gaming"
+      title={gamingData.title}
       icon={<Gamepad2 className="w-6 h-6" />}
-      gradientClasses="bg-gradient-to-br from-purple-100 to-violet-200"
-      description="Discover AI tools that can enhance your gaming experiences."
+      gradientClasses={gamingData.gradientClasses}
+      description={gamingData.description}
       mobileContent={mobileContent}
       desktopContent={desktopContent}
     />
   );
-};
-
-export default Gaming;
+}
