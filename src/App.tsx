@@ -1,9 +1,6 @@
 import React, { Suspense, useEffect } from 'react';
-import { Wrench, Users, AppWindow, UserRound, Headphones, Github, Pencil, Image, Clock, GraduationCap, DollarSign, Heart, ShoppingCart, Plane, Gamepad2, Palette, Code, HelpCircle, FileText } from 'lucide-react';
 import { BrowserRouter, Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 import Search from './components/Search';
-import WelcomePanel from './components/WelcomePanel';
-import { Video as VideoIcon } from 'lucide-react';
 import SEO from './components/SEO';
 
 // Force rebuild - 2025-03-24
@@ -66,33 +63,55 @@ const WorkflowAutomation = React.lazy(() => import('./pages/tools/WorkflowAutoma
 const ChatbotInterfaces = React.lazy(() => import('./pages/tools/ChatbotInterfaces'));
 const VoiceTechnology = React.lazy(() => import('./pages/tools/VoiceTechnology'));
 
-interface CategoryCardProps {
+// Featured category card (larger, used for top 4)
+interface FeaturedCardProps {
   title: string;
   description: string;
-  icon: React.ReactNode;
-  className: string;
-  onClick?: () => void;
-  onMouseEnter?: () => void;
+  gradient: string;
+  borderColor: string;
+  path: string;
 }
 
-const CategoryCard: React.FC<CategoryCardProps> = ({ title, description, icon, className, onClick, onMouseEnter }) => (
-  <div 
+const FeaturedCard: React.FC<FeaturedCardProps & { onClick: () => void; onMouseEnter: () => void }> = ({
+  title, description, gradient, borderColor, onClick, onMouseEnter
+}) => (
+  <div
     onClick={onClick}
     onMouseEnter={onMouseEnter}
-    className={`rounded-2xl p-5 sm:p-7 transition-transform hover:scale-[1.02] cursor-pointer backdrop-blur-sm ${className} group`}
+    className={`group relative overflow-hidden rounded-2xl p-4 md:p-6 transition-all hover:scale-[1.03] ${gradient} border-l-4 ${borderColor} shadow-sm min-h-0 md:min-h-[180px] flex flex-col md:justify-end cursor-pointer`}
   >
-    <div className="mb-4 sm:mb-5 text-gray-900">
-      {icon}
+    <div>
+      <h3 className="text-lg font-bold text-gray-900">{title}</h3>
+      <p className="text-xs text-gray-700 mt-1 leading-relaxed">{description}</p>
     </div>
-    <h2 className="text-lg sm:text-xl font-semibold mb-2 sm:mb-3 text-gray-900">{title}</h2>
-    <p className="text-sm sm:text-base text-gray-800 line-clamp-2">{description}</p>
+  </div>
+);
+
+// Compact category tile (used for all other categories)
+interface CategoryTileProps {
+  title: string;
+  description: string;
+  gradient: string;
+  borderColor: string;
+  path: string;
+}
+
+const CategoryTile: React.FC<CategoryTileProps & { onClick: () => void; onMouseEnter: () => void }> = ({
+  title, description, gradient, borderColor, onClick, onMouseEnter
+}) => (
+  <div
+    onClick={onClick}
+    onMouseEnter={onMouseEnter}
+    className={`group relative flex flex-col p-3 md:p-4 pr-3 ${gradient} border-l-4 ${borderColor} rounded-xl transition-all hover:scale-[1.02] shadow-sm cursor-pointer`}
+  >
+    <h3 className="text-sm font-semibold text-gray-900">{title}</h3>
+    <p className="text-xs leading-tight text-gray-700 mt-0.5">{description}</p>
   </div>
 );
 
 function HomePage() {
   const navigate = useNavigate();
 
-  // Prefetch main pages on hover
   const prefetchPage = (path: string) => {
     const importMap: Record<string, () => Promise<any>> = {
       '/agents': () => import('./pages/Agents'),
@@ -114,7 +133,6 @@ function HomePage() {
       '/generative-art': () => import('./pages/GenerativeArt'),
       '/mcp': () => import('./pages/MCP'),
     };
-
     if (importMap[path]) {
       importMap[path]();
     }
@@ -122,258 +140,210 @@ function HomePage() {
 
   return (
     <div className="min-h-screen bg-[#FDF6F0]">
-      <SEO 
+      <SEO
         title="Home"
         description="Your comprehensive guide to AI tools and resources. Explore categories like AI agents, top tools, apps, marketing, video, and audio."
         keywords="AI tools, artificial intelligence, AI guide, AI resources, AI categories"
         schemaType="WebPage"
       />
-      
-      {/* Header Section with improved spacing */}
-      <div className="pt-8 pb-4 sm:pt-10 sm:pb-6 px-4 max-w-5xl mx-auto">
-        {/* Search Bar */}
-        <div className="flex justify-center mb-6 sm:mb-8">
+
+      {/* Header */}
+      <header className="pt-8 pb-4 sm:pt-10 sm:pb-8 px-4 max-w-6xl mx-auto">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
+          <h1 className="text-3xl sm:text-4xl font-bold text-purple-600">Nestor</h1>
           <div className="w-full max-w-md">
             <Search />
           </div>
         </div>
-        
-        {/* Nestor Heading */}
-        <h1 className="text-3xl sm:text-4xl font-bold text-center text-purple-600 mb-8 sm:mb-10">
-          Nestor
-        </h1>
-      </div>
+      </header>
 
       {/* Main Content */}
-      <main className="max-w-5xl mx-auto px-3 sm:px-4 pb-8">
-        {/* Welcome Panel */}
-        <WelcomePanel />
+      <main className="max-w-6xl mx-auto px-4 pb-16">
 
-        {/* Cards */}
-        <div className="space-y-3 sm:space-y-4 md:grid md:grid-cols-3 md:gap-5 md:space-y-0">
-          {/* Top Tools - Full width on mobile */}
-          <CategoryCard
-            title="Top Tools"
-            description="Best no-code tools"
-            icon={<Wrench className="w-6 h-6 sm:w-8 sm:h-8" />}
-            className="bg-gradient-to-br from-blue-200 to-purple-200 md:col-span-3"
-            onClick={() => navigate('/top-tools')}
-            onMouseEnter={() => prefetchPage('/top-tools')}
-          />
-
-          {/* Two Column Layout on mobile - Agents, Apps on desktop */}
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:contents">
-            <CategoryCard
+        {/* Featured Categories */}
+        <section className="mb-10">
+          <h2 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">Featured Categories</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <FeaturedCard
+              title="Top Tools"
+              description="Best no-code tools for builders and creators"
+              gradient="bg-gradient-to-br from-blue-200 to-purple-200"
+              borderColor="border-blue-400"
+              path="/top-tools"
+              onClick={() => navigate('/top-tools')}
+              onMouseEnter={() => prefetchPage('/top-tools')}
+            />
+            <FeaturedCard
               title="Agents"
-              description="Agents in action"
-              icon={<Users className="w-6 h-6 sm:w-8 sm:h-8" />}
-              className="bg-gradient-to-br from-green-200 to-emerald-200"
+              description="Intelligent AI agents built for action"
+              gradient="bg-gradient-to-br from-green-200 to-emerald-200"
+              borderColor="border-green-400"
+              path="/agents"
               onClick={() => navigate('/agents')}
               onMouseEnter={() => prefetchPage('/agents')}
             />
-            <CategoryCard
+            <FeaturedCard
+              title="Video"
+              description="Generate and edit cinematic video with AI"
+              gradient="bg-gradient-to-br from-orange-200 to-red-200"
+              borderColor="border-orange-400"
+              path="/video"
+              onClick={() => navigate('/video')}
+              onMouseEnter={() => prefetchPage('/video')}
+            />
+            <FeaturedCard
               title="Apps"
-              description="Must try apps"
-              icon={<AppWindow className="w-6 h-6 sm:w-8 sm:h-8" />}
-              className="bg-gradient-to-br from-pink-200 to-rose-200"
+              description="Essential AI applications for your device"
+              gradient="bg-gradient-to-br from-pink-200 to-rose-200"
+              borderColor="border-pink-400"
+              path="/apps"
               onClick={() => navigate('/apps')}
               onMouseEnter={() => prefetchPage('/apps')}
             />
           </div>
-          
-          {/* Generative Art - Full width on third column */}
-          <CategoryCard
-            title="Generative Art"
-            description="AI for creative expression and art"
-            icon={<Palette className="w-6 h-6 sm:w-8 sm:h-8" />}
-            className="bg-gradient-to-br from-rose-200 to-purple-200"
-            onClick={() => navigate('/generative-art')}
-            onMouseEnter={() => prefetchPage('/generative-art')}
-          />
+        </section>
 
-          {/* AI in Marketing - Full width on mobile */}
-          <CategoryCard
-            title="AI in Marketing"
-            description="How can marketers use AI"
-            icon={<UserRound className="w-6 h-6 sm:w-8 sm:h-8" />}
-            className="bg-gradient-to-r from-pink-200 via-rose-200 to-orange-200 md:col-span-3"
-            onClick={() => navigate('/ai-in-marketing')}
-            onMouseEnter={() => prefetchPage('/ai-in-marketing')}
-          />
-
-          {/* Two Column Layout on mobile - Video, Audio on desktop */}
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:contents">
-            <CategoryCard
-              title="Video"
-              description="Explore video tools"
-              icon={<VideoIcon className="w-6 h-6 sm:w-8 sm:h-8" />}
-              className="bg-gradient-to-br from-orange-200 to-red-200"
-              onClick={() => navigate('/video')}
-              onMouseEnter={() => prefetchPage('/video')}
+        {/* All Categories */}
+        <section>
+          <h2 className="text-xs font-bold uppercase tracking-widest text-gray-500 mb-4">All Categories</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-4">
+            <CategoryTile
+              title="Generative Art"
+              description="Creative expression & AI art"
+              gradient="bg-gradient-to-br from-rose-200 to-purple-200"
+              borderColor="border-rose-400"
+              path="/generative-art"
+              onClick={() => navigate('/generative-art')}
+              onMouseEnter={() => prefetchPage('/generative-art')}
             />
-            <CategoryCard
+            <CategoryTile
+              title="Marketing"
+              description="AI for marketing stacks"
+              gradient="bg-gradient-to-br from-pink-200 via-rose-200 to-orange-200"
+              borderColor="border-pink-400"
+              path="/ai-in-marketing"
+              onClick={() => navigate('/ai-in-marketing')}
+              onMouseEnter={() => prefetchPage('/ai-in-marketing')}
+            />
+            <CategoryTile
               title="Audio"
-              description="Try Audio tools"
-              icon={<Headphones className="w-6 h-6 sm:w-8 sm:h-8" />}
-              className="bg-gradient-to-br from-teal-200 to-cyan-200"
+              description="Sound & music generation"
+              gradient="bg-gradient-to-br from-teal-200 to-cyan-200"
+              borderColor="border-teal-400"
+              path="/audio"
               onClick={() => navigate('/audio')}
               onMouseEnter={() => prefetchPage('/audio')}
             />
-          </div>
-          
-          {/* Productivity on desktop */}
-          <CategoryCard
-            title="Productivity"
-            description="Personal organization and efficiency"
-            icon={<Clock className="w-6 h-6 sm:w-8 sm:h-8" />}
-            className="bg-gradient-to-br from-lime-200 to-green-200"
-            onClick={() => navigate('/personal-productivity')}
-            onMouseEnter={() => prefetchPage('/personal-productivity')}
-          />
-
-          {/* NEW LAYOUT: Content Creation (65%) and Github Repos (35%) in a single row - Desktop only */}
-          <div className="hidden md:flex md:col-span-3 md:flex-row md:gap-5">
-            <div className="md:w-[65%]">
-              <CategoryCard
-                title="Content Creation"
-                description="AI tools for writing and copywriting"
-                icon={<Pencil className="w-6 h-6 sm:w-8 sm:h-8" />}
-                className="bg-gradient-to-br from-yellow-200 to-amber-200 h-full"
-                onClick={() => navigate('/content-creation')}
-                onMouseEnter={() => prefetchPage('/content-creation')}
-              />
-            </div>
-            <div className="md:w-[35%]">
-              <CategoryCard
-                title="Github Repos"
-                description="Curated list of github repos"
-                icon={<Github className="w-6 h-6 sm:w-8 sm:h-8" />}
-                className="bg-gradient-to-br from-gray-200 to-gray-400 h-full"
-                onClick={() => navigate('/github-repos')}
-                onMouseEnter={() => prefetchPage('/github-repos')}
-              />
-            </div>
-          </div>
-
-          {/* Mobile only: Content Creation */}
-          <div className="block md:hidden">
-            <CategoryCard
-              title="Content Creation"
-              description="AI tools for writing and copywriting"
-              icon={<Pencil className="w-6 h-6 sm:w-8 sm:h-8" />}
-              className="bg-gradient-to-br from-yellow-200 to-amber-200"
+            <CategoryTile
+              title="Productivity"
+              description="Organization & efficiency"
+              gradient="bg-gradient-to-br from-lime-200 to-green-200"
+              borderColor="border-lime-400"
+              path="/personal-productivity"
+              onClick={() => navigate('/personal-productivity')}
+              onMouseEnter={() => prefetchPage('/personal-productivity')}
+            />
+            <CategoryTile
+              title="Content"
+              description="Writing & copywriting tools"
+              gradient="bg-gradient-to-br from-yellow-200 to-amber-200"
+              borderColor="border-yellow-400"
+              path="/content-creation"
               onClick={() => navigate('/content-creation')}
               onMouseEnter={() => prefetchPage('/content-creation')}
             />
-          </div>
-
-          {/* Two Column Layout on mobile - Image & Design, Education */}
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:contents">
-            <CategoryCard
-              title="Image & Design"
-              description="AI image generation and design tools"
-              icon={<Image className="w-6 h-6 sm:w-8 sm:h-8" />}
-              className="bg-gradient-to-br from-indigo-200 to-blue-200"
-              onClick={() => navigate('/image-design')}
-              onMouseEnter={() => prefetchPage('/image-design')}
-            />
-            <CategoryCard
-              title="Education"
-              description="AI tools for learning and teaching"
-              icon={<GraduationCap className="w-6 h-6 sm:w-8 sm:h-8" />}
-              className="bg-gradient-to-br from-sky-200 to-cyan-200"
-              onClick={() => navigate('/education')}
-              onMouseEnter={() => prefetchPage('/education')}
-            />
-          </div>
-
-          {/* Mobile only: Github Repos */}
-          <div className="block md:hidden">
-            <CategoryCard
+            <CategoryTile
               title="Github Repos"
-              description="Curated list of github repos"
-              icon={<Github className="w-6 h-6 sm:w-8 sm:h-8" />}
-              className="bg-gradient-to-br from-gray-200 to-gray-400"
+              description="Curated open-source lists"
+              gradient="bg-gradient-to-br from-gray-200 to-gray-400"
+              borderColor="border-gray-400"
+              path="/github-repos"
               onClick={() => navigate('/github-repos')}
               onMouseEnter={() => prefetchPage('/github-repos')}
             />
-          </div>
-
-          {/* Personal Finance and MCP - Desktop: Personal Finance full column, MCP in empty space 
-              Mobile: Personal Finance and MCP side by side */}
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:contents">
-            <CategoryCard
-              title="Personal Finance"
-              description="AI for budgeting and financial planning"
-              icon={<DollarSign className="w-6 h-6 sm:w-8 sm:h-8" />}
-              className="bg-gradient-to-br from-emerald-200 to-teal-200"
+            <CategoryTile
+              title="Design"
+              description="Visual design & AI editing"
+              gradient="bg-gradient-to-br from-indigo-200 to-blue-200"
+              borderColor="border-indigo-400"
+              path="/image-design"
+              onClick={() => navigate('/image-design')}
+              onMouseEnter={() => prefetchPage('/image-design')}
+            />
+            <CategoryTile
+              title="Education"
+              description="AI for learning & teachers"
+              gradient="bg-gradient-to-br from-sky-200 to-cyan-200"
+              borderColor="border-sky-400"
+              path="/education"
+              onClick={() => navigate('/education')}
+              onMouseEnter={() => prefetchPage('/education')}
+            />
+            <CategoryTile
+              title="Finance"
+              description="Budgeting & AI planning"
+              gradient="bg-gradient-to-br from-emerald-200 to-teal-200"
+              borderColor="border-emerald-400"
+              path="/personal-finance"
               onClick={() => navigate('/personal-finance')}
               onMouseEnter={() => prefetchPage('/personal-finance')}
             />
-            <CategoryCard
+            <CategoryTile
               title="MCP"
-              description="What is Model Context Protocol"
-              icon={<Code className="w-6 h-6 sm:w-8 sm:h-8" />}
-              className="bg-gradient-to-br from-purple-200 to-indigo-200"
+              description="Model Context Protocol guide"
+              gradient="bg-gradient-to-br from-purple-200 to-indigo-200"
+              borderColor="border-purple-400"
+              path="/mcp"
               onClick={() => navigate('/mcp')}
               onMouseEnter={() => prefetchPage('/mcp')}
             />
-          </div>
-
-          {/* Two Column Layout on mobile - Health & Wellness, E-commerce on desktop */}
-          <div className="grid grid-cols-2 gap-3 sm:gap-4 md:contents">
-            <CategoryCard
-              title="Health & Wellness"
-              description="AI for fitness and mental wellbeing"
-              icon={<Heart className="w-6 h-6 sm:w-8 sm:h-8" />}
-              className="bg-gradient-to-br from-red-200 to-pink-200"
+            <CategoryTile
+              title="Health"
+              description="AI for fitness & wellbeing"
+              gradient="bg-gradient-to-br from-red-200 to-pink-200"
+              borderColor="border-red-400"
+              path="/health-wellness"
               onClick={() => navigate('/health-wellness')}
               onMouseEnter={() => prefetchPage('/health-wellness')}
             />
-            <CategoryCard
+            <CategoryTile
               title="E-commerce"
-              description="AI tools for online shopping and retail"
-              icon={<ShoppingCart className="w-6 h-6 sm:w-8 sm:h-8" />}
-              className="bg-gradient-to-br from-fuchsia-200 to-purple-200"
+              description="AI retail & shopping tools"
+              gradient="bg-gradient-to-br from-fuchsia-200 to-purple-200"
+              borderColor="border-fuchsia-400"
+              path="/ecommerce"
               onClick={() => navigate('/ecommerce')}
               onMouseEnter={() => prefetchPage('/ecommerce')}
             />
+            <CategoryTile
+              title="Travel"
+              description="AI for travel planning"
+              gradient="bg-gradient-to-br from-blue-200 to-sky-200"
+              borderColor="border-blue-400"
+              path="/travel-lifestyle"
+              onClick={() => navigate('/travel-lifestyle')}
+              onMouseEnter={() => prefetchPage('/travel-lifestyle')}
+            />
+            <CategoryTile
+              title="Gaming"
+              description="AI in games & entertainment"
+              gradient="bg-gradient-to-br from-violet-200 to-indigo-200"
+              borderColor="border-violet-400"
+              path="/gaming"
+              onClick={() => navigate('/gaming')}
+              onMouseEnter={() => prefetchPage('/gaming')}
+            />
+            <CategoryTile
+              title="FAQs"
+              description="Answers about AI tools"
+              gradient="bg-gradient-to-br from-amber-200 to-yellow-200"
+              borderColor="border-amber-400"
+              path="/faq"
+              onClick={() => navigate('/faq')}
+              onMouseEnter={() => prefetchPage('/faq')}
+            />
           </div>
-
-          {/* NEW LAYOUT: Gaming (65%) and Travel & Lifestyle (35%) in a single row */}
-          <div className="md:col-span-3 flex flex-col md:flex-row md:gap-5 space-y-3 md:space-y-0">
-            <div className="md:w-[35%]">
-              <CategoryCard
-                title="Travel & Lifestyle"
-                description="AI for travel planning"
-                icon={<Plane className="w-6 h-6 sm:w-8 sm:h-8" />}
-                className="bg-gradient-to-br from-blue-200 to-sky-200 h-full"
-                onClick={() => navigate('/travel-lifestyle')}
-                onMouseEnter={() => prefetchPage('/travel-lifestyle')}
-              />
-            </div>
-            <div className="md:w-[65%]">
-              <CategoryCard
-                title="Gaming"
-                description="AI in games and entertainment"
-                icon={<Gamepad2 className="w-6 h-6 sm:w-8 sm:h-8" />}
-                className="bg-gradient-to-br from-violet-200 to-indigo-200 h-full"
-                onClick={() => navigate('/gaming')}
-                onMouseEnter={() => prefetchPage('/gaming')}
-              />
-            </div>
-          </div>
-          
-          {/* FAQ - Full width (Blog hidden until content is ready) */}
-          <CategoryCard
-            title="FAQs"
-            description="Frequently asked questions about AI tools"
-            icon={<HelpCircle className="w-6 h-6 sm:w-8 sm:h-8" />}
-            className="bg-gradient-to-br from-amber-200 to-yellow-200 md:col-span-3"
-            onClick={() => navigate('/faq')}
-            onMouseEnter={() => prefetchPage('/faq')}
-          />
-        </div>
+        </section>
       </main>
     </div>
   );
