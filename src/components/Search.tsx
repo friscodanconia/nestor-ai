@@ -20,7 +20,7 @@ import { personalProductivityData } from '../data/categories/personalProductivit
 import { topToolsData } from '../data/categories/topTools';
 import { travelLifestyleData } from '../data/categories/travelLifestyle';
 import { videoData } from '../data/categories/video';
-import { faqData } from '../data/faqData';
+import { faqData } from '../data/faqDataExport';
 import { blogPosts } from '../data/blogData';
 
 // Define the search result type

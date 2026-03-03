@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { ChevronDown, ChevronUp, Search, Home } from 'lucide-react';
-import { faqData, FAQItem } from '../data/faqData';
+import { faqData, FAQItem } from '../data/faqDataExport';
 import { Link } from 'react-router-dom';
 
 const FAQ: React.FC = () => {
