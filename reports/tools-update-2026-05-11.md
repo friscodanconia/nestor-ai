@@ -1,0 +1,109 @@
+# AI Tools Update Report - 2026-05-11
+
+Found **28** potential new tools to review.
+
+## Summary
+
+### Apps (6 tools)
+
+- **[prompts.chat](https://github.com/f/prompts.chat)** ⭐ 162,008
+  f.k.a. Awesome ChatGPT Prompts. Share, discover, and collect prompts from the community. Free and open source — self-host for your organization with c...
+
+- **[gpt4free](https://github.com/xtekky/gpt4free)** ⭐ 66,204
+  The official gpt4free repository | various collection of powerful language models | opus 4.6 gpt 5.3 kimi 2.5 deepseek v3.2 gemini 3
+
+- **[awesome-chatgpt-prompts-zh](https://github.com/PlexPt/awesome-chatgpt-prompts-zh)** ⭐ 59,953
+  ChatGPT 中文调教指南。各种场景使用指南。学习怎么让它听你的话。
+
+- **[quivr](https://github.com/QuivrHQ/quivr)** ⭐ 39,141
+  Opiniated RAG for integrating GenAI in your apps 🧠   Focus on your product rather than the RAG. Easy integration in existing products with customisat...
+
+- **[AdalFlow](https://github.com/SylphAI-Inc/AdalFlow)** ⭐ 4,135
+  AdalFlow: The library to build & auto-optimize LLM applications.
+
+- **[harbor](https://github.com/av/harbor)** ⭐ 2,924
+  Stop configuring your AI stack. Start using it. One command brings a complete pre-wired LLM stack with hundreds of services to explore.
+
+### Agents (10 tools)
+
+- **[hermes-agent](https://github.com/NousResearch/hermes-agent)** ⭐ 143,722
+  The agent that grows with you
+
+- **[lobehub](https://github.com/lobehub/lobehub)** ⭐ 76,847
+  The ultimate space for work and life — to find, build, and collaborate with agent teammates that grow with you. We are taking agent harness to the nex...
+
+- **[ai](https://github.com/vercel/ai)** ⭐ 24,148
+  The AI Toolkit for TypeScript. From the creators of Next.js, the AI SDK is a free open-source library for building AI-powered applications and agents 
+
+- **[A2A](https://github.com/a2aproject/A2A)** ⭐ 23,715
+  Agent2Agent (A2A) is an open protocol enabling communication and interoperability between opaque agentic applications.
+
+- **[voltagent](https://github.com/VoltAgent/voltagent)** ⭐ 8,770
+  AI Agent Engineering Platform built on an Open Source TypeScript AI Agent Framework
+
+- **[pyspur](https://github.com/PySpur-Dev/pyspur)** ⭐ 5,720
+  A visual playground for agentic workflows: Iterate over your agents 10x faster
+
+- **[LazyLLM](https://github.com/LazyAGI/LazyLLM)** ⭐ 3,824
+  Easiest and laziest way for  building multi-agent LLMs applications.
+
+- **[beeai-framework](https://github.com/i-am-bee/beeai-framework)** ⭐ 3,247
+  Build production-ready AI agents in both Python and Typescript.
+
+- **[core](https://github.com/cheshire-cat-ai/core)** ⭐ 3,037
+  AI agent microservice
+
+- **[EvoAgentX](https://github.com/EvoAgentX/EvoAgentX)** ⭐ 2,979
+  🚀 EvoAgentX: Building a Self-Evolving Ecosystem of AI Agents
+
+### Coding (4 tools)
+
+- **[openai-cookbook](https://github.com/openai/openai-cookbook)** ⭐ 73,431
+  Examples and guides for using the OpenAI API
+
+- **[gpt_academic](https://github.com/binary-husky/gpt_academic)** ⭐ 70,606
+  为GPT/GLM等LLM大语言模型提供实用化交互接口，特别优化论文阅读/润色/写作体验，模块化设计，支持自定义快捷按钮&函数插件，支持Python和C++等项目剖析&自译解功能，PDF/LaTex论文翻译&总结功能，支持并行问询多种LLM模型，支持chatglm3等本地模型。接入通义千问, deep...
+
+- **[oh-my-openagent](https://github.com/code-yeongyu/oh-my-openagent)** ⭐ 57,167
+  omo; the best agent harness - previously oh-my-opencode
+
+- **[system_prompts_leaks](https://github.com/asgeirtj/system_prompts_leaks)** ⭐ 40,017
+  Extracted system prompts from ChatGPT (GPT-5.5 Thinking), Claude (Opus 4.7, Opus 4.6, Sonnet 4.6, Claude Code), Gemini (3.1 Pro, 3 Flash, Gemini CLI),...
+
+### Video (1 tools)
+
+- **[open-design](https://github.com/nexu-io/open-design)** ⭐ 36,950
+  🎨 Local-first, open-source alternative to Anthropic's Claude Design. ⚡ 19 Skills · ✨ 71 brand-grade Design Systems 🖼 Generate web · desktop · mobile...
+
+### Top-tools (7 tools)
+
+- **[strix](https://github.com/usestrix/strix)** ⭐ 25,207
+  Open-source AI hackers to find and fix your app’s vulnerabilities.
+
+- **[openui](https://github.com/wandb/openui)** ⭐ 22,287
+  OpenUI let's you describe UI using your imagination, then see it rendered live.
+
+- **[serve](https://github.com/jina-ai/serve)** ⭐ 21,873
+  ☁️ Build multimodal AI applications with cloud-native stack
+
+- **[ai-goofish-monitor](https://github.com/Usagi-org/ai-goofish-monitor)** ⭐ 11,664
+  基于 Playwright 和AI实现的闲鱼多任务实时/定时监控与智能分析系统，配备了功能完善的后台管���UI。帮助用户从闲鱼海量商品中，找到心仪产品。
+
+- **[cai](https://github.com/aliasrobotics/cai)** ⭐ 8,468
+  Cybersecurity AI (CAI), the framework for AI Security
+
+- **[cactus](https://github.com/cactus-compute/cactus)** ⭐ 4,720
+  Low-latency AI engine for mobile devices & wearables
+
+- **[cognita](https://github.com/truefoundry/cognita)** ⭐ 4,411
+  RAG (Retrieval Augmented Generation) Framework for building modular, open source applications for production by TrueFoundry 
+
+## How to Update
+
+1. Review the tools above
+2. Add relevant ones to `src/data/categories/*.ts`
+3. Run `npm run dev` to preview
+4. Commit and push
+
+---
+_Generated by Nestor AI Content Bot_
